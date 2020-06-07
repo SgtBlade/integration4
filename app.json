@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "nativefeatures",
+    "slug": "nativefeatures",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#EB3E19"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "extra": {
+      "MAPS_apiKey": "2VFXHmpRHV7NAGR1zDHdvs3Et77cTnhI"
+    }
+  }
+}
