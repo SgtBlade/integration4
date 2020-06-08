@@ -4,8 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
-const THEME_COLOR = 'red';
-const THEME_TEXT = 'white';
+import COLORS from './colors.js';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -26,12 +25,12 @@ export default function App() {
 const styles = StyleSheet.create({
   topSafeArea: {
       flex: 0, 
-      backgroundColor: THEME_COLOR,
-      color: THEME_TEXT
+      backgroundColor: COLORS.blue,
+      color: COLORS.mainText
   }, 
   bottomSafeArea: {
       flex: 1, 
-      backgroundColor: THEME_COLOR,
-      color: THEME_TEXT
+      backgroundColor: COLORS.blue,
+      color: COLORS.mainText
   },
 });
