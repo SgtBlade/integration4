@@ -14,7 +14,8 @@ const COLORS = {
     blue: '#335DFF',
     blueLight: '#335DFF',
     blueDark: '#1037D0',
-    mainText: '#FFFFFF'
+    white: '#FFFFFF',
+    black: '#000000',
 }
 
 export default COLORS;

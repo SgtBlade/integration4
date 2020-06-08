@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { white } from "ansi-colors";
+import MainButton from '../components/MainButton.js'
+import IconButton from '../components/IconButton.js'
+import COLOR from "../colors.js";
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
 
-  const titleText = ("Testing the title");
-  const paragraph = ("Nulla varius porttitor sem, in lacinia dui malesuada ut. Aenean imperdiet ante turpis, sed suscipit massa fringilla pellentesque. Duis bibendum nibh et porttitor elementum. Donec semper mauris vel massa aliquet, et pretium ex luctus. Donec mauris ligula, hendrerit at dolor sed, interdum ultrices diam. Etiam dictum ante vel ipsum eleifend dictum. Phasellus metus mauris, condimentum nec ex sed, commodo viverra magna. Suspendisse viverra tellus id molestie vehicula.");
-  
   return (
     <ScrollView style={styles.scroll}>
       <View style={styles.container}>
-        <Text style={styles.titleText}>
-          {titleText}
-          {"\n"}
-          {Platform.OS === 'ios' ? <Text>Hi Apple!</Text> : <Text>Hi Android!</Text>}
-          {"\n"}
-          {paragraph}
-        </Text>
+        <MainButton/>
+        <IconButton icon="friends" type="png" text="start" />
       </View>
     </ScrollView>
   );
@@ -28,13 +22,13 @@ const styles = StyleSheet.create({
     backgroundColor: "yellow",
   },
   container: {
+    width: 1024,
+    height: 768,
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: COLOR.red,
     display: 'flex',
     justifyContent: "center",
     alignItems: "center",
-    width: 1024,
-    height: 768,
     padding: 50,
   },
   titleText: {
