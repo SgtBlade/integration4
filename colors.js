@@ -1,5 +1,5 @@
 const COLORS = {
-    yellow: '#FDE01B4',
+    yellow: '#FDE01B',
     yellowLight: '#FDEC77',
     yellowDark: '#FDE01B',
     orange: '#F27500',

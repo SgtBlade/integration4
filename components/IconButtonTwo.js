@@ -6,7 +6,7 @@ import icons from "../assets/icons/icons.js"
 
 let PROPS = {};
 
-const IconButton = (props) => {
+const IconButtonTwo = (props) => {
 
   PROPS = props;
   return (
@@ -16,14 +16,8 @@ const IconButton = (props) => {
       <Image source={icons[props.type][props.icon]} />
       </View>
 
-      {
-        props.text ? 
-      <View style={styles.textContainer}>
-        <Text style={styles.text} > {props.text} </Text>
-      </View>
-     :
-     <Text></Text>
-      }
+    
+
     </TouchableOpacity>
     </View>
   );
@@ -32,13 +26,14 @@ const IconButton = (props) => {
 const styles = StyleSheet.create({
   imageContainer: {
     backgroundColor: PROPS.backgroundColor ? PROPS.backgroundColor : COLOR.blue,
-    width: PROPS.width ? PROPS.width : 71,
-    height: PROPS.height ? PROPS.height : 71,
+    width: PROPS.width ? PROPS.width : 91.5,
+    height: PROPS.height ? PROPS.height : 83.63,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: 'row',
-    borderRadius: PROPS.borderRadius ? PROPS.borderRadius : 50,
+    borderTopRightRadius: PROPS.borderTopRightRadius ? PROPS.borderTopRightRadius : 15,
+    borderBottomRightRadius: PROPS.borderBottomRightRadius ? PROPS.borderBottomRightRadius : 15,
     shadowColor: PROPS.shadowColor ? PROPS.shadowColor : COLOR.black,
     shadowOffset: {
         width: PROPS.shadowWidth ? PROPS.shadowWidth : 0,
@@ -74,4 +69,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default IconButton;
+export default IconButtonTwo;

@@ -6,24 +6,15 @@ import icons from "../assets/icons/icons.js"
 
 let PROPS = {};
 
-const IconButton = (props) => {
+const SettingsButton = (props) => {
 
   PROPS = props;
   return (
     <View>
     <TouchableOpacity style={styles.buttonWrap}>
       <View style={styles.imageContainer}>
-      <Image source={icons[props.type][props.icon]} />
+      <Image source={icons.png.settings} />
       </View>
-
-      {
-        props.text ? 
-      <View style={styles.textContainer}>
-        <Text style={styles.text} > {props.text} </Text>
-      </View>
-     :
-     <Text></Text>
-      }
     </TouchableOpacity>
     </View>
   );
@@ -31,14 +22,14 @@ const IconButton = (props) => {
 
 const styles = StyleSheet.create({
   imageContainer: {
-    backgroundColor: PROPS.backgroundColor ? PROPS.backgroundColor : COLOR.blue,
-    width: PROPS.width ? PROPS.width : 71,
-    height: PROPS.height ? PROPS.height : 71,
+    backgroundColor: PROPS.backgroundColor ? PROPS.backgroundColor : COLOR.yellow,
+    width: PROPS.width ? PROPS.width : 116.39,
+    height: PROPS.height ? PROPS.height : 106.37,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: 'row',
-    borderRadius: PROPS.borderRadius ? PROPS.borderRadius : 50,
+    borderBottomLeftRadius: PROPS.borderBottomLeftRadius ? PROPS.borderBottomLeftRadius : 50,
     shadowColor: PROPS.shadowColor ? PROPS.shadowColor : COLOR.black,
     shadowOffset: {
         width: PROPS.shadowWidth ? PROPS.shadowWidth : 0,
@@ -74,4 +65,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default IconButton;
+export default SettingsButton;
