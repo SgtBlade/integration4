@@ -1,5 +1,2 @@
-INTEGRATION 4
+# Integration panda's program
 
-run with: yarn start
-
-react-devtools added but not setup yet

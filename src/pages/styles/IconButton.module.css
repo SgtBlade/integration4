@@ -1,0 +1,28 @@
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+.buttonWrap {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+.text {
+    font-family: var(--buttonFont);
+    margin-left: 3rem;
+  }
+.textContainer {
+    height: 4.483rem;
+    width: 17.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    margin-left: -3.77rem;
+    z-index: -1;
+  }

@@ -1,0 +1,12 @@
+.buttonWrap {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    elevation: 5;
+    user-select: none;
+  }
+
+.button {
+    border-radius:10;
+}
