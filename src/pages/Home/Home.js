@@ -1,9 +1,9 @@
 import React  from "react";
 import { useObserver } from "mobx-react-lite";
-import style from './styles/Home.module.css';
-import { useStores } from "../hooks/useStores";
-import IconButton from './components/IconButton.js'
-import ConfirmationButton from './components/ConfirmationButton.js'
+import style from './Home.module.css';
+import { useStores } from "../../hooks/useStores";
+import IconButton from '../globalComponents/IconButton.js'
+import ConfirmationButton from '../globalComponents/ConfirmationButton.js'
 
 const Home = () => { 
   

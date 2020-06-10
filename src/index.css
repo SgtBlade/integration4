@@ -1,4 +1,4 @@
-@import "./pages/styles/reset.css";
+@import "./pages/globalStyles/reset.css";
 
 html {
   box-sizing: border-box;

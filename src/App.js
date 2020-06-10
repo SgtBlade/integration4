@@ -1,10 +1,10 @@
 import React from "react";
-import Home from "./pages/Home.js";
+import Authentication from "./pages/Authentication/Authentication.js";
 
 function App() {
   return (
     <>
-      <Home/>
+    <Authentication/>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import style from '../styles/ConfirmationButton.module.css';
-import COLORS from '../styles/colors.js';
+import style from './styles/ConfirmationButton.module.css';
+import COLORS from '../globalStyles/colors.js';
 
 const ConfirmationButton = (props) => {
   if(!props.text) throw new Error("no button text given");

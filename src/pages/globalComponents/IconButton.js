@@ -1,6 +1,6 @@
 import React from "react";
-import style from '../styles/IconButton.module.css';
-import COLORS from '../styles/colors.js';
+import style from './styles/IconButton.module.css';
+import COLORS from '../globalStyles/colors.js';
 
 const IconButton = (props) => {
 
