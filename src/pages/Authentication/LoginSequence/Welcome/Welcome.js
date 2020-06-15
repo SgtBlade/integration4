@@ -8,23 +8,6 @@ const LoginForm = () => {
 
   const { uiStore } = useStores();
 
-  return (
-    <div className={style.container}>
-      
-    </div>
-  );
-};
-
-export default LoginForm;
-
-/*
-BACKUP OF OLD PAGE
-
-const LoginForm = () => {
-  const [email, setEmail] = useState("");
-
-  const { uiStore } = useStores();
-
   const handleSubmit = async e => {
     e.preventDefault();
     const result = await uiStore.loginWithEmail(email);
@@ -69,4 +52,4 @@ const LoginForm = () => {
   );
 };
 
-*/
+export default LoginForm;
