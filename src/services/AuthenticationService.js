@@ -46,12 +46,5 @@ class AuthService {
     }
   };
 
-  getChildById = async id => {
-    return await this.db
-    .collection("kinderen")
-    .doc(id)
-    .withConverter(userConverter)
-    .get();
-  };
 }
 export default AuthService;

@@ -1,5 +1,6 @@
 import { decorate, observable, action } from "mobx";
 import AuthService from "../services/AuthenticationService";
+import UserService from "../services/UserService"
 import User from "../models/User";
 
 class UiStore {
@@ -8,6 +9,7 @@ class UiStore {
     this.firebase = rootStore.firebase;
     this.currentUser = undefined;
     this.authService = new AuthService( this.rootStore.firebase, this.onAuthStateChanged);
+    this.userService = new UserService(this.rootStore.firebase);
   }
 
   loginWithEmail = async email => {
@@ -41,7 +43,7 @@ class UiStore {
 
   }
 
-  onAuthStateChanged = user => {
+  onAuthStateChanged = async user => {
     console.log('test')
     console.log(user);
     if (user) {
@@ -57,15 +59,13 @@ class UiStore {
       );
 
       //getFriends
+      const result = await this.userService.getChildByMail(user.email);
       console.log('your userID is');
-      //console.log(this.authService.getChildById(user.uid));
+      console.log(result);
       console.log("----------");
 
-      this.rootStore.userStore.getContactsForUser();
     } else {
       console.log(`De user is uitgelogd.`);
-      this.rootStore.userStore.empty();
-      this.rootStore.groupStore.empty();
       this.setCurrentUser(undefined);
     }
     /*
