@@ -18,7 +18,6 @@ class UiStore {
   };
 
   verifyLogin = async () => {
-      
     if (this.firebase.auth().isSignInWithEmailLink(window.location.href)) {
       console.log("beginning authentication sequence")
       var emailAdress = window.localStorage.getItem('emailForSignIn');

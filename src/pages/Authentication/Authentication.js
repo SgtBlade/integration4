@@ -10,11 +10,12 @@ import { useObserver } from "mobx-react-lite";
 
 const Authentication = () => {
   const { uiStore } = useStores();
+  
 
   return useObserver(() => (
     <>
       <Switch>
-        <Route exact path={ROUTES.login}>
+        <Route path={ROUTES.login}>
             {uiStore.currentUser ? (
               <Redirect to={ROUTES.home} />
             ) : (
@@ -23,7 +24,10 @@ const Authentication = () => {
               </div>
             )}
           </Route>
-          <Route path={ROUTES.home}>
+        
+        
+        
+        <Route path={ROUTES.home}>
             {uiStore.currentUser ? (
               <>
                   <Home/>
