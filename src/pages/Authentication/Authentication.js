@@ -3,7 +3,6 @@ import Home from "../Home/Home.js";
 import { Switch, Route, NavLink, Redirect } from "react-router-dom";
 import { ROUTES } from "../../consts/index.js";
 import LoginForm from "./LoginForm.js";
-import UnsupportedDevice from "../UnsupportedDevice/UnsupportedDevice.js";
 import style from "./Authentication.module.css";
 import { useStores } from "../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
