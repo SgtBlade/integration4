@@ -35,6 +35,8 @@ const userConverter = {
       chapter: user.chapter,
       avatar: user.avatar,
       email: user.email,
+      aanmaakDatum: user.creationDate
+
     };
   },
   fromFirestore: function(snapshot, options) {
@@ -44,7 +46,8 @@ const userConverter = {
       email: data.email,
       chapter: data.chapter,
       avatar: data.avatar,
-      id: data.userID
+      id: data.userID,
+      creationDate: data.aanmaakDatum
     });
   }
 };

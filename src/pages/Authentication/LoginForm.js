@@ -3,7 +3,7 @@ import style from "./Authentication.module.css";
 import { useStores } from "../../hooks/useStores";
 //import { ROUTES } from "../../consts";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
 
   const { uiStore } = useStores();
@@ -52,4 +52,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

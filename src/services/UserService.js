@@ -6,12 +6,21 @@ class UserService {
     this.db = firebase.firestore();
   }
 
-  getChildByMail = async Mail => {
+  getChildByMail = async mail => {
     return await this.db
-    .collection("kinderen")
-    .doc(Mail)
-    .withConverter(userConverter)
-    .get();
+      .collection("users")
+      .doc(mail)
+      .withConverter(userConverter)
+      .get();
+  };
+
+  createUser = async user => {
+
+    return await this.db
+      .collection("kinderen")
+      .doc(user.email)
+      .withConverter(userConverter)
+      .set(user);
   };
 }
 

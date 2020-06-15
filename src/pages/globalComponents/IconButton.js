@@ -8,7 +8,7 @@ const IconButton = (props) => {
   if(!props.type) throw new Error("A filetype is required");
 
   return (
-    <div className={`${style.buttonWrap}`}>
+    <div onClick={props.onClick} className={`${style.buttonWrap}`}>
       <div className={`${style.imageContainer}`} style={{
         backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.blue,
         width: props.width ? `${props.width}rem` : "7.1rem",

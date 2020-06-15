@@ -19,11 +19,15 @@ const Home = () => {
       });
     }
 
+    const logUser = () => {
+      console.log(uiStore.currentUser);
+    }
+
   return useObserver (() => (
     <>
     <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
         <ConfirmationButton onClick={logOut} text="ok"/>
-        <IconButton icon="friends" type="png" text="start"/>
+        <IconButton onClick={logUser} icon="friends" type="png" text="start"/>
     </section>
     </>
   ));

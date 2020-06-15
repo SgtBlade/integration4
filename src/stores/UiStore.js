@@ -58,11 +58,10 @@ class UiStore {
         })
       );
 
-      //getFriends
       const result = await this.userService.getChildByMail(user.email);
-      console.log('your userID is');
-      console.log(result);
-      console.log("----------");
+      if(!result.exists)this.userService.createUser(this.currentUser);
+      else this.setCurrentUser(this.userService.getChildByMail(user.email).data())
+      console.log(this.currentUser);
 
     } else {
       console.log(`De user is uitgelogd.`);
