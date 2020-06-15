@@ -19,9 +19,7 @@ class User {
     this.store = store;
     this.store.addUser(this);
     */
-
     this.email = email;
-    this.password = password;
   }
 
   linkCreation(creation) {

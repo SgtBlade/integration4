@@ -9,10 +9,20 @@ const Home = () => {
   
     const { uiStore } = useStores();
 
+    const logOut = () => {
+      const fb = uiStore.firebase;
+      fb.auth().signOut().then(function() {
+        console.log('Logged out')
+        localStorage.clear();
+      }).catch(function(error) {
+        console.log("error occured: ".error.code)
+      });
+    }
+
   return useObserver (() => (
     <>
     <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
-        <ConfirmationButton text="ok"/>
+        <ConfirmationButton onClick={logOut} text="ok"/>
         <IconButton icon="friends" type="png" text="start"/>
     </section>
     </>
