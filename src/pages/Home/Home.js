@@ -4,6 +4,7 @@ import style from './Home.module.css';
 import { useStores } from "../../hooks/useStores";
 import IconButton from '../globalComponents/IconButton.js'
 import ConfirmationButton from '../globalComponents/ConfirmationButton.js'
+import GeneralButton from "../globalComponents/GeneralButton";
 
 const Home = () => { 
   
@@ -28,6 +29,7 @@ const Home = () => {
     <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
         <ConfirmationButton onClick={logOut} text="ok"/>
         <IconButton onClick={logUser} icon="friends" type="png" text="start"/>
+        <GeneralButton onClick={logUser} icon="arrowRight" type="svg" text="Begin"/>
     </section>
     </>
   ));

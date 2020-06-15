@@ -1,0 +1,49 @@
+.button__texttospeach{
+    padding: 1.5rem;
+    border: none;
+    border-radius: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #36EA93;
+    width: 5rem;
+    height: 5rem;
+}
+.button__texttospeach--icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-top: 0.25rem;
+}
+.buttonYellow{
+    display: flex;
+    align-items:center;
+    border-radius: 1rem;
+    width: 25rem;
+    padding: 0;
+    background-color: #FDE01B;
+    border:none;
+    box-shadow: 0rem .5rem #F2D405;
+
+}
+
+.buttonYellowTekst {
+    text-align: center;
+    width: 100%;
+    font-family: sofia-pro-soft, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.6rem;
+    color: #335DFF;
+}
+
+.buttonYellowIcon {
+    background-color: #FDEC77;
+    padding: 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: .75rem 0 0 .75rem;
+    display: block;
+    color: var(--color-blue);
+    
+
+}
