@@ -19,7 +19,6 @@ const PermissionDetail = (props) => {
           <li className={style.persmission__list__item}>Afbeeldingen en persoonlijke gegevens op te slaan</li>
           <li className={style.persmission__list__item}>Online activiteit beheren</li>
         </ul>
-
         <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.nextFunction} icon="arrowRight" type="svg" text="Voor ouders"/></div>
       </div>
     </div>

@@ -67,7 +67,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
     }
   }
 
