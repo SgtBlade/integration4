@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./LoginForm.module.css";
 import Welcome from "./LoginSequence/Welcome/Welcome.js";
+import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -34,7 +35,7 @@ const LoginForm = () => {
         
       
       case SCREEN.CAPTCHA:
-        return <Header Title={"Return to PERMISSIONDETAIL"} Return={true} function={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAREQUEST:
@@ -65,7 +66,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
+        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/> //<Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
     }
   }
 
