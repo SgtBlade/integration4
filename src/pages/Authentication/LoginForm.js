@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import style from "./LoginForm.module.css";
-import { useStores } from "../../hooks/useStores";
-import Welcome from "./LoginSequence/Welcome/Welcome.js"
+import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -12,7 +11,7 @@ const LoginForm = () => {
   const SCREEN = {
     WELCOME: "WELCOME",
     PERMISSIONDETAIL: "PERMISSIONDETAIL",
-    CAPATCHA: "CAPATCHA",
+    CAPTCHA: "CAPTCHA",
     CAMERAREQUEST: "CAMERAREQUEST",
     CAMERAGRANTED: "CAMERAGRANTED",
     EMAILSCREEN: "EMAILSCREEN",
@@ -21,28 +20,25 @@ const LoginForm = () => {
     NAMEREQUEST: "NAMEREQUEST",
     CONFIRMCHARACTER: "CONFIRMCHARACTER"
   }
-
-  const [email, setEmail] = useState("");
   const [currentScreen, setCurrentScreen] = useState("");
 
-  const { uiStore } = useStores();
 
 
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
         return <Header Title={"Return to WELCOME"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
-      case SCREEN.CAPATCHA:
+      case SCREEN.CAPTCHA:
         return <Header Title={"Return to PERMISSIONDETAIL"} Return={true} function={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAREQUEST:
-        return <Header Title={"Return to CAPATCHA"} Return={true} function={() => {setCurrentScreen(SCREEN.CAPATCHA)}}/>
+        return <Header Title={"Return to CAPTCHA"} Return={true} function={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
         
 
       case SCREEN.CAMERAGRANTED:
@@ -69,7 +65,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
     }
   }
 

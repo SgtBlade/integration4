@@ -1,5 +1,4 @@
 import "firebase/auth";
-import { userConverter } from "../models/User";
 
 /*
 service firebase.storage {

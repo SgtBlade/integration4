@@ -2,8 +2,6 @@ import React  from "react";
 import { useObserver } from "mobx-react-lite";
 import style from './Home.module.css';
 import { useStores } from "../../hooks/useStores";
-import IconButton from '../globalComponents/IconButton.js'
-import ConfirmationButton from '../globalComponents/ConfirmationButton.js'
 import GeneralButton from "../globalComponents/GeneralButton";
 import COLORS from "../globalStyles/colors";
 
@@ -42,9 +40,9 @@ const Home = () => {
           <h1 className={`${style.home__titel}`}>Reisuil</h1>
         </div>
         <div className={`${style.home__start}`}>
-          <img className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
+          <img alt={"Strokes boven"} className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
           <GeneralButton   onClick={logUser} icon="play" type="svg" text="Start verhaaltje"/>
-          <img className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
+          <img  alt={"Strokes onder"} className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
         </div>
       </section>
     </div>

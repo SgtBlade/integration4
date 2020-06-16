@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "../Home/Home.js";
-import { Switch, Route, NavLink, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { ROUTES } from "../../consts/index.js";
 import LoginForm from "./LoginForm.js";
 import style from "./Authentication.module.css";

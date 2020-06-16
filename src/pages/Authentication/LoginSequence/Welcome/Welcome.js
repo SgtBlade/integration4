@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./Welcome.module.css";
 import Header from "../Header/Header.js";
 import SoundButton from "../../../globalComponents/SoundButton.js"
 import GeneralButton from "../../../globalComponents/GeneralButton"
-import { useStores } from "../../../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 

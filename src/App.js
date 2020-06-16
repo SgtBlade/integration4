@@ -28,7 +28,7 @@ function App() {
     if(window.innerWidth === 1024 && window.innerHeight === 768) setCurrentState(STATE.AVAILABLE);
     else if(window.innerHeight === 1024 && window.innerWidth === 768) setCurrentState(STATE.ROTATE);
     else setCurrentState(STATE.UNAVAILABLE);
-  })
+  }, [STATE.AVAILABLE, STATE.ROTATE, STATE.UNAVAILABLE])
 
   return useObserver (() => (
     <>
