@@ -4,8 +4,13 @@ import COLORS from "../globalStyles/colors.js"
 //import { ROUTES } from "../../consts";
 
 const RoundArrowButton = (props) => {
+
+  const play = () =>  {
+    new Audio(`./assets/sounds/voiceOver/${props.play}.mp3`).play();
+  }
+
   return (
-    <div onClick={props.onClick} className={style.wrapper}
+    <div onClick={play} className={style.wrapper}
     style={{
         fill: props.fillColor ? props.fillColor : COLORS.blueDark,
         backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.green,

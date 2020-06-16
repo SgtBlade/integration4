@@ -5,6 +5,7 @@
     color: white;
 
     padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
 }
 
 .wrapper {
@@ -17,7 +18,6 @@
 
 .buttonWrap {
     position: absolute;
-
     top: 3.2rem;
     left: 4.3rem;
 }

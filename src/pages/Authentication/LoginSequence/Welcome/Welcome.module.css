@@ -4,4 +4,41 @@
     background-position: bottom right;
     background-repeat: no-repeat;
 
+    overflow: hidden;
+}
+
+.mainContentWrap {
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    position: absolute;
+    margin-left: 7rem;
+    width: 90rem;
+}
+
+.mainContentText {
+    width: 50.7rem;
+    height: 26.2rem;
+    background-image: url("/assets/illustraties/loginTextBubbleLarge.svg");
+    overflow: visible;
+
+    color: white;
+    font-size: 3.6rem;
+    padding-top: 5.7rem;
+    padding: 5.7rem 11.5rem 0 5.5rem;
+    text-align: center;
+}
+
+.soundButton {
+    position: relative;
+    bottom: 4rem;
+    left: 3rem;
+}
+
+.nextButton {
+    margin-top: -4rem;
+}
+
+.image {
+    overflow: hidden;
 }
