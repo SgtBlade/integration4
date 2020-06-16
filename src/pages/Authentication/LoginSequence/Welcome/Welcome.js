@@ -18,7 +18,7 @@ const Welcome = (props) => {
           <div className={style.soundButton}><SoundButton play={"welcome"}/></div>
         </div>
 
-        <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.returnFunction} icon="arrowRight" type="svg" text="Begin"/></div>
+        <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.nextFunction} icon="arrowRight" type="svg" text="Begin"/></div>
       </div>
     </div>
   ));

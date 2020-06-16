@@ -11,8 +11,7 @@ const PermissionDetail = (props) => {
   return useObserver( () => (
     <div className={style.container}>
       
-      <Header Title={"Geef het toestel even aan een volwassene"}/>
-
+      <Header  Return={true} function={props.returnFunction} Title={"Geef het toestel even aan een volwassene"}/>
       <div className={style.mainContentWrapper}>
         <h2 className={style.permission__head}>Toestemming van de ouder of voogd is vereist om:</h2>
         <ul className={style.permission__list}>
@@ -22,7 +21,7 @@ const PermissionDetail = (props) => {
           <li className={style.persmission__list__item}>Online activiteit beheren</li>
         </ul>
 
-        <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.returnFunction} icon="arrowRight" type="svg" text="Voor ouders"/></div>
+        <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.nextFunction} icon="arrowRight" type="svg" text="Voor ouders"/></div>
       </div>
     </div>
   ));

@@ -30,10 +30,10 @@ const LoginForm = () => {
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
+        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
-        return <PermissionDetail Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
       case SCREEN.CAPTCHA:
@@ -68,7 +68,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
     }
   }
 
