@@ -1,5 +1,8 @@
 .container {
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
 }
 
 .capatchaWrapper {
@@ -7,4 +10,41 @@
     flex-flow: row;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+.contentWrapper {
+    width: 46.3rem;
+    height: 46.7rem;
+    background-color: var(--white);
+    border-radius: 4rem;
+    padding: 3.7rem 3.3rem;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+.contentTitle { 
+    font-size: 3rem;
+    color: var(--blue);
+    padding-bottom: 2rem;
+}
+
+.contentSubtitle { 
+    font-size: 1.8rem;
+    padding-bottom: 5rem;
+}
+
+.quiz { 
+    height: 17rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.extra { 
+    padding-top: 3.7rem;
+    font-size: 1.8rem;
+    color: var(--greyLight);
+    line-height: 3rem;
+    border-bottom: solid 1px var(--greyLight);
 }

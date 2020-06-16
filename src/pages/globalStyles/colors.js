@@ -16,6 +16,7 @@ const COLORS = {
     blueDark: '#1037D0',
     white: '#FFFFFF',
     gris: '#E6E6E6',
+    greyLight: '#9E9D9D',
     grisDark: '#9E9D9D',
     black: '#000000',
 }
