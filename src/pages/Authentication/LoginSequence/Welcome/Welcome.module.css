@@ -4,16 +4,17 @@
     background-position: bottom right;
     background-repeat: no-repeat;
 
+    display: flex;
+    flex-flow: column;
     overflow: hidden;
+    justify-content: space-between;
 }
 
 .mainContentWrap {
-    margin-top: 8rem;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    position: absolute;
-    margin-left: 7rem;
-    width: 90rem;
+    background-image: url("/assets/illustraties/uiltjePointing-login.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 20%;
+    padding-bottom: 6rem;
 }
 
 .mainContentText {
@@ -27,18 +28,17 @@
     padding-top: 5.7rem;
     padding: 5.7rem 11.5rem 0 5.5rem;
     text-align: center;
+    margin-left: 7rem;
+
+    margin-bottom: 10rem;
 }
 
 .soundButton {
     position: relative;
-    bottom: 4rem;
-    left: 3rem;
+    bottom: 14rem;
+    left: 10rem;
 }
 
 .nextButton {
-    margin-top: -4rem;
-}
-
-.image {
-    overflow: hidden;
+    margin-left: 10rem;
 }

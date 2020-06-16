@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./LoginForm.module.css";
 import { useStores } from "../../hooks/useStores";
 import Welcome from "./LoginSequence/Welcome/Welcome.js"
+import Header from "../Authentication/LoginSequence/Header/Header.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
@@ -30,48 +31,50 @@ const LoginForm = () => {
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome returnFunction={setCurrentScreen(SCREEN.WELCOME)}/>
-        break;
+        return <Welcome returnFunction={setCurrentScreen(SCREEN.PERMISSIONDETAIL)}/>
+        
       
       case SCREEN.PERMISSIONDETAIL:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
       
       case SCREEN.CAPATCHA:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.CAMERAREQUEST:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.CAMERAGRANTED:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.EMAILSCREEN:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.MAILSENT:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.FIRSTLOGIN:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.NAMEREQUEST:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
 
       case SCREEN.CONFIRMCHARACTER:
-        return <Welcome/>
-        break;
+        return <Header Title={"Welkom bij de Reisuil"}/>
+        
       default:
-        return <Welcome/>
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
+
+  console.log(currentScreen);
 
   return useObserver (() => (
     <div className={style.container}>

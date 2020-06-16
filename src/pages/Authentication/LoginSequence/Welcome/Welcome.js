@@ -4,10 +4,14 @@ import Header from "../Header/Header.js";
 import SoundButton from "../../../globalComponents/SoundButton.js"
 import GeneralButton from "../../../globalComponents/GeneralButton"
 import { useStores } from "../../../../hooks/useStores";
+import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
-const Welcome = () => {
-  return (
+const Welcome = (props) => {
+
+  console.log(props)
+  
+  return useObserver( () => (
     <div className={style.container}>
       <Header Title={"Welkom bij de Reisuil"}/>
 
@@ -17,13 +21,10 @@ const Welcome = () => {
           <div className={style.soundButton}><SoundButton play={"welcome"}/></div>
         </div>
 
-        <img className={style.image} src={"./assets/illustraties/uiltjePointing-login.svg"}/>
-        
-
-        <div className={style.nextButton}><GeneralButton onClick={() => {}} icon="arrowRight" type="svg" text="Begin"/></div>
+        <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.returnFunction} icon="arrowRight" type="svg" text="Begin"/></div>
       </div>
     </div>
-  );
+  ));
 };
 
 export default Welcome;

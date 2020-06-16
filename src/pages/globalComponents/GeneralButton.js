@@ -10,7 +10,8 @@ const GeneralButton = (props) => {
   return (
     <div onClick={props.onClick} className={`${style.buttonYellow}`} style={{
       backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.yellow,
-      boxShadow: props.boxShadow ? props.boxShadow : `0rem .5rem ${COLORS.yellow}`
+      boxShadow: props.boxShadow ? props.boxShadow : `0rem .5rem ${COLORS.yellow}`,
+      width: props.buttonWidth ? props.buttonWidth : "40rem",
       }}>
         
         <div>
@@ -21,7 +22,9 @@ const GeneralButton = (props) => {
         </div>
       {
         props.text ? 
-            <p className={`${style.buttonYellowTekst}`}> {props.text} </p>
+            <p className={`${style.buttonYellowTekst}`} style={{
+              fontSize: props.fontSize ? props.fontSize : "2.8rem"
+            }}> {props.text} </p>
       :
      ''
       }
