@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./Header.module.css";
-import COLORS from "../../../globalStyles/colors.js"
 import RoundArrowButton from "../../../globalComponents/RoundArrowButton.js";
 //import { ROUTES } from "../../consts";
 

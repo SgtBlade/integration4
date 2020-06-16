@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+}
+
+.capatchaWrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}

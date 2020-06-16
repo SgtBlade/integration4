@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import style from "./LoginForm.module.css";
 import { useStores } from "../../hooks/useStores";
-import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
+import Welcome from "./LoginSequence/Welcome/Welcome.js";
+import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -13,7 +14,7 @@ const LoginForm = () => {
   const SCREEN = {
     WELCOME: "WELCOME",
     PERMISSIONDETAIL: "PERMISSIONDETAIL",
-    CAPATCHA: "CAPATCHA",
+    CAPTCHA: "CAPTCHA",
     CAMERAREQUEST: "CAMERAREQUEST",
     CAMERAGRANTED: "CAMERAGRANTED",
     EMAILSCREEN: "EMAILSCREEN",
@@ -22,56 +23,52 @@ const LoginForm = () => {
     NAMEREQUEST: "NAMEREQUEST",
     CONFIRMCHARACTER: "CONFIRMCHARACTER"
   }
-
-  const [email, setEmail] = useState("");
   const [currentScreen, setCurrentScreen] = useState("");
 
-  const { uiStore } = useStores();
 
 
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome returnFunction={setCurrentScreen(SCREEN.WELCOME)}/>
-        
-      
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
+
       case SCREEN.PERMISSIONDETAIL:
         return <PermissionDetail Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
-      case SCREEN.CAPATCHA:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+      case SCREEN.CAPTCHA:
+        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAREQUEST:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAPTCHA"} Return={true} function={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
         
 
       case SCREEN.CAMERAGRANTED:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAMERAREQUEST"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}}/>
         
 
       case SCREEN.EMAILSCREEN:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAMERAGRANTED"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}}/>
         
 
       case SCREEN.MAILSENT:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}}/>
         
 
       case SCREEN.FIRSTLOGIN:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to EMAILSCREEN"} Return={true} function={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
 
       case SCREEN.NAMEREQUEST:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
         
 
       case SCREEN.CONFIRMCHARACTER:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <PermissionDetail returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
     }
   }
 

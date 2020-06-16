@@ -14,7 +14,7 @@ const DeviceFormatError = (props) => {
         {props.textTwo ? <p>{props.textTwo}</p> : ''}
         {props.textThree ? <p>{props.textThree}</p> : ''}
         {props.href ?
-        <a href={props.href} target={"_blank"}><img className={`${style.icon}`} src={`./assets/icons/${props.iconName}`} alt={props.alt} width={`${props.width}`} height={`${props.height}`}/></a>
+        <a href={props.href} rel="noopener noreferrer" target={"_blank"}><img className={`${style.icon}`} src={`./assets/icons/${props.iconName}`} alt={props.alt} width={`${props.width}`} height={`${props.height}`}/></a>
         :
         <img className={`${style.icon}`} src={`./assets/icons/${props.iconName}`} alt={props.alt} width={`${props.width}`} height={`${props.height}`}/>
         }
