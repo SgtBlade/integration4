@@ -42,7 +42,7 @@ const Home = () => {
         </div>
         <div className={`${style.home__start}`}>
           <img className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
-          <GeneralButton   onClick={logUser} icon="arrowRight" type="svg" text="Start verhaaltje"/>
+          <GeneralButton   onClick={logUser} icon="play" type="svg" text="Start verhaaltje"/>
           <img className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
         </div>
       </section>
