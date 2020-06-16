@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import style from "./LoginForm.module.css";
-import { useStores } from "../../hooks/useStores";
 import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
 import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import Captcha from "./LoginSequence/Captcha/Captcha.js";
@@ -68,7 +67,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
     }
   }
 

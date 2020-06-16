@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./PermissionDetail.module.css";
 import Header from "../Header/Header.js";
-import GeneralButton from "../../../globalComponents/GeneralButton"
-import { useStores } from "../../../../hooks/useStores";
+import GeneralButton from "../../../globalComponents/GeneralButton";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
