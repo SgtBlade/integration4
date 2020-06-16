@@ -26,11 +26,18 @@ const Home = () => {
 
   return useObserver (() => (
     <>
-    <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
-        <ConfirmationButton onClick={logOut} text="ok"/>
-        <IconButton onClick={logUser} icon="friends" type="png" text="start"/>
-        <GeneralButton onClick={logUser} icon="arrowRight" type="svg" text="Begin"/>
-    </section>
+    <div className={`${style.home__bg}`}>
+      <div className={`${style.home__buttons}`}>
+        <GeneralButton onClick={logUser} icon="friends" type="svg" text="Mijn vrienden"/>
+        <GeneralButton onClick={logUser} icon="settings" type="svg" text="Ouders & instellingen"/>
+      </div>
+      <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
+      
+      <div className={`${style.home__start}`}>
+        <GeneralButton   onClick={logUser} icon="arrowRight" type="svg" text="Start verhaaltje"/>
+      </div>
+      </section>
+    </div>
     </>
   ));
 };

@@ -18,3 +18,22 @@
     align-items: center;
   }
   
+  .home__buttons {
+    display: flex; 
+    padding: 2.5rem;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .home__start {
+    position: fixed; 
+    right: 5rem;
+    bottom: 5rem;
+  }
+
+  .home__bg {
+    background: url(/assets/illustraties/uiltje-home.svg), url(/assets/blobs/blob1-startscherm.svg), url(/assets/blobs/blob2-startscherm.svg), var(--blue) ;
+    background-repeat: no-repeat;
+    background-position: left bottom, left bottom, right top;
+    height: 100%;
+  }
