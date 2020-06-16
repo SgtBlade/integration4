@@ -41,7 +41,9 @@ const Home = () => {
           <h1 className={`${style.home__titel}`}>Reisuil</h1>
         </div>
         <div className={`${style.home__start}`}>
+          <img className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
           <GeneralButton   onClick={logUser} icon="arrowRight" type="svg" text="Start verhaaltje"/>
+          <img className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
         </div>
       </section>
     </div>

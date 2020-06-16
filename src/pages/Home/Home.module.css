@@ -47,6 +47,9 @@
     position: fixed; 
     right: 5rem;
     bottom: 5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
   .home__bg {
@@ -70,4 +73,12 @@
     align-items: center;
     top: 0;
     right: 9rem;
+  }
+
+  .home__start__stripestop {
+    padding-bottom: 3rem;
+  }
+
+  .home__start__stripesbottom {
+    padding-top: 3rem;
   }
