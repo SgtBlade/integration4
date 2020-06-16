@@ -23,6 +23,9 @@
     display: flex;
     align-items: center;
     flex-flow: column;
+
+
+    margin-bottom: 6.7rem;
 }
 .contentTitle { 
     font-size: 3rem;
@@ -41,7 +44,7 @@
     flex-flow: column;
 }
 
-.extra { 
+.extra {
     padding-top: 3.7rem;
     font-size: 1.8rem;
     color: var(--greyLight);
