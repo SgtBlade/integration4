@@ -31,43 +31,42 @@ const LoginForm = () => {
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome returnFunction={setCurrentScreen(SCREEN.WELCOME)}/>
-        
-      
+        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+
       case SCREEN.PERMISSIONDETAIL:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to WELCOME"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
       case SCREEN.CAPATCHA:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to PERMISSIONDETAIL"} Return={true} function={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAREQUEST:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAPATCHA"} Return={true} function={() => {setCurrentScreen(SCREEN.CAPATCHA)}}/>
         
 
       case SCREEN.CAMERAGRANTED:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAMERAREQUEST"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}}/>
         
 
       case SCREEN.EMAILSCREEN:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to CAMERAGRANTED"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}}/>
         
 
       case SCREEN.MAILSENT:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}}/>
         
 
       case SCREEN.FIRSTLOGIN:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to EMAILSCREEN"} Return={true} function={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
 
       case SCREEN.NAMEREQUEST:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
         
 
       case SCREEN.CONFIRMCHARACTER:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
         return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
