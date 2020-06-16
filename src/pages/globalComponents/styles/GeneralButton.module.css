@@ -21,7 +21,12 @@
     width: 40rem;
     padding: 0;
     border:none;
+    transition: .5s;
+    box-shadow: 0 .5rem; 
+}
 
+.buttonYellow:active, .buttonYellow:focus{
+    box-shadow: 0 0; 
 }
 
 .buttonYellowTekst {

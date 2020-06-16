@@ -30,11 +30,11 @@ const Home = () => {
     <div className={`${style.home__bg}`}>
       <div className={`${style.home__buttons}`}>
         <div className={`${style.home__buttons__friends}`}>
-          <GeneralButton onClick={logUser} icon="friends" backgroundColor="white" iconBackgroundColor={'rgb(150, 150, 150)'} type="svg" text="Mijn vrienden"/>
+          <GeneralButton onClick={logUser} icon="friends" backgroundColor="white" iconBackgroundColor={COLORS.gris} boxShadow={ `0rem .5rem ${COLORS.grisDark}`} type="svg" text="Mijn vrienden"/>
           <p className={`${style.home__buttons__friends__total}`}>+5</p>
         </div>
         <div className={`${style.home__buttons__settings}`}>
-          <GeneralButton onClick={logUser} icon="settings" backgroundColor="white" iconBackgroundColor="gris" type="svg" text="Ouders & instellingen"/>
+          <GeneralButton onClick={logUser} icon="settings" backgroundColor="white" iconBackgroundColor={COLORS.gris} boxShadow={ `0rem .5rem ${COLORS.grisDark}`} type="svg" text="Ouders & instellingen"/>
         </div>
       </div>
       <section className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}>
