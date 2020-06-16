@@ -20,7 +20,7 @@ class UiStore {
   verifyLogin = async () => {
     if (this.firebase.auth().isSignInWithEmailLink(window.location.href)) {
       console.log("beginning authentication sequence")
-      var emailAdress = window.localStorage.getItem('emailForSignIn');
+      let emailAdress = window.localStorage.getItem('emailForSignIn');
       if (!emailAdress) {
         console.log("First email wrong, attempt 2")
         emailAdress = window.prompt('Please provide your email for confirmation');

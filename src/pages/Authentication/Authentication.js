@@ -9,7 +9,6 @@ import { useObserver } from "mobx-react-lite";
 
 const Authentication = () => {
   const { uiStore } = useStores();
-  
 
   return useObserver(() => (
     <>
