@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import style from "./LoginForm.module.css";
 import { useStores } from "../../hooks/useStores";
-import Welcome from "./LoginSequence/Welcome/Welcome.js"
+import Welcome from "./LoginSequence/Welcome/Welcome.js";
+import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
 import Header from "../Authentication/LoginSequence/Header/Header.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -35,7 +36,7 @@ const LoginForm = () => {
         
       
       case SCREEN.PERMISSIONDETAIL:
-        return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <PermissionDetail Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
       case SCREEN.CAPATCHA:
@@ -70,7 +71,7 @@ const LoginForm = () => {
         return <Header Title={"Welkom bij de Reisuil"} Return={true} function={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       default:
-        return <Welcome returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <PermissionDetail returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 
