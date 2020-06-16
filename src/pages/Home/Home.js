@@ -5,6 +5,7 @@ import { useStores } from "../../hooks/useStores";
 import IconButton from '../globalComponents/IconButton.js'
 import ConfirmationButton from '../globalComponents/ConfirmationButton.js'
 import GeneralButton from "../globalComponents/GeneralButton";
+import COLORS from "../globalStyles/colors";
 
 const Home = () => { 
   
@@ -29,7 +30,7 @@ const Home = () => {
     <div className={`${style.home__bg}`}>
       <div className={`${style.home__buttons}`}>
         <div className={`${style.home__buttons__friends}`}>
-          <GeneralButton onClick={logUser} icon="friends" backgroundColor="white" iconBackgroundColor="gris" type="svg" text="Mijn vrienden"/>
+          <GeneralButton onClick={logUser} icon="friends" backgroundColor="white" iconBackgroundColor={'rgb(150, 150, 150)'} type="svg" text="Mijn vrienden"/>
           <p className={`${style.home__buttons__friends__total}`}>+5</p>
         </div>
         <div className={`${style.home__buttons__settings}`}>

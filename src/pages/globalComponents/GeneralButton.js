@@ -10,12 +10,16 @@ const GeneralButton = (props) => {
   return (
     <div onClick={props.onClick} className={`${style.buttonYellow}`} style={{
       backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.yellow,
-      shadowColor: props.shadowColor ? props.shadowColor : COLORS.blue
+      shadowColor: props.shadowColor ? props.shadowColor : COLORS.blue,
+      boxShadow: "0rem .5rem #F2D405",
       }}>
+        
         <div>
             <img className={`${style.buttonYellowIcon}`} src={`./assets/icons/${props.icon}.${props.type}`}  alt="icon" 
              style={{
-              iconBackgroundColor: props.iconBackgroundColor ? props.iconBackgroundColor : COLORS.yellowLight}}/>
+               backgroundColor: props.iconBackgroundColor ? props.iconBackgroundColor : COLORS.yellowLight,      
+              boxShadow: "0rem .5rem red",
+               }}/>
         </div>
       {
         props.text ? 
