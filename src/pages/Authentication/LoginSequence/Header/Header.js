@@ -15,7 +15,7 @@ const Welcome = (props) => {
       }
       {props.Return ? 
         <div className={style.buttonWrap}>
-          <RoundArrowButton/>
+          <RoundArrowButton onClick={props.function}/>
         </div>
       :
       ''

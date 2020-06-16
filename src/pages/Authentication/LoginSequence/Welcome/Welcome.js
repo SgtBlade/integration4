@@ -9,8 +9,6 @@ import { useObserver } from "mobx-react-lite";
 
 const Welcome = (props) => {
 
-  console.log(props)
-  
   return useObserver( () => (
     <div className={style.container}>
       <Header Title={"Welkom bij de Reisuil"}/>
