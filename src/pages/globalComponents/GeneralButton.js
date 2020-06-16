@@ -8,9 +8,14 @@ const GeneralButton = (props) => {
   if(!props.type) throw new Error("A filetype is required");
 
   return (
-    <div onClick={props.onClick} className={`${style.buttonYellow}`}>
+    <div onClick={props.onClick} className={`${style.buttonYellow}`} style={{
+      backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.yellow,
+      shadowColor: props.shadowColor ? props.shadowColor : COLORS.blue
+      }}>
         <div>
-            <img className={`${style.buttonYellowIcon}`} src={`./assets/icons/${props.icon}.${props.type}`}  alt="icon" />
+            <img className={`${style.buttonYellowIcon}`} src={`./assets/icons/${props.icon}.${props.type}`}  alt="icon" 
+             style={{
+              iconBackgroundColor: props.iconBackgroundColor ? props.iconBackgroundColor : COLORS.yellowLight}}/>
         </div>
       {
         props.text ? 

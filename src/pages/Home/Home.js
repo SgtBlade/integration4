@@ -28,14 +28,23 @@ const Home = () => {
     <>
     <div className={`${style.home__bg}`}>
       <div className={`${style.home__buttons}`}>
-        <GeneralButton onClick={logUser} icon="friends" type="svg" text="Mijn vrienden"/>
-        <GeneralButton onClick={logUser} icon="settings" type="svg" text="Ouders & instellingen"/>
+        <div className={`${style.home__buttons__friends}`}>
+          <GeneralButton onClick={logUser} icon="friends" backgroundColor="white" iconBackgroundColor="gris" type="svg" text="Mijn vrienden"/>
+          <p className={`${style.home__buttons__friends__total}`}>+5</p>
+        </div>
+        <div className={`${style.home__buttons__settings}`}>
+          <GeneralButton onClick={logUser} icon="settings" backgroundColor="white" iconBackgroundColor="gris" type="svg" text="Ouders & instellingen"/>
+        </div>
       </div>
-      <section className={`${style.books__week} ${style[uiStore.themeClass]}`}>
-      
-      <div className={`${style.home__start}`}>
-        <GeneralButton   onClick={logUser} icon="arrowRight" type="svg" text="Start verhaaltje"/>
-      </div>
+      <section className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}>
+        <div className={`${style.home__head}`}>
+          <h1 className={`${style.home__titel}`}>Reisuil</h1>
+        </div>
+        <div className={`${style.home__start}`}>
+          <img className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
+          <GeneralButton   onClick={logUser} icon="play" type="svg" text="Start verhaaltje"/>
+          <img className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
+        </div>
       </section>
     </div>
     </>

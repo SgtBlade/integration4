@@ -20,15 +20,36 @@
   
   .home__buttons {
     display: flex; 
-    padding: 2.5rem;
+    padding: 2.5rem 5rem;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+
+  .home__buttons__friends {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .home__buttons__friends__total {
+    padding: 2rem;
+    box-shadow: 0rem .5rem var(--greenDark);
+    background: var(--green);
+    border-radius: 0 1rem 1rem 0;
+    font-size: 2rem;
+    margin-left: -1rem;
+    color: var(--blue);
+    font-family: sofia-pro-soft, sans-serif;
+    font-weight: 700;
+    font-style: normal;
   }
 
   .home__start {
     position: fixed; 
     right: 5rem;
     bottom: 5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
   .home__bg {
@@ -36,4 +57,28 @@
     background-repeat: no-repeat;
     background-position: left bottom, left bottom, right top;
     height: 100%;
+    
+  }
+
+  .home__titel {
+    font-size: 9.5rem;
+    color: white;
+    font-family: sofia-pro-soft, sans-serif;
+  }
+
+  .home__head {
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 9rem;
+  }
+
+  .home__start__stripestop {
+    padding-bottom: 3rem;
+  }
+
+  .home__start__stripesbottom {
+    padding-top: 3rem;
   }

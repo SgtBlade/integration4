@@ -6,6 +6,13 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  
+}
+
+*, body, html {
+  font-family: sofia-pro-soft, sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* stylelint-disable */
