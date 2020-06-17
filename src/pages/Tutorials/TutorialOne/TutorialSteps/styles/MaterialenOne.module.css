@@ -1,0 +1,40 @@
+.boekje {
+  background: url(/assets/illustraties/boek-open.svg);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+
+.boekje__content {
+  width: 88.1rem;
+  margin: auto;
+  height: 54.7rem;
+  padding: 3rem 4rem;
+  display: flex;
+}
+
+.boekje__content__wrapper {
+  width: 50%;
+}
+
+.boekje__content__wrapper__verzamel {
+  padding: 0 5rem;
+  /* box-shadow: 0 0.5rem; */
+  padding-top: 2.5rem;
+  padding-left: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.boekje__verzamel {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.boekje__verzamel__icon {
+  margin-right: 0.5rem;
+}
+
+.boekje__verzamel__line {
+}
