@@ -7,12 +7,18 @@ const DeviceFormatError = (props) => {
   
     const { uiStore } = useStores();
 
+    console.log(window.screen)
+    console.log('window orientation   ' . window.ScreenOrientation)
+    console.log('window outerwidth   ' . window.outerWidth)
+    console.log('window outer height   ' . window.outerHeight)
+
   return useObserver (() => (
     <>
     <section className={`${style.section} ${style[uiStore.themeClass]}`}>
         {props.textOne ? <p>{props.textOne}</p> : ''}
         {props.textTwo ? <p>{props.textTwo}</p> : ''}
         {props.textThree ? <p>{props.textThree}</p> : ''}
+        {props.textFour ? <p>{props.textFour}</p> : ''}
         {props.href ?
         <a href={props.href} rel="noopener noreferrer" target={"_blank"}><img className={`${style.icon}`} src={`./assets/icons/${props.iconName}`} alt={props.alt} width={`${props.width}`} height={`${props.height}`}/></a>
         :
