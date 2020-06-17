@@ -17,7 +17,7 @@
 .buttonYellow{
     display: flex;
     align-items:center;
-    border-radius: 1rem;
+    border-radius: 2rem;
     max-width: 40rem;
     padding: 0;
     border:none;
@@ -43,7 +43,7 @@
     padding: 2rem;
     width: 8rem;
     height: 8rem;
-    border-radius: .75rem 0 0 .75rem;
+    border-radius: 1.75rem 0 0 1.75rem;
     display: block;
     color: var(--color-blue);
     
