@@ -13,12 +13,7 @@ const COLORS = {
     greenDark: '#36EA93',
     blue: '#335DFF',
     blueLight: '#335DFC',
-    blueDark: '#1037D0',
-    white: '#FFFFFF',
-    grey: '#E6E6E6',
-    greyLight: '#9E9D9D',
-    greyDark: '#3D3D3D',
-    black: '#000000',
+    blueDark: '#1037D0'
 }
 
 export default COLORS;

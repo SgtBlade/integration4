@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import style from "./Tutorial.module.css";
-// import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
-// import Welcome from "./LoginSequence/Welcome/Welcome.js";
-// import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import StepOne from "./TutorialSteps/StepOne.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
-import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
-//import { ROUTES } from "../../consts";
 
 const Tutorial = () => {
 

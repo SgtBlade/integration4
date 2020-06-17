@@ -15,19 +15,19 @@ const Authentication = () => {
     <>
       <Switch>
         <Route path={ROUTES.login}>
-            {uiStore.currentUser ? (
+            {uiStore.currentUser && uiStore.currentUser.name !== null ? (
               <Redirect to={ROUTES.home} />
             ) : (
               <div className={style.wrapper}>
                 <LoginForm />
               </div>
             )}
-          </Route>
+        </Route>
         
         
         
         <Route exact path={ROUTES.home}>
-            {uiStore.currentUser ? (
+            {uiStore.currentUser && uiStore.currentUser.name !== null ? (
               <>
                   <Home/>
               </>
@@ -37,7 +37,7 @@ const Authentication = () => {
           </Route>
 
           <Route path={ROUTES.tutorial}>
-            {uiStore.currentUser ? (
+            {uiStore.currentUser && uiStore.currentUser.name !== null ? (
               <>
                   <Tutorial/>
               </>

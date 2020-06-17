@@ -1,18 +1,9 @@
 import "firebase/auth";
 
-/*
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-*/
-
 class AuthService {
   constructor(firebase, onAuthStateChanged) {
     this.auth = firebase.auth();
+    this.db = firebase.firestore();
     this.auth.onAuthStateChanged(user => onAuthStateChanged(user));
   }
 
@@ -42,6 +33,23 @@ class AuthService {
       console.log(error)
     }
   };
+
+  updateUser = async (name, character, color) => {
+
+    this.db.collection("kinderen").doc(this.auth.currentUser.email).update({
+      naam: name,
+      avatar: character,
+      kleur: color
+  })
+  .then(function() {
+      console.log("Document successfully written!");
+      return true;
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+      return false;
+  });
+  }
 
 }
 export default AuthService;
