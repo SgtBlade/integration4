@@ -29,14 +29,13 @@
     box-shadow: 0 0; 
 }
 
-.buttonYellowTekst {
+.buttonText {
     text-align: center;
     width: 100%;
     font-family: sofia-pro-soft, sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 2.8rem;
-    color: #335DFF;
 }
 
 .buttonYellowIcon {

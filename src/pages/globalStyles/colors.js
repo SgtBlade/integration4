@@ -9,15 +9,15 @@ const COLORS = {
     redLight: '#F35B84',
     redDark: '#ED1D54',
     green: '#43EDB0',
-    greenLight: '#50F2B8',
+    greenLight: '#54FFC1',
     greenDark: '#36EA93',
     blue: '#335DFF',
     blueLight: '#335DFF',
     blueDark: '#1037D0',
     white: '#FFFFFF',
-    gris: '#E6E6E6',
+    grey: '#E6E6E6',
     greyLight: '#9E9D9D',
-    grisDark: '#9E9D9D',
+    greyDark: '#3D3D3D',
     black: '#000000',
 }
 

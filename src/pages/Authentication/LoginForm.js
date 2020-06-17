@@ -4,6 +4,7 @@ import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.
 import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
+import CameraRequest from "./LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
@@ -38,7 +39,7 @@ const LoginForm = () => {
         
 
       case SCREEN.CAMERAREQUEST:
-        return <Header Title={"Return to CAPTCHA"} Return={true} function={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
+        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
         
 
       case SCREEN.CAMERAGRANTED:
@@ -65,7 +66,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 
