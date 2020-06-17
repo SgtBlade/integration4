@@ -1,0 +1,7 @@
+.container {
+  background: url("/assets/blobs/blob1-tutorial.svg"),
+    url("/assets/blobs/blob2-tutorial.svg");
+  background-repeat: no-repeat;
+  background-position: left center, right bottom;
+  height: 100%;
+}
