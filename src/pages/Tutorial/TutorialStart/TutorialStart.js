@@ -4,6 +4,7 @@ import style from "./TutorialStart.module.css";
 import Header from "../TutorialHeader/Header.js";
 import { ROUTES } from "../../../consts/index.js";
 import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
+import GeneralButton from "../../globalComponents/GeneralButton"
 
 
 const TutorialStart = (props) => {
@@ -16,7 +17,13 @@ const TutorialStart = (props) => {
             </Link>
             <Header Title={`Eiffeltoren`}/>
             <div className={style.wrapperContent}>
-                
+                <div className={style.wrapperContent__tekstbubbel}>
+                    <img className={style.wrapperContent__tekstbubbel__afbeelding} src="../assets/illustraties/tekstbubbel-tutorial.svg"/>
+                    <p className={style.wrapperContent__tekstbubbel__tekst}>Knutsel deze Eiffeltoren in 14 stappen!</p>
+                </div>
+                <div className={style.nextButton}>
+                    <GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.nextFunction} icon="play" type="svg" text="Materialen"/>
+                </div>
             </div>
         </section>
     );
