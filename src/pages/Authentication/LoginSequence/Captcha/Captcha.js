@@ -8,12 +8,12 @@ import { useObserver } from "mobx-react-lite";
 
 let numberOne = Math.floor(Math.random() * 11);
 let numberTwo = Math.floor(Math.random() * 11);
-let error = false;
 
 const Captcha = (props) => {
 
   
   const [response, setResponse] = useState("");
+  const [error, setError] = useState(false);
   
   const handleSubmit = () => {
     console.log()
@@ -21,11 +21,10 @@ const Captcha = (props) => {
       else {
        numberOne = Math.floor(Math.random() * 11);
        numberTwo = Math.floor(Math.random() * 11);
-       error = true;
+       setError(true)
       }
   }
-
-  const closeError = () => error = false;
+    
 
   return useObserver( () => (
     <div className={style.container}>
@@ -50,7 +49,7 @@ const Captcha = (props) => {
       </div>
       
       {error ? 
-      <ErrorMessage closeFunction={() => {closeError()}} text={"U heeft de vraag fout beantwoord."}/>
+      <ErrorMessage closeFunction={() => {setError(false)}} text={"U heeft de vraag fout beantwoord."}/>
       :
       ''
       }

@@ -24,8 +24,6 @@ const LoginForm = () => {
   }
   const [currentScreen, setCurrentScreen] = useState("");
 
-
-
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
@@ -36,7 +34,7 @@ const LoginForm = () => {
         
       
       case SCREEN.CAPTCHA:
-        return <Captcha returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAREQUEST:
@@ -67,7 +65,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 

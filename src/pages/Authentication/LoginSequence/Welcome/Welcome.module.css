@@ -8,6 +8,7 @@
     flex-flow: column;
     overflow: hidden;
     justify-content: space-between;
+
 }
 
 .mainContentWrap {
@@ -41,4 +42,15 @@
 
 .nextButton {
     margin-left: 10rem;
+}
+
+.secretCube {
+    height: 2rem;
+    width: 35rem;
+    background-color: transparent;
+    position: absolute;
+    float: right;
+
+    bottom: 12.5rem;
+    right: 0;
 }
