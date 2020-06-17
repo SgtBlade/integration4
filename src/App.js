@@ -17,19 +17,21 @@ function App() {
 
   
   const handleResize = () => {
-    if(window.innerWidth === 1024 && window.innerHeight === 768) setCurrentState(STATE.AVAILABLE);
-    else if(window.innerHeight === 1024 && window.innerWidth === 768) setCurrentState(STATE.ROTATE);
+    if((window.screen.height === 1024 && window.screen.width === 768) && (window.innerHeight > window.innerWidth)) setCurrentState(STATE.ROTATE);
+    else if((window.screen.height === 1024 && window.screen.width === 768) || (window.innerWidth === 1024 && window.innerHeight === 768)) setCurrentState(STATE.AVAILABLE);
     else setCurrentState(STATE.UNAVAILABLE);
   }
 
   window.addEventListener('resize', handleResize)
 
   useEffect(() => {
-    if(window.innerWidth === 1024 && window.innerHeight === 768) setCurrentState(STATE.AVAILABLE);
-    else if(window.innerHeight === 1024 && window.innerWidth === 768) setCurrentState(STATE.ROTATE);
+    if((window.screen.height === 1024 && window.screen.width === 768) && (window.innerHeight > window.innerWidth)) setCurrentState(STATE.ROTATE);
+    else if((window.screen.height === 1024 && window.screen.width === 768) || (window.innerWidth === 1024 && window.innerHeight === 768)) setCurrentState(STATE.AVAILABLE);
     else setCurrentState(STATE.UNAVAILABLE);
   }, [STATE.AVAILABLE, STATE.ROTATE, STATE.UNAVAILABLE])
 
+
+  console.log(window.screen)
   return useObserver (() => (
     <>
     {currentState === STATE.AVAILABLE ?
@@ -48,7 +50,7 @@ function App() {
       textOne={"Deze game is enkel beschikbaar op iPad Mini."} 
       textTwo={"Volg ons op facebook om op de hoogte te blijven van updates!"} 
       textThree={"Voor de leerkrachten: iPad mini is 1024 x 768"}
-      textFour={"De resolutie nu is ${window.innerWidth} bij window.innerHeight"}
+      textFour={`De resolutie nu is ${window.screen.width} bij ${window.screen.height} en inner: ${window.innerWidth} bij ${window.innerHeight}`}
       href={"#"}
       iconName={"facebook.png"}
       alt={"facebook icon"}

@@ -7,10 +7,6 @@ const DeviceFormatError = (props) => {
   
     const { uiStore } = useStores();
 
-    console.log(window.screen)
-    console.log('window orientation   ' . window.ScreenOrientation)
-    console.log('window outerwidth   ' . window.outerWidth)
-    console.log('window outer height   ' . window.outerHeight)
 
   return useObserver (() => (
     <>

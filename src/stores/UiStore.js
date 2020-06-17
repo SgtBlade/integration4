@@ -8,6 +8,7 @@ class UiStore {
     this.rootStore = rootStore;
     this.firebase = rootStore.firebase;
     this.currentUser = undefined;
+    this.cameraPermission = false;
     this.authService = new AuthService( this.rootStore.firebase, this.onAuthStateChanged);
     this.userService = new UserService(this.rootStore.firebase);
   }
@@ -85,13 +86,19 @@ class UiStore {
     this.currentUser = user;
   }
 
+  setCameraPermission(permission) {
+    this.cameraPermission = permission
+  }
+
 
 }
 
 
 decorate(UiStore, {
   currentUser: observable,
-  setCurrentUser: action
+  setCurrentUser: action,
+  cameraPermission: observable,
+  setCameraPermission: action
 });
 
 export default UiStore;

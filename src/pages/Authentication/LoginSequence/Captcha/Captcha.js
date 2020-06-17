@@ -4,7 +4,7 @@ import Header from "../Header/Header.js";
 import GeneralButton from "../../../globalComponents/GeneralButton.js";
 import ErrorMessage from "../../../globalComponents/ErrorMessage.js";
 import { useObserver } from "mobx-react-lite";
-//import { ROUTES } from "../../consts";
+import { useStores } from "../../../../hooks/useStores";
 
 let numberOne = Math.floor(Math.random() * 11);
 let numberTwo = Math.floor(Math.random() * 11);
@@ -12,12 +12,13 @@ let numberTwo = Math.floor(Math.random() * 11);
 const Captcha = (props) => {
 
   
+  const { uiStore } = useStores();
   const [response, setResponse] = useState("");
   const [error, setError] = useState(false);
   
   const handleSubmit = () => {
     console.log()
-      if(parseInt(response) === numberOne*numberTwo) props.nextFunction()
+      if(parseInt(response) === numberOne*numberTwo) {uiStore.setCameraPermission(true); props.nextFunction();}
       else {
        numberOne = Math.floor(Math.random() * 11);
        numberTwo = Math.floor(Math.random() * 11);
@@ -39,7 +40,7 @@ const Captcha = (props) => {
             <div className={style.question}>
                 <p>{numberOne} x {numberTwo} = </p>
 
-                <input onChange={e => setResponse(e.currentTarget.value)} type="number" value={response} className={style.button} />
+                <input pattern="[0-9]*" onChange={e => setResponse(e.currentTarget.value)} type="number" value={response} className={style.button} />
             </div>
             <GeneralButton onClick={() => {handleSubmit(); setResponse("")}} buttonWidth={"34.5rem"} fontSize={"3.6rem"} icon="arrowRight" type="svg" text="Verifiëren"/>
           </div>

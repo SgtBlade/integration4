@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./styles/ErrorMessage.module.css";
-import COLORS from "../globalStyles/colors.js"
 //import { ROUTES } from "../../consts";
 
 const ErrorMessage = (props) => {

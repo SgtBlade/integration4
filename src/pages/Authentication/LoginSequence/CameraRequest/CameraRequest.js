@@ -9,6 +9,8 @@ import COLORS from "../../../globalStyles/colors";
 const CameraRequest = (props) => {
 
 
+  const [error, setError] = useState(false);
+
     const cameraTest = () => {
         navigator.getUserMedia (
             // constraints
@@ -23,8 +25,8 @@ const CameraRequest = (props) => {
                };
             },
             function(err) {
-             if(err.name.toString() === "NotAllowedError")console.log('perm denied')
-             else console.log(err)
+             if(err.name.toString() === "NotAllowedError"){console.log('perm denied'); setError(true)}
+             
             }
          );
     }
@@ -45,9 +47,14 @@ const CameraRequest = (props) => {
                     <p>Deze foto's zijn alleen zichtbaar voor de beperkte vriendengroepen van uw kind</p>
                 </div>
                 <GeneralButton textColor={COLORS.greyDark} boxShadow={COLORS.green} iconBackgroundColor={COLORS.green} backgroundColor={COLORS.greenLight} buttonWidth={"33rem"} fontSize={"2.4rem"} onClick={()=> {cameraTest()}} icon="thumbsUp" type="svg" text="Toestemming geven"/>
-                <p className={style.detail}>Toestemming weigeren</p>
+                <p onClick={() => {setError(true)}} className={style.detail}>Toestemming weigeren</p>
             </div>
-        </div>
+        </div>      
+        {error ? 
+        <ErrorMessage closeFunction={() => {setError(false)}} text={"U heeft de toegang geweigerd"}/>
+        :
+        ''
+        }
     </div>
   ));
 };

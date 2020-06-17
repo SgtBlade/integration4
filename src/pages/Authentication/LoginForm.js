@@ -6,10 +6,11 @@ import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
 import CameraRequest from "./LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
+import { useStores } from "../../hooks/useStores";
 //import { ROUTES } from "../../consts";
 
 const LoginForm = () => {
-
+  const { uiStore } = useStores();
 
   const SCREEN = {
     WELCOME: "WELCOME",
@@ -31,15 +32,16 @@ const LoginForm = () => {
         return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
-        return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        if(uiStore.cameraPermission) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        else return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
       case SCREEN.CAPTCHA:
-        return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
-        
+         if(!uiStore.cameraPermission) return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        else return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.CAMERAREQUEST:
-        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>
+        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         
 
       case SCREEN.CAMERAGRANTED:
@@ -66,7 +68,7 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 
