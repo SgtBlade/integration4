@@ -1,9 +1,11 @@
 import React  from "react";
 import { useObserver } from "mobx-react-lite";
+import { Link } from "react-router-dom";
 import style from './Home.module.css';
 import { useStores } from "../../hooks/useStores";
 import GeneralButton from "../globalComponents/GeneralButton";
 import COLORS from "../globalStyles/colors";
+import { ROUTES } from "../../consts";
 
 const Home = () => { 
   
@@ -41,7 +43,9 @@ const Home = () => {
         </div>
         <div className={`${style.home__start}`}>
           <img alt={"Strokes boven"} className={`${style.home__start__stripestop}`} src={`./assets/illustraties/strokes-boven.svg`}/>
-          <GeneralButton   onClick={logUser} icon="play" type="svg" text="Start verhaaltje"/>
+          <Link to={`${ROUTES.tutorial}`}>
+            <GeneralButton icon="play" type="svg" text="Start verhaaltje"/>
+          </Link>
           <img  alt={"Strokes onder"} className={`${style.home__start__stripesbottom}`} src={`./assets/illustraties/strokes-beneden.svg`}/>
         </div>
       </section>

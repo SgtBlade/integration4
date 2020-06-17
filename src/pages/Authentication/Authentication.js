@@ -6,6 +6,7 @@ import LoginForm from "./LoginForm.js";
 import style from "./Authentication.module.css";
 import { useStores } from "../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
+import Tutorial from "../Tutorial/Tutorial.js";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -25,10 +26,20 @@ const Authentication = () => {
         
         
         
-        <Route path={ROUTES.home}>
+        <Route exact path={ROUTES.home}>
             {uiStore.currentUser ? (
               <>
                   <Home/>
+              </>
+            ) : (
+              <Redirect to={ROUTES.login} />
+            )}
+          </Route>
+
+          <Route path={ROUTES.tutorial}>
+            {uiStore.currentUser ? (
+              <>
+                  <Tutorial/>
               </>
             ) : (
               <Redirect to={ROUTES.login} />
