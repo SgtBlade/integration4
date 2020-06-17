@@ -48,6 +48,7 @@ function App() {
       textOne={"Deze game is enkel beschikbaar op iPad Mini."} 
       textTwo={"Volg ons op facebook om op de hoogte te blijven van updates!"} 
       textThree={"Voor de leerkrachten: iPad mini is 1024 x 768"}
+      textFour={"De resolutie nu is ${window.innerWidth} bij window.innerHeight"}
       href={"#"}
       iconName={"facebook.png"}
       alt={"facebook icon"}
