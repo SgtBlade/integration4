@@ -2,8 +2,8 @@ const ROUTES = {
   home: "/",
   klik: { path: "/:id", to: "/" },
   login: "/login",
-  tutorial: "/tutorial",
-  register: "/register"
+  tutorialone: "/tutorialone",
+  register: "/register",
 };
 
 export { ROUTES };

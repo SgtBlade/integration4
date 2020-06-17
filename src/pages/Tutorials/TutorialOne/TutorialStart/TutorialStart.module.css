@@ -1,0 +1,39 @@
+.wrapper {
+    background: url(/assets/illustraties/boekje.svg), url("/assets/blobs/blob1-tutorial.svg"), url("/assets/blobs/blob2-tutorial.svg"), url("/assets/illustraties/uiltjePointing-tutorial.svg");
+    background-repeat: no-repeat;
+    background-position: 7.5rem 20rem, left center, right bottom, 77.5rem 26rem;
+    height: 100%;
+}
+
+.buttonWrap {
+    position: absolute;
+    top: 3.2rem;
+    left: 4.3rem;
+}
+
+.wrapperContent__tekstbubbel {
+    display: grid;
+    width: 28rem;
+    align-items: center;
+    justify-items: center;
+    position: absolute;
+    right: 17.5rem;
+}
+
+.wrapperContent__tekstbubbel__afbeelding, .wrapperContent__tekstbubbel__tekst {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.wrapperContent__tekstbubbel__tekst {
+    font-size: 3.3rem;
+    padding: 3rem;
+    color: var(--redLight);
+}
+
+.nextButton {
+    width: 43%;
+    position: absolute;
+    right: 0;
+    bottom: 12rem;
+}
