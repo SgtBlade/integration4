@@ -4,8 +4,9 @@ import style from "./Tutorial.module.css";
 // import Welcome from "./LoginSequence/Welcome/Welcome.js";
 // import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import StepOne from "./TutorialSteps/StepOne.js";
+import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
-import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
+//import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
@@ -13,6 +14,7 @@ const Tutorial = () => {
 
 
   const SCREEN = {
+    START: "START",
     STAP1: "STAP1",
     STAP2: "STAP2",
     STAP3: "STAP3",
@@ -30,8 +32,11 @@ const Tutorial = () => {
 
   const returnScreen = () => {
     switch(currentScreen) {
+      case SCREEN.START:
+        return <TutorialStart nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+
       case SCREEN.STAP1:
-        return <StepOne nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <StepOne nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}} returnFunction={() => {setCurrentScreen(SCREEN.START)}}/>
 
       case SCREEN.STAP2:
         // return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
@@ -75,7 +80,7 @@ const Tutorial = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <StepOne nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <TutorialStart nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 

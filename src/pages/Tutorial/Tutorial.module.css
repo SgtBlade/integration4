@@ -1,8 +1,9 @@
 .container {
     height: 100%;
     width: 100%;
-
-    background-color: var(--blue);
+    background: url("/assets/blobs/blob1-tutorial.svg"), url("/assets/blobs/blob2-tutorial.svg"), var(--green);
+    background-repeat: no-repeat;
+    background-position: left center, right bottom;
     overflow: hidden;
 }
 

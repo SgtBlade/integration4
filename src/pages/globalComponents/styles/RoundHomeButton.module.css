@@ -1,0 +1,25 @@
+.wrapper {
+    background-color: red;
+    display: flex;
+    
+    width: 8.4rem;
+    height: 8.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.05s;
+}
+
+.wrapper:active {
+    opacity: 0.5;
+}
+
+.arrow {
+    display: flex;
+    width: 4.1rem;
+    height: 4rem;
+    padding-left: .25rem;
+}
