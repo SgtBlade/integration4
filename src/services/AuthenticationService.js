@@ -29,10 +29,8 @@ class AuthService {
     try {
       const result = await this.auth.sendSignInLinkToEmail(email, actionCodeSettings)
       .then(function() {
-        console.log("The link was successfully sent. Inform the user.")
-        console.log("Save the email locally so you don't need to ask the user for it again");
-        console.log("if they open the link on the same device.");
         window.localStorage.setItem('emailForSignIn', email); 
+        return true;
       })
       .catch(function(error) {
         console.log("Some error occurred, you can inspect the code: error.code");

@@ -4,6 +4,8 @@ import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.
 import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import Header from "../Authentication/LoginSequence/Header/Header.js";
+import EmailForm from "../Authentication/LoginSequence/EmailForm/EmailForm.js";
+import MailSent from "../Authentication/LoginSequence/MailSent/MailSent.js";
 import CameraRequest from "./LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../../hooks/useStores";
@@ -17,7 +19,6 @@ const LoginForm = () => {
     PERMISSIONDETAIL: "PERMISSIONDETAIL",
     CAPTCHA: "CAPTCHA",
     CAMERAREQUEST: "CAMERAREQUEST",
-    CAMERAGRANTED: "CAMERAGRANTED",
     EMAILSCREEN: "EMAILSCREEN",
     MAILSENT: "MAILSENT",
     FIRSTLOGIN: "FIRSTLOGIN",
@@ -32,28 +33,23 @@ const LoginForm = () => {
         return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
-        if(uiStore.cameraPermission) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        if(uiStore.parentalConfirmation) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         else return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         
       
       case SCREEN.CAPTCHA:
-         if(!uiStore.cameraPermission) return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+         if(!uiStore.parentalConfirmation) return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         else return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.CAMERAREQUEST:
-        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
-        
-
-      case SCREEN.CAMERAGRANTED:
-        return <Header Title={"Return to CAMERAREQUEST"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}}/>
-        
+        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.EMAILSCREEN:
-        return <Header Title={"Return to CAMERAGRANTED"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}}/>
+        return <EmailForm nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
 
       case SCREEN.MAILSENT:
-        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}}/>
+        return <MailSent returnFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} nextFunction={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
         
 
       case SCREEN.FIRSTLOGIN:
@@ -68,11 +64,9 @@ const LoginForm = () => {
         return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
       default:
-        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return  <MailSent returnFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} nextFunction={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
-
-  console.log(currentScreen);
 
   return useObserver (() => (
     <div className={style.container}>

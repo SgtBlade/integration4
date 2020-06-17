@@ -17,8 +17,7 @@ const Captcha = (props) => {
   const [error, setError] = useState(false);
   
   const handleSubmit = () => {
-    console.log()
-      if(parseInt(response) === numberOne*numberTwo) {uiStore.setCameraPermission(true); props.nextFunction();}
+      if(parseInt(response) === numberOne*numberTwo) {uiStore.setParentalConfirmation(true); props.nextFunction();}
       else {
        numberOne = Math.floor(Math.random() * 11);
        numberTwo = Math.floor(Math.random() * 11);
@@ -39,7 +38,6 @@ const Captcha = (props) => {
           <div className={style.quiz}>
             <div className={style.question}>
                 <p>{numberOne} x {numberTwo} = </p>
-
                 <input pattern="[0-9]*" onChange={e => setResponse(e.currentTarget.value)} type="number" value={response} className={style.button} />
             </div>
             <GeneralButton onClick={() => {handleSubmit(); setResponse("")}} buttonWidth={"34.5rem"} fontSize={"3.6rem"} icon="arrowRight" type="svg" text="Verifiëren"/>

@@ -9,13 +9,14 @@ class UiStore {
     this.firebase = rootStore.firebase;
     this.currentUser = undefined;
     this.cameraPermission = false;
+    this.parentalConfirmation = false;
     this.authService = new AuthService( this.rootStore.firebase, this.onAuthStateChanged);
     this.userService = new UserService(this.rootStore.firebase);
   }
 
   loginWithEmail = async email => {
     const result = await this.authService.login(email);
-    console.log(result)
+    return result;
   };
 
   verifyLogin = async () => {
@@ -64,7 +65,7 @@ class UiStore {
       console.log(this.currentUser);
 
     } else {
-      console.log(`De user is uitgelogd.`);
+      console.log(`No user is logged in`);
       this.setCurrentUser(undefined);
     }
     /*
@@ -89,6 +90,9 @@ class UiStore {
   setCameraPermission(permission) {
     this.cameraPermission = permission
   }
+  setParentalConfirmation(permission) {
+    this.parentalConfirmation = permission
+  }
 
 
 }
@@ -98,7 +102,9 @@ decorate(UiStore, {
   currentUser: observable,
   setCurrentUser: action,
   cameraPermission: observable,
-  setCameraPermission: action
+  setCameraPermission: action,
+  parentalConfirmation: observable,
+  setParentalConfirmation: action
 });
 
 export default UiStore;
