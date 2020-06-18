@@ -48,23 +48,26 @@ class UiStore {
   onAuthStateChanged = async user => {
     if (user) {
       console.log(`De user is ingelogd: ${user.email}`);
-      this.setCurrentUser(
-        new User({
-          id: user.uid,
-          name: user.displayName,
-          email: user.email,
-          store: this.rootStore.userStore,
-          avatar: user.photoURL
-        })
-      );
+
       const result = await this.userService.getChildByMail(user.email);
-      if(!result.exists)this.userService.createUser(new User({
+      if(!result.exists){
+        this.setCurrentUser(
+          new User({
+            id: user.uid,
+            name: user.displayName,
+            email: user.email,
+            store: this.rootStore.userStore,
+            avatar: user.photoURL
+          })
+        );
+        this.userService.createUser(new User({
         id: user.uid,
         name: user.displayName,
         email: user.email,
         store: this.rootStore.userStore,
         avatar: user.photoURL
-      }));
+      }))
+      }
       else {
         const data = await result.data();
         this.setCurrentUser(new User({

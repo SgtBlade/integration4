@@ -11,6 +11,8 @@ import NameRequest from "../Authentication/LoginSequence/NameRequest/NameRequest
 import CameraRequest from "./LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../../hooks/useStores";
+import { Redirect } from "react-router-dom";
+import { ROUTES } from "../../consts";
 //import { ROUTES } from "../../consts";
 
 const LoginForm = () => {
@@ -91,10 +93,9 @@ const LoginForm = () => {
     }
   }
 
-
   return useObserver (() => (
     <div className={style.container}>
-      {returnScreen()}
+        {returnScreen()}
     </div>
   ));
 };

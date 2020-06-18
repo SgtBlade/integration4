@@ -25,19 +25,6 @@ const NameRequest = (props) => {
     if(props.character.key === 0)props.characterChange({key: CHARACTERS.length-1, character: CHARACTERS[CHARACTERS.length-1]})
     else props.characterChange({key: props.character.key-1, character: CHARACTERS[props.character.key-1]})
   }
-
-  const {uiStore} = useStores();
-  const logOut = () => {
-    /*
-    const fb = uiStore.firebase;
-    fb.auth().signOut().then(function() {
-      console.log('Logged out')
-      localStorage.clear()
-    }).catch(function(error) {
-      console.log("error occured: ".error.code)
-    });*/
-  }
-
   if(props.character === "")props.characterChange({key: 0, character: CHARACTERS[0]})
 
   const checkStatus = () => (props.name.length < 3) ? setError([true, 'gelieve een naam in te geven van minimaal 3 tekens']) : props.nextFunction();
@@ -75,7 +62,7 @@ const NameRequest = (props) => {
 
         <div className={style.avatarWrap}>
           <div onClick={previousCharacter} className={style.button}></div>
-          <div onClick={logOut} className={style.imageWrapper}> <img src={`./assets/illustraties/characters/${props.character.character}.svg`} alt={"avatar"} /></div>
+          <div className={style.imageWrapper}> <img src={`./assets/illustraties/characters/${props.character.character}.svg`} alt={"avatar"} /></div>
           <div onClick={nextCharacter} className={style.button}></div>
         </div>
       </div>
