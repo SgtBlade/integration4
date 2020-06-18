@@ -5,7 +5,6 @@ import SoundButton from "../../../globalComponents/SoundButton.js"
 import GeneralButton from "../../../globalComponents/GeneralButton"
 import { useStores } from "../../../../hooks/useStores.js";
 import { useObserver } from "mobx-react-lite";
-//import { ROUTES } from "../../consts";
 
 const Welcome = (props) => {
   const { uiStore } = useStores();
@@ -16,9 +15,13 @@ const Welcome = (props) => {
   await uiStore.loginWithEmail(email);
   }
 
+  /* REMOVE IF APP KEEPS WORKING
   if (window.location.href.indexOf("apiKey") > -1) {
-    uiStore.verifyLogin();
-  }
+    
+    const result = uiStore.verifyLogin();
+    if(result) return <Redirect to={ROUTES.login}/>
+    else throw new Error('test');
+  }*/
 
   return useObserver( () => (
     <div className={style.container}>

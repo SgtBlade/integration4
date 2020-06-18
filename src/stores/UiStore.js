@@ -1,6 +1,6 @@
 import { decorate, observable, action } from "mobx";
 import AuthService from "../services/AuthenticationService";
-import UserService from "../services/UserService"
+import UserService from "../services/UserService";
 import User from "../models/User";
 
 class UiStore {
@@ -24,12 +24,12 @@ class UiStore {
       console.log("beginning authentication sequence")
       let emailAdress = window.localStorage.getItem('emailForSignIn');
       if (!emailAdress) {
-        console.log("First email wrong, attempt 2")
-        emailAdress = window.prompt('Please provide your email for confirmation');
+        console.log("email niet gevonden gelieve deze nogmaals in te typen")
+        emailAdress = window.prompt('email niet gevonden gelieve deze nogmaals in te typen');
       }
 
       if(!emailAdress) {alert("no email found"); return false}
-      console.log("begin authorisation");
+      
       this.firebase.auth().signInWithEmailLink(emailAdress, window.location.href)
         .then(function(result) {
           console.log("logged in with email!");

@@ -8,14 +8,16 @@
 
 .mainContent {
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .avatarWrap {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 5rem;
 }
 
 .button {

@@ -12,12 +12,15 @@ const Authentication = () => {
   const { uiStore } = useStores();
 
   const checkUser = async () => {
-    await uiStore.verifyLogin();
+    //const result = await uiStore.verifyLogin();
+    //if(result) return <Redirect to={ROUTES.login}/>
   }
 
   if (window.location.href.indexOf("apiKey") > -1 ){
-    checkUser();
+    if(!uiStore.currentUser)checkUser();
   }
+
+  console.log(uiStore.currentUser)
 
   return useObserver(() => (
     <>
@@ -27,7 +30,6 @@ const Authentication = () => {
             <Redirect to={ROUTES.home} />
           ) : (
             <div className={style.wrapper}>
-            {console.log('testing')}
               <LoginForm />
             </div>
           )}

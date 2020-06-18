@@ -1,9 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Authentication from "./pages/Authentication/Authentication.js";
-import DeviceFormatError from "./pages/DeviceFormatError/DeviceFormatError.js";
 import { useObserver } from "mobx-react-lite";
 
 function App() {
+
+  return useObserver (() => (
+    <>
+    <Authentication/>
+    
+    </>
+  ));
+}
+export default App;
+
+/*
+import React, {useState, useEffect} from "react";
+
+import DeviceFormatError from "./pages/DeviceFormatError/DeviceFormatError.js";
+
 
 
   const STATE = {
@@ -11,7 +25,6 @@ function App() {
     UNAVAILABLE: "UNAVAILABLE",
     AVAILABLE: "AVAILABLE"
   }
-
 
   const [currentState, setCurrentState] = useState();
 
@@ -31,8 +44,14 @@ function App() {
   }, [STATE.AVAILABLE, STATE.ROTATE, STATE.UNAVAILABLE])
 
 
-  return useObserver (() => (
-    <>
+
+
+
+
+
+
+
+
     {currentState === STATE.AVAILABLE ?
     <Authentication/>
     :
@@ -57,7 +76,4 @@ function App() {
       />
     )
     }
-    </>
-  ));
-}
-export default App;
+    */

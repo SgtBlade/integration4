@@ -6,7 +6,6 @@ import CHARACTERS from "../../../globalStyles/characters.js";
 import ErrorMessage from "../../../globalComponents/ErrorMessage.js";
 import COLORS from "../../../globalStyles/publicColors.js";
 import { useObserver } from "mobx-react-lite";
-import { useStores } from "../../../../hooks/useStores";
 //import { ROUTES } from "../../consts";
 
 const NameRequest = (props) => {
