@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
 class User {
-  constructor({ id = v4(), name, color = "", chapter = 0, store, avatar = "", email, password, creationDate = Date.now() }) {
+  constructor({ id = v4(), name, color = "", chapter = 0, store = null, avatar = "", email, creationDate = Date.now() }) {
     this.id = id;
     this.name = name;
     this.creations = [];
@@ -10,6 +10,7 @@ class User {
     this.chapter = chapter;
     this.avatar = avatar;
     this.creationDate = creationDate;
+    this.store = store;
     /*
     if (!store) {
       throw new Error("voorzie een store");

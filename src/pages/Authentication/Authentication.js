@@ -12,7 +12,7 @@ const Authentication = () => {
   const { uiStore } = useStores();
 
   const checkUser = async () => {
-    const result = await uiStore.verifyLogin();
+    await uiStore.verifyLogin();
   }
 
   if (window.location.href.indexOf("apiKey") > -1 ){
@@ -29,6 +29,7 @@ const Authentication = () => {
             <Redirect to={ROUTES.home} />
           ) : (
             <div className={style.wrapper}>
+            {console.log('testing')}
               <LoginForm />
             </div>
           )}
@@ -44,7 +45,7 @@ const Authentication = () => {
           )}
         </Route>
 
-        <Route path={ROUTES.tutorialone}>
+        <Route exact path={ROUTES.tutorialone}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Tutorial />

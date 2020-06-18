@@ -44,7 +44,7 @@
   padding-right: 2.5rem;
   display: flex;
   flex-flow: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .boekje__tekst {

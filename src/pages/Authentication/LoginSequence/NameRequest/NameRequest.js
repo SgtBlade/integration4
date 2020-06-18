@@ -76,13 +76,3 @@ const NameRequest = (props) => {
 };
 
 export default NameRequest;
-
-
-/*
-            {COLORS.map(color => (
-            <li style={{
-              backgroundColor: COLORS[key]
-            }} className={style.colorList__item}></li>
-            ))}
-
-*/

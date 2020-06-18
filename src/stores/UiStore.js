@@ -48,18 +48,15 @@ class UiStore {
   onAuthStateChanged = async user => {
     if (user) {
       console.log(`De user is ingelogd: ${user.email}`);
-      this.setCurrentUser(
-        new User({
-          id: user.uid,
-          name: user.displayName,
-          email: user.email,
-          store: this.rootStore.userStore,
-          avatar: user.photoURL
-        })
-      );
 
       const result = await this.userService.getChildByMail(user.email);
-      if(!result.exists)this.userService.createUser(this.currentUser);
+      if(!result.exists)this.userService.createUser(new User({
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        store: this.rootStore.userStore,
+        avatar: user.photoURL
+      }));
       else {
         const data = await result.data();
         this.setCurrentUser(new User({
@@ -68,6 +65,7 @@ class UiStore {
         chapter: data.chapter,
         avatar: data.avatar,
         color: data.color,
+        store: this.rootStore.userStore,
         id: data.id,
         creationDate: data.creationDate
       }))}
@@ -99,7 +97,8 @@ class UiStore {
         avatar: character,
         color: color,
         id: this.currentUser.id,
-        creationDate: this.currentUser.creationDate
+        creationDate: this.currentUser.creationDate,
+        store: this.rootStore.userStore,
       }));
 
       console.log(this.currentUser)

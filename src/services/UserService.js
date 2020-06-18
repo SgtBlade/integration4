@@ -15,7 +15,6 @@ class UserService {
   };
 
   createUser = async user => {
-
     return await this.db
       .collection("kinderen")
       .doc(user.email)
