@@ -60,6 +60,10 @@
   font-size: 2.6rem;
 }
 
+.boekje__tekst__gray {
+  color: var(--greyLight);
+}
+
 .boekje__content__object {
   display: flex;
   align-items: center;

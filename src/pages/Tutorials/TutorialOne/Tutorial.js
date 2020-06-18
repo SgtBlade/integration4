@@ -4,6 +4,8 @@ import style from "./Tutorial.module.css";
 // import Welcome from "./LoginSequence/Welcome/Welcome.js";
 // import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import MaterialenOne from "./TutorialSteps/MaterialenOne.js";
+import MaterialenTwo from "./TutorialSteps/MaterialenTwo.js";
+import AlternatiefOne from "./TutorialSteps/AlternatiefOne.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../TutorialHeader/Header.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
@@ -14,8 +16,10 @@ const Tutorial = () => {
   const SCREEN = {
     START: "START",
     MATERIALEN1: "MATERIALEN1",
+    ALTERNATIEF1: "ALTERNATIEF1",
     MATERIALEN2: "MATERIALEN2",
     MATERIALEN3: "MATERIALEN3",
+    ALTERNATIEF2: "ALTERNATIEF2",
     STAP1: "STAP1",
     STAP2: "STAP2",
     STAP3: "STAP3",
@@ -51,16 +55,23 @@ const Tutorial = () => {
             returnFunction={() => {
               setCurrentScreen(SCREEN.START);
             }}
+            notAvailableFunction={() => {
+              setCurrentScreen(SCREEN.ALTERNATIEF1);
+            }}
           />
+        );
+        case SCREEN.ALTERNATIEF1:
+        return (
+          <AlternatiefOne nextFunction={() => {setCurrentScreen(SCREEN.MATERIALEN2);}} returnFunction={() => {setCurrentScreen(SCREEN.START);}}/>
         );
       case SCREEN.MATERIALEN2:
         return (
-          <MaterialenOne
+          <MaterialenTwo
             nextFunction={() => {
               setCurrentScreen(SCREEN.MATERIALEN3);
             }}
             returnFunction={() => {
-              setCurrentScreen(SCREEN.MATERIALEN2);
+              setCurrentScreen(SCREEN.MATERIALEN1);
             }}
           />
         );
