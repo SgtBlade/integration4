@@ -1,0 +1,13 @@
+.buttonNoIcon {
+    font-size: 2.6rem;
+    color: white;
+    border: .25rem solid var(--greenLight);
+    background-color: var(--green);
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem;
+    font-weight: 500;
+  }
+
+  .buttonNoIcon__wrapper {
+      margin-top: 3.5rem;
+  }

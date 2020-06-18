@@ -14,7 +14,7 @@ const COLORS = {
   greenShadow: "#29B270",
   greenDark: "#36EA93",
   blue: "#335DFF",
-  blueLight: "#335DFC",
+  blueLight: "#2885F2",
   blueDark: "#1037D0",
   white: "#FFFFFF",
   grey: "#E6E6E6",

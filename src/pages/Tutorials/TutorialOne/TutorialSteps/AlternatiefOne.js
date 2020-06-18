@@ -4,6 +4,9 @@ import style from "./styles/MaterialenOne.module.css";
 // import RoundArrowButton from "../../../globalComponents/RoundArrowButton.js";
 //import { ROUTES } from "../../consts";
 import Header from "../../TutorialHeader/Header.js";
+import SoundButton from "../../../globalComponents/SoundButton.js"
+import COLORS from "../../../globalStyles/colors";
+import NoIconButton from "../../../globalComponents/NoIconButton";
 
 const MaterialenOne = (props) => {
   return (
@@ -38,6 +41,24 @@ const MaterialenOne = (props) => {
                         src="../assets/illustraties/stokje-grijs.svg"
                         alt=""
                     />
+                </div>
+            </div>
+            <div className={`${style.boekje__content__wrapper} ${style.boekje__content__wrapper__alternatief}`}>
+                <div className={style.alternatief__content}>
+                    <div className={style.alternatief__soundbutton}>
+                        <SoundButton play={"welcome"} size={"5.2rem"} reScale={0.8} fillColor={"#FFFFFF"} backgroundColor={COLORS.redDark}/>
+                    </div>
+                    <p className={style.alternatief__tekst}>Geen probleem, je kan ook <span className={style.tekst__green}>rietjes</span> of <span className={style.tekst__blue}>oorstokjes</span> gebruiken</p>
+                </div>
+                <div className={style.alternatief__options}>
+                    <div className={style.alternatief__option}>
+                        <img className={style.alternatief__options__image} src="../assets/illustraties/straws.svg" alt=""/>
+                        <NoIconButton text={"Rietjes"} marginTop={"4.5rem"} onclick={props.nextFunction}/>
+                    </div>
+                    <div className={style.alternatief__option}>
+                        <img className={style.alternatief__options__image} src="../assets/illustraties/oorstokjes.svg" alt=""/>
+                        <NoIconButton text={"Oorstokjes"} backgroundColor={COLORS.blue} boxShadow={`0 0.5rem ${COLORS.blueDark}`} borderColor={COLORS.blueLight} onclick={props.nextFunction}/>
+                    </div>
                 </div>
             </div>
         </div>

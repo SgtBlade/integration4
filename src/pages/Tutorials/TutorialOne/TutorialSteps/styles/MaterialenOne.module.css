@@ -139,3 +139,49 @@
 .thumbsdown__image {
   transform: scale(-1);
 }
+
+.boekje__content__wrapper__alternatief {
+  padding: 3rem;
+  padding-right: 4.5rem;
+}
+
+.alternatief__content {
+  display: flex;
+  align-items: center; 
+}
+
+.alternatief__tekst {
+  font-size: 2.3rem;
+}
+
+.tekst__green {
+  color: var(--green);
+}
+
+.tekst__blue {
+  color: var(--blue);
+}
+
+.alternatief__content {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: .15rem solid var(--grey);
+  line-height: 1;
+}
+
+.alternatief__soundbutton {
+  margin-right: 2rem;
+}
+
+.alternatief__options {
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.alternatief__option {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

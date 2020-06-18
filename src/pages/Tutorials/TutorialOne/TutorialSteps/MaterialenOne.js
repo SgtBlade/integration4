@@ -51,7 +51,7 @@ const MaterialenOne = (props) => {
               />
               <div className={style.second__bevestig__wrapper}>
                 <p className={style.second__bevestig__tekst}>
-                  Heb je{" "}
+                  Heb je
                   <span className={style.second__bevestig__tekst__orange}>
                     30 houten stokjes
                   </span>
