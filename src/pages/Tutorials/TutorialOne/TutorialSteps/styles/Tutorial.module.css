@@ -192,10 +192,25 @@
 
 .boekje__content__object__materialentwo {
   padding-right: 3.5rem;
+  flex-flow: column;
+}
+
+.materialentwo__object__wrapper {
+  display: flex;
 }
 
 .materialentwo__object {
   margin-left: 1rem;
   text-align: center;
+  padding-bottom: 3rem;
 }
 
+.materialentwo__object__moreunderspace {
+  padding-bottom: 8rem;
+}
+
+.materialentwo__object__centered {
+  margin-top: 7.5rem;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,12 @@
+.thumbsupp__image {
+  width: 2.5rem;
+  height: 2.3rem;
+}
+
+.thumbsupp {
+  border-radius: 1.5rem;
+  border: 0.25rem solid var(--greenLight);
+  background-color: var(--greenDark);
+  box-shadow: 0 0.5rem var(--greenShadow);
+  padding: 1.5rem;
+}

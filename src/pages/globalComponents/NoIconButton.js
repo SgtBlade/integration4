@@ -5,7 +5,7 @@ import COLORS from '../globalStyles/colors.js';
 const NoIconButton = (props) => {
 
   return (
-    <div onclick={props.onclick} className={style.buttonNoIcon__wrapper} style={{
+    <div onClick={props.onClick} className={style.buttonNoIcon__wrapper} style={{
         marginTop: props.marginTop ? props.marginTop : "3.5rem"
     }}>
         <span className={style.buttonNoIcon} style={{

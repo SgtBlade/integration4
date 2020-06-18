@@ -1,6 +1,6 @@
 import React from "react";
 import styleBg from "./styles/BackgroundProjectOne.module.css";
-import style from "./styles/MaterialenOne.module.css";
+import style from "./styles/Tutorial.module.css";
 // import RoundArrowButton from "../../../globalComponents/RoundArrowButton.js";
 //import { ROUTES } from "../../consts";
 import Header from "../../TutorialHeader/Header.js";
@@ -53,11 +53,11 @@ const MaterialenOne = (props) => {
                 <div className={style.alternatief__options}>
                     <div className={style.alternatief__option}>
                         <img className={style.alternatief__options__image} src="../assets/illustraties/straws.svg" alt=""/>
-                        <NoIconButton text={"Rietjes"} marginTop={"4.5rem"} onclick={props.nextFunction}/>
+                        <NoIconButton text={"Rietjes"} marginTop={"4.5rem"} onClick={props.nextFunction}/>
                     </div>
                     <div className={style.alternatief__option}>
                         <img className={style.alternatief__options__image} src="../assets/illustraties/oorstokjes.svg" alt=""/>
-                        <NoIconButton text={"Oorstokjes"} backgroundColor={COLORS.blue} boxShadow={`0 0.5rem ${COLORS.blueDark}`} borderColor={COLORS.blueLight} onclick={props.nextFunction}/>
+                        <NoIconButton text={"Oorstokjes"} backgroundColor={COLORS.blue} boxShadow={`0 0.5rem ${COLORS.blueDark}`} borderColor={COLORS.blueLight} onClick={props.nextFunction}/>
                     </div>
                 </div>
             </div>

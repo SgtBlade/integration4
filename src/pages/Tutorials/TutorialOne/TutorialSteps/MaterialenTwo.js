@@ -1,10 +1,9 @@
 import React from "react";
 import styleBg from "./styles/BackgroundProjectOne.module.css";
-import style from "./styles/MaterialenOne.module.css";
-// import RoundArrowButton from "../../../globalComponents/RoundArrowButton.js";
-//import { ROUTES } from "../../consts";
+import style from "./styles/Tutorial.module.css";
 import Header from "../../TutorialHeader/Header.js";
 import SoundButton from "../../../globalComponents/SoundButton.js"
+import ThumbsUp from "../../TutorialComponents/ButtonThumb/ThumbsUp.js";
 import COLORS from "../../../globalStyles/colors";
 
 const MaterialenOne = (props) => {
@@ -29,14 +28,17 @@ const MaterialenOne = (props) => {
                     <hr className={style.boekje__verzamel__line} />
                 </div>
                 <div className={`${style.boekje__content__object} ${style.boekje__content__object__materialentwo}`}>
-                    <div className={style.materialentwo__object}>
-                        <img className={style.materialentwo__object__image} src="../assets/illustraties/schaar.svg"/>
-                        <p className={`${style.alternatief__tekst} ${style.tekst__red}`}>Goede schaar</p>
+                    <div className={style.materialentwo__object__wrapper}>
+                        <div className={style.materialentwo__object}>
+                            <img className={style.materialentwo__object__image} src="../assets/illustraties/schaar.svg" alt=""/>
+                            <p className={`${style.alternatief__tekst} ${style.tekst__red}`}>Goede schaar</p>
+                        </div>
+                        <div className={`${style.materialentwo__object} ${style.materialentwo__object__moreunderspace}`}>
+                            <img className={style.materialentwo__object__image} src="../assets/illustraties/plakband.svg" alt=""/>
+                            <p className={`${style.alternatief__tekst} ${style.tekst__blue}`}>Plakband</p>
+                        </div>
                     </div>
-                    <div className={style.materialentwo__object}>
-                    <img className={style.materialentwo__object__image} src="../assets/illustraties/plakband.svg"/>
-                        <p className={`${style.alternatief__tekst} ${style.tekst__blue}`}>Plakband</p>
-                    </div>
+                    <ThumbsUp onClick={props.nextFunction}/>
                 </div>
             </div>
             <div className={`${style.boekje__content__wrapper} ${style.boekje__content__wrapper__alternatief}`}>
@@ -45,6 +47,9 @@ const MaterialenOne = (props) => {
                         <SoundButton play={"welcome"} size={"5.2rem"} reScale={0.8} fillColor={"#FFFFFF"} backgroundColor={COLORS.redDark}/>
                     </div>
                     <p className={style.alternatief__tekst}>Vraag om een <span className={style.tekst__red}>schaar</span> en <span className={style.tekst__blue}>plakband</span> aan je ouders.</p>
+                </div>
+                <div className={style.materialentwo__object__centered}>
+                    <img src="../assets/illustraties/uiltje-nocam.svg" alt="uiltje no cam"/>
                 </div>
             </div>
         </div>
