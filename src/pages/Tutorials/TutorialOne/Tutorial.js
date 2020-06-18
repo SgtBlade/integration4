@@ -49,7 +49,7 @@ const Tutorial = () => {
               setCurrentScreen(SCREEN.MATERIALEN2);
             }}
             returnFunction={() => {
-              setCurrentScreen(SCREEN.MATERIALEN1);
+              setCurrentScreen(SCREEN.START);
             }}
           />
         );
