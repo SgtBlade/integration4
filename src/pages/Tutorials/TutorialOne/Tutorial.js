@@ -60,7 +60,7 @@ const Tutorial = () => {
             }}
           />
         );
-        case SCREEN.ALTERNATIEF1:
+      case SCREEN.ALTERNATIEF1:
         return (
           <AlternatiefOne nextFunction={() => {setCurrentScreen(SCREEN.MATERIALEN2);}} returnFunction={() => {setCurrentScreen(SCREEN.START);}}/>
         );

@@ -162,6 +162,10 @@
   color: var(--blue);
 }
 
+.tekst__red {
+  color: var(--red);
+}
+
 .alternatief__content {
   border-radius: 1rem;
   padding: 1.5rem;
@@ -185,3 +189,13 @@
   flex-flow: column;
   align-items: center;
 }
+
+.boekje__content__object__materialentwo {
+  padding-right: 3.5rem;
+}
+
+.materialentwo__object {
+  margin-left: 1rem;
+  text-align: center;
+}
+
