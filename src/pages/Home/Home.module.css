@@ -53,7 +53,7 @@
   }
 
   .home__bg {
-    background: url(/assets/illustraties/uiltje-home.svg), url(/assets/blobs/blob1-startscherm.svg), url(/assets/blobs/blob2-startscherm.svg), var(--blue) ;
+    background: url(/assets/illustraties/homepageCloud.svg), url(/assets/blobs/blob1-startscherm.svg), url(/assets/blobs/blob2-startscherm.svg), var(--blue) ;
     background-repeat: no-repeat;
     background-position: left bottom, left bottom, right top;
     height: 100%;
@@ -81,4 +81,10 @@
 
   .home__start__stripesbottom {
     padding-top: 3rem;
+  }
+
+  .imageChosen {
+    position: absolute;
+    bottom: 9rem;
+    left: 15rem;
   }

@@ -27,11 +27,14 @@ const Home = () => {
     console.log(uiStore.currentUser);
   };
 
+  console.log(uiStore.currentUser)
+
   return useObserver(() => (
     <>
       <div className={`${style.home__bg}`}>
         <div className={`${style.home__buttons}`}>
           <div className={`${style.home__buttons__friends}`}>
+          <img className={`${style.imageChosen}`} src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`} alt={"gekozen uiltje"}/>
             <GeneralButton
               onClick={logOut}
               icon="friends"
