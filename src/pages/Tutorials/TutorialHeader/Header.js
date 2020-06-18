@@ -27,9 +27,9 @@ const Header = (props) => {
       ) : (
         ""
       )}
-      <Link to={`${ROUTES.home}`} className={style.buttonWrapHome}>
-        <RoundHomeButton onClick={props.function} />
-      </Link>
+      <div className={style.buttonWrapHome}>
+        <RoundHomeButton />
+      </div>
     </div>
   );
 };

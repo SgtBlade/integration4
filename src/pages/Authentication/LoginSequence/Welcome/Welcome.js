@@ -29,7 +29,7 @@ const Welcome = (props) => {
 
       <div className={style.mainContentWrap}>
         <div className={style.textBaloon}>
-          <p className={style.mainContentText}>welkom in mijn bos, mijn naam is Eldrick. Ga je mee op avontuur?</p>
+          <p className={style.mainContentText}>Welkom in mijn bos, mijn naam is Eldrick. Ga je mee op avontuur?</p>
           <div className={style.soundButton}><SoundButton play={"welcome"}/></div>
         </div>
 
