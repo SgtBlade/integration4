@@ -9,13 +9,14 @@ class UiStore {
     this.firebase = rootStore.firebase;
     this.currentUser = undefined;
     this.cameraPermission = false;
+    this.parentalConfirmation = false;
     this.authService = new AuthService( this.rootStore.firebase, this.onAuthStateChanged);
     this.userService = new UserService(this.rootStore.firebase);
   }
 
   loginWithEmail = async email => {
     const result = await this.authService.login(email);
-    console.log(result)
+    return result;
   };
 
   verifyLogin = async () => {
@@ -38,14 +39,13 @@ class UiStore {
         })
         .catch(function(error) {
           console.log(error.code)
+          return false
         });
     }
 
   }
 
   onAuthStateChanged = async user => {
-    console.log('test')
-    console.log(user);
     if (user) {
       console.log(`De user is ingelogd: ${user.email}`);
       this.setCurrentUser(
@@ -60,26 +60,22 @@ class UiStore {
 
       const result = await this.userService.getChildByMail(user.email);
       if(!result.exists)this.userService.createUser(this.currentUser);
-      else this.setCurrentUser(this.userService.getChildByMail(user.email).data())
-      console.log(this.currentUser);
+      else {
+        const data = await result.data();
+        this.setCurrentUser(new User({
+        name: data.name,
+        email: data.email,
+        chapter: data.chapter,
+        avatar: data.avatar,
+        color: data.color,
+        id: data.id,
+        creationDate: data.creationDate
+      }))}
 
     } else {
-      console.log(`De user is uitgelogd.`);
+      console.log(`No user is logged in`);
       this.setCurrentUser(undefined);
     }
-    /*
-    this.id = id;
-    this.name = name;
-    this.creations = [];
-    this.friends = [];
-    this.chapter = chapter;
-    this.avatar = avatar;
-    this.creationDate = creationDate;
-    if (!avatar) {
-      this.avatar = `https://avatars.dicebear.com/v2/avataaars/${this.id}.svg`;
-    }
-   this.email = email;
-   */
   };
 
   setCurrentUser(user) {
@@ -90,15 +86,34 @@ class UiStore {
     this.cameraPermission = permission
   }
 
+  setParentalConfirmation(permission) {
+    this.parentalConfirmation = permission
+  }
 
+  updateUser =  async (name, character, color) => {
+    await this.authService.updateUser(name, character, color);
+      this.setCurrentUser(new User({
+        name: name,
+        email: this.currentUser.email,
+        chapter: this.currentUser.chapter,
+        avatar: character,
+        color: color,
+        id: this.currentUser.id,
+        creationDate: this.currentUser.creationDate
+      }));
+
+      console.log(this.currentUser)
+  }
 }
-
 
 decorate(UiStore, {
   currentUser: observable,
   setCurrentUser: action,
   cameraPermission: observable,
-  setCameraPermission: action
+  setCameraPermission: action,
+  parentalConfirmation: observable,
+  setParentalConfirmation: action,
+  updateUser: action
 });
 
 export default UiStore;

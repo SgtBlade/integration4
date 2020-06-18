@@ -2,16 +2,23 @@
     background: url("/assets/illustraties/familyholdingtablet.svg"), url("/assets/blobs/blob7-darkBlueSwoosh.svg");
     height: 100%;
     background-repeat: no-repeat;
-    background-position: left bottom;
+    background-position: left bottom, left bottom;
 }
 
 .mainContentWrapper {
-    background-color: white;
-    border-radius: 2.5rem;
-    width: 42.5rem;
+    text-align: left;
+    color: white;
+    font-size: 3.6rem;
+    width: 40rem;
+    height: 34rem;
     position: absolute;
-    right: 3.7rem;
-    padding: 5rem 4rem;
+    right: 3rem;
+    top: 34.8rem;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .nextButton {

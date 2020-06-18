@@ -6,7 +6,7 @@ import COLORS from "../globalStyles/colors.js"
 const RoundArrowButton = (props) => {
   return (
     <div onClick={props.onClick} className={style.wrapper}
-    style={{
+    style={{ 
         fill: props.fillColor ? props.fillColor : COLORS.blue,
         backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.white,
     }}

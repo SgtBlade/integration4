@@ -3,7 +3,11 @@ import style from "./LoginForm.module.css";
 import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
 import Welcome from "./LoginSequence/Welcome/Welcome.js";
 import Captcha from "./LoginSequence/Captcha/Captcha.js";
-import Header from "../Authentication/LoginSequence/Header/Header.js";
+import ConfirmCharacter from "../Authentication/LoginSequence/ConfirmCharacter/ConfirmCharacter.js";
+import FirstLogin from "../Authentication/LoginSequence/FirstLogin/FirstLogin.js";
+import EmailForm from "../Authentication/LoginSequence/EmailForm/EmailForm.js";
+import MailSent from "../Authentication/LoginSequence/MailSent/MailSent.js";
+import NameRequest from "../Authentication/LoginSequence/NameRequest/NameRequest.js";
 import CameraRequest from "./LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../../hooks/useStores";
@@ -17,7 +21,6 @@ const LoginForm = () => {
     PERMISSIONDETAIL: "PERMISSIONDETAIL",
     CAPTCHA: "CAPTCHA",
     CAMERAREQUEST: "CAMERAREQUEST",
-    CAMERAGRANTED: "CAMERAGRANTED",
     EMAILSCREEN: "EMAILSCREEN",
     MAILSENT: "MAILSENT",
     FIRSTLOGIN: "FIRSTLOGIN",
@@ -25,6 +28,23 @@ const LoginForm = () => {
     CONFIRMCHARACTER: "CONFIRMCHARACTER"
   }
   const [currentScreen, setCurrentScreen] = useState("");
+  const [name, setName] = useState("");
+  const [character, setCharacter] = useState("");
+  const [color, setColor] = useState("#2885F2");
+  const updateName = (newName) => setName(newName);
+  const updateCharacter = (newCharacter) => setCharacter(newCharacter);
+  const updateColor = (newColor) => setColor(newColor)
+
+  const checkUser = async () => {
+    const result = await uiStore.verifyLogin()
+    if(result){
+      if(uiStore.currentUser.name === null) setCurrentScreen(SCREEN.NAMEREQUEST)
+    }
+  }
+
+  if (window.location.href.indexOf("apiKey") > -1 && (currentScreen !== SCREEN.NAMEREQUEST) && (currentScreen !== SCREEN.CONFIRMCHARACTER)) {
+    checkUser();
+  }
 
   const returnScreen = () => {
     switch(currentScreen) {
@@ -32,47 +52,41 @@ const LoginForm = () => {
         return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
-        if(uiStore.cameraPermission) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
+        if(uiStore.parentalConfirmation) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
         else return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAPTCHA)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
-        
-      
+         
       case SCREEN.CAPTCHA:
-         if(!uiStore.cameraPermission) return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+         if(!uiStore.parentalConfirmation) return <Captcha nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         else return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.CAMERAREQUEST:
-        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
-        
-
-      case SCREEN.CAMERAGRANTED:
-        return <Header Title={"Return to CAMERAREQUEST"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}}/>
-        
+        return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.EMAILSCREEN:
-        return <Header Title={"Return to CAMERAGRANTED"} Return={true} function={() => {setCurrentScreen(SCREEN.CAMERAGRANTED)}}/>
+        return <EmailForm nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
-
       case SCREEN.MAILSENT:
-        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}}/>
+        return <MailSent returnFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} nextFunction={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
         
-
       case SCREEN.FIRSTLOGIN:
-        return <Header Title={"Return to EMAILSCREEN"} Return={true} function={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
+        return <FirstLogin nextFunction={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
         
-
       case SCREEN.NAMEREQUEST:
-        return <Header Title={"Return to MAILSENT"} Return={true} function={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
+        return <NameRequest color={color} colorChange={updateColor} name={name} character={character} nameChange={updateName} characterChange={updateCharacter} nextFunction={() => {setCurrentScreen(SCREEN.CONFIRMCHARACTER)}}/>
         
-
       case SCREEN.CONFIRMCHARACTER:
-        return <Header Title={"Return to FIRSTLOGIN"} Return={true} function={() => {setCurrentScreen(SCREEN.NAMEREQUEST)}}/>
+        return <ConfirmCharacter returnFunction={() => {setCurrentScreen(SCREEN.NAMERE)}} name={name} character={character} color={color} Title={"Return to FIRSTLOGIN"}/>
         
       default:
-        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        if(uiStore.currentUser){
+          if(uiStore.currentUser.name === null){
+            setCurrentScreen(SCREEN.NAMEREQUEST)
+          }
+        }else return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        // <NameRequest color={color} colorChange={updateColor} name={name} character={character} nameChange={updateName} characterChange={updateCharacter} nextFunction={() => {setCurrentScreen(SCREEN.CONFIRMCHARACTER)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }
 
-  console.log(currentScreen);
 
   return useObserver (() => (
     <div className={style.container}>

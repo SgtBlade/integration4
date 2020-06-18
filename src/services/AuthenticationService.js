@@ -1,18 +1,9 @@
 import "firebase/auth";
 
-/*
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-*/
-
 class AuthService {
   constructor(firebase, onAuthStateChanged) {
     this.auth = firebase.auth();
+    this.db = firebase.firestore();
     this.auth.onAuthStateChanged(user => onAuthStateChanged(user));
   }
 
@@ -22,17 +13,15 @@ class AuthService {
 
     
     const actionCodeSettings = {
-        url: 'https://localhost:3000/login',
+        url: 'https://localhost:3000', //'https://migueldp.be',
         handleCodeInApp: true,
       };
 
     try {
       const result = await this.auth.sendSignInLinkToEmail(email, actionCodeSettings)
       .then(function() {
-        console.log("The link was successfully sent. Inform the user.")
-        console.log("Save the email locally so you don't need to ask the user for it again");
-        console.log("if they open the link on the same device.");
         window.localStorage.setItem('emailForSignIn', email); 
+        return true;
       })
       .catch(function(error) {
         console.log("Some error occurred, you can inspect the code: error.code");
@@ -44,6 +33,23 @@ class AuthService {
       console.log(error)
     }
   };
+
+  updateUser = async (name, character, color) => {
+
+    this.db.collection("kinderen").doc(this.auth.currentUser.email).update({
+      naam: name,
+      avatar: character,
+      kleur: color
+  })
+  .then(function() {
+      console.log("Document successfully written!");
+      return true;
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+      return false;
+  });
+  }
 
 }
 export default AuthService;
