@@ -37,4 +37,101 @@
 }
 
 .boekje__verzamel__line {
+  border: 0.15rem solid var(--grey);
+}
+
+.object__content {
+  padding-right: 2.5rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: end;
+}
+
+.boekje__tekst {
+  font-size: 7rem;
+}
+
+.boekje__tekst,
+.boekje__tekstMed {
+  color: var(--orange);
+  text-align: right;
+}
+.boekje__tekstMed {
+  font-size: 2.6rem;
+}
+
+.boekje__content__object {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 77%;
+  padding-right: 5.5rem;
+}
+
+.boekje__content__wrapper__second {
+  background: url(/assets/illustraties/uiltjePointing-tutorial.svg);
+  background-repeat: no-repeat;
+  background-size: 42%;
+  background-position: 19rem 25rem;
+}
+
+.second__bevestig {
+  display: grid;
+  width: 26.3rem;
+  margin-left: 5rem;
+  margin-top: 2.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.second__bevestig__image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.second__bevestig__wrapper {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 2.5rem;
+  padding-left: 2rem;
+}
+
+.second__bevestig__tekst {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.second__bevestig__tekst__orange {
+  color: var(--orange);
+}
+
+.second__bevestig__wrapper__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2.5rem;
+}
+
+.thumbsdown__image,
+.thumbsupp__image {
+  width: 2.5rem;
+  height: 2.3rem;
+}
+
+.thumbsupp,
+.thumbsdown {
+  border-radius: 1.5rem;
+  border: 0.25rem solid var(--greenLight);
+  background-color: var(--greenDark);
+  box-shadow: 0 0.5rem var(--greenShadow);
+  padding: 1.5rem;
+}
+
+.thumbsdown {
+  border: 0.25rem solid var(--redLight);
+  background-color: var(--red);
+  box-shadow: 0 0.5rem var(--red);
+}
+
+.thumbsdown__image {
+  transform: scale(-1);
 }
