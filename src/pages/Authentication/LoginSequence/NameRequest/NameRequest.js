@@ -28,13 +28,14 @@ const NameRequest = (props) => {
 
   const {uiStore} = useStores();
   const logOut = () => {
+    /*
     const fb = uiStore.firebase;
     fb.auth().signOut().then(function() {
       console.log('Logged out')
       localStorage.clear()
     }).catch(function(error) {
       console.log("error occured: ".error.code)
-    });
+    });*/
   }
 
   if(props.character === "")props.characterChange({key: 0, character: CHARACTERS[0]})
