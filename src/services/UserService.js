@@ -8,7 +8,7 @@ class UserService {
 
   getChildByMail = async mail => {
     return await this.db
-      .collection("users")
+      .collection("kinderen")
       .doc(mail)
       .withConverter(userConverter)
       .get();

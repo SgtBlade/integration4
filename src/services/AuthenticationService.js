@@ -13,7 +13,7 @@ class AuthService {
 
     
     const actionCodeSettings = {
-        url: 'https://localhost:3000/login',
+        url: 'https://localhost:3000', //'https://migueldp.be',
         handleCodeInApp: true,
       };
 

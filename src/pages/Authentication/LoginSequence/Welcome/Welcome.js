@@ -11,7 +11,6 @@ const Welcome = (props) => {
   const { uiStore } = useStores();
 
   const startLogin = async () => {
-
   const email = await prompt("Hohohooo, you found the secred login skipper. Enter your email adress below and get access");
   localStorage.setItem("emailForSignIn", email)
   await uiStore.loginWithEmail(email);

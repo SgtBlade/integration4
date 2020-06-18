@@ -42,8 +42,6 @@ const LoginForm = () => {
     }
   }
 
-
-
   if (window.location.href.indexOf("apiKey") > -1 && (currentScreen !== SCREEN.NAMEREQUEST) && (currentScreen !== SCREEN.CONFIRMCHARACTER)) {
     checkUser();
   }

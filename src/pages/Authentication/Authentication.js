@@ -8,14 +8,24 @@ import { useStores } from "../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
 import Tutorial from "../Tutorials/TutorialOne/Tutorial.js";
 
-const Authentication = () => {
+const Authentication = () => { 
   const { uiStore } = useStores();
+
+  const checkUser = async () => {
+    const result = await uiStore.verifyLogin();
+  }
+
+  if (window.location.href.indexOf("apiKey") > -1 ){
+    checkUser();
+  }
+
+  console.log(uiStore.currentUser)
 
   return useObserver(() => (
     <>
       <Switch>
         <Route path={ROUTES.login}>
-          {uiStore.currentUser && uiStore.currentUser.name !== null? (
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <Redirect to={ROUTES.home} />
           ) : (
             <div className={style.wrapper}>
@@ -25,7 +35,7 @@ const Authentication = () => {
         </Route>
 
         <Route exact path={ROUTES.home}>
-          {uiStore.currentUser && uiStore.currentUser.name !== null? (
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Home />
             </>
@@ -35,7 +45,7 @@ const Authentication = () => {
         </Route>
 
         <Route path={ROUTES.tutorialone}>
-          {uiStore.currentUser && uiStore.currentUser.name !== null? (
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Tutorial />
             </>

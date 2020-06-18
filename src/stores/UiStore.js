@@ -60,7 +60,17 @@ class UiStore {
 
       const result = await this.userService.getChildByMail(user.email);
       if(!result.exists)this.userService.createUser(this.currentUser);
-      else this.setCurrentUser(this.userService.getChildByMail(user.email).data())
+      else {
+        const data = await result.data();
+        this.setCurrentUser(new User({
+        name: data.name,
+        email: data.email,
+        chapter: data.chapter,
+        avatar: data.avatar,
+        color: data.color,
+        id: data.id,
+        creationDate: data.creationDate
+      }))}
 
     } else {
       console.log(`No user is logged in`);
@@ -96,14 +106,14 @@ class UiStore {
   }
 }
 
-
 decorate(UiStore, {
   currentUser: observable,
   setCurrentUser: action,
   cameraPermission: observable,
   setCameraPermission: action,
   parentalConfirmation: observable,
-  setParentalConfirmation: action
+  setParentalConfirmation: action,
+  updateUser: action
 });
 
 export default UiStore;
