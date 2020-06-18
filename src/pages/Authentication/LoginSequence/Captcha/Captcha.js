@@ -24,7 +24,9 @@ const Captcha = (props) => {
        setError(true)
       }
   }
-    
+  const askBirthDate = () =>{if(parseInt(prompt('Wat is uw geboortedatum?')) <= 2004){uiStore.setParentalConfirmation(true); props.nextFunction();}}
+
+  const checkEnter = e => {if(e.keyCode === 13) handleSubmit()}
 
   return useObserver( () => (
     <div className={style.container}>
@@ -38,11 +40,17 @@ const Captcha = (props) => {
           <div className={style.quiz}>
             <div className={style.question}>
                 <p>{numberOne} x {numberTwo} = </p>
-                <input pattern="[0-9]*" onChange={e => setResponse(e.currentTarget.value)} type="number" value={response} className={style.button} />
+                <input 
+                pattern="[0-9]*" 
+                onKeyUp={checkEnter}
+                onChange={e => setResponse(e.currentTarget.value)} 
+                type="number" 
+                value={response} 
+                className={style.button} />
             </div>
             <GeneralButton onClick={() => {handleSubmit(); setResponse("")}} buttonWidth={"34.5rem"} fontSize={"3.6rem"} icon="arrowRight" type="svg" text="Verifiëren"/>
           </div>
-          <p className={style.extra}>Klik hier om u op een andere manier te verifiëren</p>
+          <p onClick={askBirthDate} className={style.extra}>Klik hier om u op een andere manier te verifiëren</p>
         </div>
         <img src={"./assets/illustraties/login-papa.svg"} alt={"Papa uiltje"} />
       </div>

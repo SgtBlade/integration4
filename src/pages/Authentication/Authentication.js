@@ -19,8 +19,6 @@ const Authentication = () => {
     checkUser();
   }
 
-  console.log(uiStore.currentUser)
-
   return useObserver(() => (
     <>
       <Switch>

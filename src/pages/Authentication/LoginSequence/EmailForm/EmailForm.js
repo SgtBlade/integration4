@@ -12,6 +12,8 @@ const EmailForm = (props) => {
   const [error, setError] = useState([false, false]);
   const { uiStore } = useStores();
 
+
+
   const handleSubmit = async () => {
       if(!email.includes('@') || !email.includes('.') || email.length < 3)setError([true, false])
       else {
@@ -24,6 +26,8 @@ const EmailForm = (props) => {
       }
   }
 
+
+  const checkEnter = e => {if(e.keyCode === 13) handleSubmit()}
   return (
     <div className={style.wrapper}>
       <Header Title={props.Title ? props.Title : "Account aanmaken"}/>
@@ -31,6 +35,7 @@ const EmailForm = (props) => {
                     <p className={style.label}>Geef uw emailadres in:</p>
                     <input 
                     value={email} 
+                    onKeyUp={checkEnter}
                     onChange={e => setEmail(e.currentTarget.value)}
                     className={style.input} 
                     type={"email"} />

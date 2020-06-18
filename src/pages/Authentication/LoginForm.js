@@ -31,6 +31,7 @@ const LoginForm = () => {
   const [name, setName] = useState("");
   const [character, setCharacter] = useState("");
   const [color, setColor] = useState("#2885F2");
+  const [skipLogin, setSkipLogin] = useState(false);
   const updateName = (newName) => setName(newName);
   const updateCharacter = (newCharacter) => setCharacter(newCharacter);
   const updateColor = (newColor) => setColor(newColor)
@@ -46,10 +47,12 @@ const LoginForm = () => {
     checkUser();
   }
 
+  const skipLoginFunxt = () => {setSkipLogin(true);setCurrentScreen(SCREEN.EMAILSCREEN)}
+
   const returnScreen = () => {
     switch(currentScreen) {
       case SCREEN.WELCOME:
-        return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        return <Welcome skipLogin={skipLoginFunxt} nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.PERMISSIONDETAIL:
         if(uiStore.parentalConfirmation) return <PermissionDetail nextFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}}/>
@@ -63,7 +66,8 @@ const LoginForm = () => {
         return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.EMAILSCREEN:
-        return <EmailForm nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
+        if(skipLogin) return <EmailForm Title={"Inloggen"} nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
+        else return <EmailForm nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
       case SCREEN.MAILSENT:
         return <MailSent returnFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} nextFunction={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>
@@ -82,7 +86,7 @@ const LoginForm = () => {
           if(uiStore.currentUser.name === null){
             setCurrentScreen(SCREEN.NAMEREQUEST)
           }
-        }else return <Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
+        }else return <Welcome skipLogin={skipLoginFunxt}  nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         // <NameRequest color={color} colorChange={updateColor} name={name} character={character} nameChange={updateName} characterChange={updateCharacter} nextFunction={() => {setCurrentScreen(SCREEN.CONFIRMCHARACTER)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
     }
   }

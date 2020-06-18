@@ -32,6 +32,8 @@ const Welcome = (props) => {
 
         <div className={style.nextButton}><GeneralButton buttonWidth={"34.5rem"} fontSize={"3.6rem"} onClick={props.nextFunction} icon="arrowRight" type="svg" text="Begin"/></div>
         <div onClick={startLogin} className={style.secretCube}></div>
+        <div onClick={props.skipLogin} className={style.alreadyAnAccount}><p>Ik heb al een account</p></div>
+        
       </div>
     </div>
   ));

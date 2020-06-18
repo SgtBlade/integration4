@@ -48,7 +48,15 @@ class UiStore {
   onAuthStateChanged = async user => {
     if (user) {
       console.log(`De user is ingelogd: ${user.email}`);
-
+      this.setCurrentUser(
+        new User({
+          id: user.uid,
+          name: user.displayName,
+          email: user.email,
+          store: this.rootStore.userStore,
+          avatar: user.photoURL
+        })
+      );
       const result = await this.userService.getChildByMail(user.email);
       if(!result.exists)this.userService.createUser(new User({
         id: user.uid,
@@ -112,7 +120,8 @@ decorate(UiStore, {
   setCameraPermission: action,
   parentalConfirmation: observable,
   setParentalConfirmation: action,
-  updateUser: action
+  updateUser: action,
+  onAuthStateChanged: action
 });
 
 export default UiStore;
