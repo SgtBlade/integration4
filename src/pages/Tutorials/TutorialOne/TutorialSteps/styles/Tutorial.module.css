@@ -60,7 +60,7 @@
   font-size: 2.6rem;
 }
 
-.boekje__tekst__gray {
+.tekst__gray {
   color: var(--greyLight);
 }
 
@@ -214,3 +214,14 @@
   display: flex;
   justify-content: center;
 }
+
+.boekje__content__object___materialenthree {
+  display: flex;
+  flex-flow: column;
+}
+
+.materialenthree__afbeelding {
+  margin-bottom: 2.5rem;
+}
+
+

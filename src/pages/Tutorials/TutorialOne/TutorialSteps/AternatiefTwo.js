@@ -9,7 +9,7 @@ import COLORS from "../../../globalStyles/colors";
 import NoIconButton from "../../../globalComponents/NoIconButton";
 import StepBack from "../../TutorialComponents/ButtonStepBack/StepBack.js";
 
-const MaterialenOne = (props) => {
+const AlternatiefTwo = (props) => {
   return (
     <section className={styleBg.container}>
       <Header
@@ -19,6 +19,7 @@ const MaterialenOne = (props) => {
         fontSize={"5rem"}
       />
       <StepBack onClick={props.returnFunction}/>
+      
       <div className={style.boekje}>
         <div className={style.boekje__content}>
             <div className={style.boekje__content__wrapper}>
@@ -31,35 +32,30 @@ const MaterialenOne = (props) => {
                     </p>
                     <hr className={style.boekje__verzamel__line} />
                 </div>
-                <div className={style.boekje__content__object}>
-                    <div className={style.object__content}>
-                        <p className={`${style.boekje__tekst} ${style.tekst__gray}`}>
-                            <span className={style.boekje__tekstBig}>30</span>x
-                        </p>
-                        <p className={`${style.boekje__tekstMed} ${style.tekst__gray}`}>Houten stokjes</p>
-                    </div>
-                    <img
-                        className={style.boekje__afbeelding}
-                        src="../assets/illustraties/stokje-grijs.svg"
-                        alt=""
-                    />
-                </div>
+                <div className={`${style.boekje__content__object} ${style.boekje__content__object___materialenthree}`}>
+                <img
+                    className={style.materialenthree__afbeelding}
+                    src="../assets/illustraties/lijm-grey.svg"
+                    alt="houtlijm"
+                />
+                <p className={`${style.alternatief__tekst} ${style.tekst__gray}`}>Houtlijm</p>
+            </div>
             </div>
             <div className={`${style.boekje__content__wrapper} ${style.boekje__content__wrapper__alternatief}`}>
                 <div className={style.alternatief__content}>
                     <div className={style.alternatief__soundbutton}>
                         <SoundButton play={"welcome"} size={"5.2rem"} reScale={0.8} fillColor={"#FFFFFF"} backgroundColor={COLORS.redDark}/>
                     </div>
-                    <p className={style.alternatief__tekst}>Geen probleem, je kan ook <span className={style.tekst__green}>rietjes</span> of <span className={style.tekst__blue}>oorstokjes</span> gebruiken</p>
+                    <p className={style.alternatief__tekst}>Je kan ook <span className={style.tekst__green}>kauwgom</span> of een andere <span className={style.tekst__blue}>sterke lijm</span> gebruiken</p>
                 </div>
                 <div className={style.alternatief__options}>
                     <div className={style.alternatief__option}>
-                        <img className={style.alternatief__options__image} src="../assets/illustraties/straws.svg" alt=""/>
-                        <NoIconButton text={"Rietjes"} marginTop={"4.5rem"} onClick={props.nextFunction}/>
+                        <img className={style.alternatief__options__image} src="../assets/illustraties/gum.svg" alt=""/>
+                        <NoIconButton text={"Kauwgom"} marginTop={"4.5rem"} onClick={props.nextFunction}/>
                     </div>
                     <div className={style.alternatief__option}>
-                        <img className={style.alternatief__options__image} src="../assets/illustraties/oorstokjes.svg" alt=""/>
-                        <NoIconButton text={"Oorstokjes"} backgroundColor={COLORS.blue} boxShadow={`0 0.5rem ${COLORS.blueDark}`} borderColor={COLORS.blueLight} onClick={props.nextFunction}/>
+                        <img className={style.alternatief__options__image} src="../assets/illustraties/superglue.svg" alt=""/>
+                        <NoIconButton text={"Sterke lijm"} backgroundColor={COLORS.blue} boxShadow={`0 0.5rem ${COLORS.blueDark}`} borderColor={COLORS.blueLight} onClick={props.nextFunction}/>
                     </div>
                 </div>
             </div>
@@ -69,4 +65,4 @@ const MaterialenOne = (props) => {
   );
 };
 
-export default MaterialenOne;
+export default AlternatiefTwo;

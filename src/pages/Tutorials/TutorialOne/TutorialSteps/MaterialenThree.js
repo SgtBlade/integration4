@@ -3,16 +3,18 @@ import styleBg from "./styles/BackgroundProjectOne.module.css";
 import style from "./styles/Tutorial.module.css";
 import Header from "../../TutorialHeader/Header.js";
 import ThumbsUp from "../../TutorialComponents/ButtonThumb/ThumbsUp.js";
+import StepBack from "../../TutorialComponents/ButtonStepBack/StepBack.js";
 
-const MaterialenOne = (props) => {
+const MaterialenThree = (props) => {
   return (
     <section className={styleBg.container}>
       <Header
         Return={true}
-        function={props.returnFunction}
+        function={props.startFunction}
         Title={`Materialen`}
         fontSize={"5rem"}
       />
+      <StepBack onClick={props.returnFunction}/>
       <div className={style.boekje}>
         <div className={style.boekje__content}>
           <div className={style.boekje__content__wrapper}>
@@ -25,18 +27,13 @@ const MaterialenOne = (props) => {
               </p>
               <hr className={style.boekje__verzamel__line} />
             </div>
-            <div className={style.boekje__content__object}>
-              <div className={style.object__content}>
-                <p className={style.boekje__tekst}>
-                  <span className={style.boekje__tekstBig}>30</span>x
-                </p>
-                <p className={style.boekje__tekstMed}>Houten stokjes</p>
-              </div>
-              <img
-                className={style.boekje__afbeelding}
-                src="../assets/illustraties/houten-stokje.svg"
-                alt=""
-              />
+            <div className={`${style.boekje__content__object} ${style.boekje__content__object___materialenthree}`}>
+                <img
+                    className={style.materialenthree__afbeelding}
+                    src="../assets/illustraties/lijm.svg"
+                    alt="houtlijm"
+                />
+                <p className={`${style.alternatief__tekst} ${style.tekst__red}`}>Houtlijm</p>
             </div>
           </div>
           <div
@@ -50,9 +47,7 @@ const MaterialenOne = (props) => {
               />
               <div className={style.second__bevestig__wrapper}>
                 <p className={style.second__bevestig__tekst}>
-                  Heb je <span className={style.second__bevestig__tekst__orange}>30 houten stokjes</span>
-                  ?
-                </p>
+                  Heb je <span className={style.second__bevestig__tekst__orange}>houtlijm</span>?</p>
                 <div className={style.second__bevestig__wrapper__buttons}>
                   <ThumbsUp onClick={props.nextFunction}/>
                   <div className={style.thumbsdown} onClick={props.notAvailableFunction}>
@@ -73,4 +68,4 @@ const MaterialenOne = (props) => {
   );
 };
 
-export default MaterialenOne;
+export default MaterialenThree;

@@ -5,7 +5,9 @@ import style from "./Tutorial.module.css";
 // import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import MaterialenOne from "./TutorialSteps/MaterialenOne.js";
 import MaterialenTwo from "./TutorialSteps/MaterialenTwo.js";
+import MaterialenThree from "./TutorialSteps/MaterialenThree.js";
 import AlternatiefOne from "./TutorialSteps/AlternatiefOne.js";
+import AlternatiefTwo from "./TutorialSteps/AternatiefTwo.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../TutorialHeader/Header.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
@@ -49,6 +51,7 @@ const Tutorial = () => {
       case SCREEN.MATERIALEN1:
         return (
           <MaterialenOne
+            
             nextFunction={() => {
               setCurrentScreen(SCREEN.MATERIALEN2);
             }}
@@ -58,15 +61,24 @@ const Tutorial = () => {
             notAvailableFunction={() => {
               setCurrentScreen(SCREEN.ALTERNATIEF1);
             }}
+            
           />
         );
       case SCREEN.ALTERNATIEF1:
         return (
-          <AlternatiefOne nextFunction={() => {setCurrentScreen(SCREEN.MATERIALEN2);}} returnFunction={() => {setCurrentScreen(SCREEN.START);}}/>
+          <AlternatiefOne 
+          nextFunction={() => {setCurrentScreen(SCREEN.MATERIALEN2);}} 
+          returnFunction={() => {setCurrentScreen(SCREEN.MATERIALEN1);}}
+          startFunction ={() => {
+            setCurrentScreen(SCREEN.START);
+          }}/>
         );
       case SCREEN.MATERIALEN2:
         return (
           <MaterialenTwo
+            startFunction ={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
             nextFunction={() => {
               setCurrentScreen(SCREEN.MATERIALEN3);
             }}
@@ -77,15 +89,30 @@ const Tutorial = () => {
         );
       case SCREEN.MATERIALEN3:
         return (
-          <MaterialenOne
+          <MaterialenThree
+            startFunction ={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
             nextFunction={() => {
-              setCurrentScreen(SCREEN.STAP2);
+              setCurrentScreen(SCREEN.STAP1);
             }}
             returnFunction={() => {
-              setCurrentScreen(SCREEN.START);
+              setCurrentScreen(SCREEN.MATERIALEN2);
+            }}
+            notAvailableFunction={() => {
+              setCurrentScreen(SCREEN.ALTERNATIEF2);
             }}
           />
         );
+      case SCREEN.ALTERNATIEF2:
+          return (
+            <AlternatiefTwo
+            startFunction ={() => {
+              setCurrentScreen(SCREEN.START);
+            }} 
+            nextFunction={() => {setCurrentScreen(SCREEN.STAP1);}} 
+            returnFunction={() => {setCurrentScreen(SCREEN.MATERIALEN3);}}/>
+          );
       case SCREEN.STAP1:
         return (
           // <StepOne
