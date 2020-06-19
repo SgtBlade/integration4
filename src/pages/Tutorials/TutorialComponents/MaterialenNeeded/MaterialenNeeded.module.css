@@ -1,0 +1,35 @@
+.materialen {
+width: 85.6rem;
+position: fixed;
+bottom: -20rem;
+height: 24.6rem;
+left: 0;
+right: 0;
+margin: auto;
+background-color: white;
+border: .5rem solid var(--red);
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+border-radius: 50rem 50rem 0 0;
+transition: .5s;
+}
+
+.materialen__icon {
+position: absolute;
+top: 0;
+background-color: var(--red);
+border-radius: 0 0 5rem 5rem;
+padding: 1rem 2.5rem;
+padding-top: .5rem;
+padding-bottom: 1.5rem;
+}
+
+.materialen__up {
+bottom: -1rem;
+}
+
+.materialen__icon__image__turn {
+    transform: scale(-1)
+}
