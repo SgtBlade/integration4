@@ -147,7 +147,7 @@
 
 .alternatief__content {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .alternatief__tekst {
@@ -169,7 +169,7 @@
 .alternatief__content {
   border-radius: 1rem;
   padding: 1.5rem;
-  border: .15rem solid var(--grey);
+  border: 0.15rem solid var(--grey);
   line-height: 1;
 }
 
@@ -239,3 +239,7 @@
   font-size: 4rem;
 }
 
+.boekje__content__stepCenter {
+  display: flex;
+  justify-content: center;
+}

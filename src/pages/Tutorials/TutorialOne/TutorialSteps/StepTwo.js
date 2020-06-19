@@ -14,29 +14,22 @@ const MaterialenOne = (props) => {
       <Header
         Return={true}
         function={props.startFunction}
-        Title={`Stap 1`}
+        Title={`Stap 2`}
         fontSize={"5rem"}
       />
       <StepBack onClick={props.returnFunction} />
       <StepForward onClick={props.nextFunction} />
       <div className={style.boekje}>
         <div
-          className={`${style.boekje__content} ${style.boekje__content__stepOne}`}
+          className={`${style.boekje__content} ${style.boekje__content__stepCenter}`}
         >
           <div className={style.stepOne__soundbutton}>
             <PlayButton />
           </div>
-          <div className={style.stepOne__content}>
-            <p
-              className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
-            >
-              4x
-            </p>
-          </div>
-          <img src="../assets/illustraties/stappen/stap1.svg" alt="Stap 1" />
+          <img src="../assets/illustraties/stappen/stap2.svg" alt="Stap 2" />
         </div>
       </div>
-      <MaterialenNeeded materialen="materialen-stapEen" />
+      <MaterialenNeeded materialen="materialen-stapTwee" />
     </section>
   );
 };
