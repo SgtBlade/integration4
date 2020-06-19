@@ -3,7 +3,7 @@ import style from "./styles/SoundButton.module.css";
 import COLORS from "../globalStyles/colors.js"
 //import { ROUTES } from "../../consts";
 
-const RoundArrowButton = (props) => {
+const SoundButton = (props) => {
 
   const play = () =>  {
     new Audio(`./assets/sounds/voiceOver/${props.play}.mp3`).play();
@@ -29,4 +29,4 @@ const RoundArrowButton = (props) => {
   );
 };
 
-export default RoundArrowButton;
+export default SoundButton;

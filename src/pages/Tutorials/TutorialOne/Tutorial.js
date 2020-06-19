@@ -124,7 +124,7 @@ const Tutorial = () => {
               setCurrentScreen(SCREEN.STAP2);
             }}
             returnFunction={() => {
-              setCurrentScreen(SCREEN.START);
+              setCurrentScreen(SCREEN.MATERIALEN3);
             }}
           />
         );
