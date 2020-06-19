@@ -62,7 +62,10 @@ const Home = () => {
           className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}
         >
           <div className={`${style.home__head}`}>
+
+          <Link to={`${ROUTES.map}`}>
             <h1 className={`${style.home__titel}`}>Reisuil</h1>
+          </Link>
           </div>
           <div className={`${style.home__start}`}>
             <img
