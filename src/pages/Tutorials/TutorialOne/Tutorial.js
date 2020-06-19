@@ -8,6 +8,7 @@ import MaterialenTwo from "./TutorialSteps/MaterialenTwo.js";
 import MaterialenThree from "./TutorialSteps/MaterialenThree.js";
 import AlternatiefOne from "./TutorialSteps/AlternatiefOne.js";
 import AlternatiefTwo from "./TutorialSteps/AternatiefTwo.js";
+import StepOne from "./TutorialSteps/StepOne.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../TutorialHeader/Header.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
@@ -115,19 +116,15 @@ const Tutorial = () => {
           );
       case SCREEN.STAP1:
         return (
-          // <StepOne
-          //   nextFunction={() => {
-          //     setCurrentScreen(SCREEN.STAP2);
-          //   }}
-          //   returnFunction={() => {
-          //     setCurrentScreen(SCREEN.START);
-          //   }}
-          // />
-          <Header
-            Title={"Return to CAMERAREQUEST"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.CAMERAREQUEST);
+          <StepOne
+            startFunction ={() => {
+              setCurrentScreen(SCREEN.START);
+            }} 
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP2);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.START);
             }}
           />
         );
