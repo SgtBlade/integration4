@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "../Home/Home.js";
+import Map from "../Map/Map.js";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ROUTES } from "../../consts/index.js";
 import LoginForm from "./LoginForm.js";
@@ -49,6 +50,16 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Tutorial />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
+        <Route exact path={ROUTES.map}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Map />
             </>
           ) : (
             <Redirect to={ROUTES.login} />

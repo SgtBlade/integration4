@@ -4,6 +4,7 @@ const ROUTES = {
   login: "/login",
   tutorialone: "/tutorialone",
   register: "/register",
+  map: "/map",
 };
 
 export { ROUTES };
