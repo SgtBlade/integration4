@@ -33,7 +33,7 @@ const LoginForm = () => {
   const [character, setCharacter] = useState("");
   const [color, setColor] = useState("#2885F2");
   const [skipLogin, setSkipLogin] = useState(false);
-  const updateName = (newName) => setName(newName);
+  const updateName = (newName) => {if(newName.length <= 10)setName(newName);}
   const updateCharacter = (newCharacter) => setCharacter(newCharacter);
   const updateColor = (newColor) => setColor(newColor)
 
@@ -44,7 +44,7 @@ const LoginForm = () => {
     }
   }
 
-  if (window.location.href.indexOf("apiKey") > -1 && (currentScreen !== SCREEN.NAMEREQUEST) && (currentScreen !== SCREEN.CONFIRMCHARACTER)) {
+  if (window.location.href.indexOf("apiKey") > -1 ){
     checkUser();
     history.push('login');
   }
@@ -68,8 +68,8 @@ const LoginForm = () => {
         return <CameraRequest nextFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} returnFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
 
       case SCREEN.EMAILSCREEN:
-        if(skipLogin) return <EmailForm Title={"Inloggen"} nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
-        else return <EmailForm nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
+        if(skipLogin) return <EmailForm Return={true}  returnFunction={() => {setCurrentScreen(SCREEN.WELCOME)}} Title={"Inloggen"} nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
+        else return <EmailForm Return={true} returnFunction={() => {setCurrentScreen(SCREEN.CAMERAREQUEST)}} nextFunction={() => {setCurrentScreen(SCREEN.MAILSENT)}}/>
         
       case SCREEN.MAILSENT:
         return <MailSent returnFunction={() => {setCurrentScreen(SCREEN.EMAILSCREEN)}} nextFunction={() => {setCurrentScreen(SCREEN.FIRSTLOGIN)}}/>

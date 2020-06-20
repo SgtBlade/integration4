@@ -40,13 +40,14 @@ const Captcha = (props) => {
           <div className={style.quiz}>
             <div className={style.question}>
                 <p>{numberOne} x {numberTwo} = </p>
-                <input 
+                <input
+                className={style.captchaInput} 
                 pattern="[0-9]*" 
                 onKeyUp={checkEnter}
                 onChange={e => setResponse(e.currentTarget.value)} 
                 type="number" 
                 value={response} 
-                className={style.button} />
+                 />
             </div>
             <GeneralButton onClick={() => {handleSubmit(); setResponse("")}} buttonWidth={"34.5rem"} fontSize={"3.6rem"} icon="arrowRight" type="svg" text="Verifiëren"/>
           </div>

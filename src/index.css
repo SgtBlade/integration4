@@ -22,6 +22,10 @@ html {
   box-sizing: inherit;
   font-weight: 700;
 }
+
+input:focus{
+  outline: none;
+  } 
 /* stylelint-enable */
 
 .visually-hidden {

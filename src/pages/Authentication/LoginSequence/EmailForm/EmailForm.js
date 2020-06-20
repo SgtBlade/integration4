@@ -30,7 +30,11 @@ const EmailForm = (props) => {
   const checkEnter = e => {if(e.keyCode === 13) handleSubmit()}
   return (
     <div className={style.wrapper}>
-      <Header Title={props.Title ? props.Title : "Account aanmaken"}/>
+      <Header 
+      Title={props.Title ? props.Title : "Account aanmaken"}
+      Return={props.Return ? true : false}
+      function={props.returnFunction ? props.returnFunction : null}
+      />
         <div className={style.mainContent}>
                     <p className={style.label}>Geef uw emailadres in:</p>
                     <input 
@@ -38,7 +42,8 @@ const EmailForm = (props) => {
                     onKeyUp={checkEnter}
                     onChange={e => setEmail(e.currentTarget.value)}
                     className={style.input} 
-                    type={"email"} />
+                    type={"email"} 
+                    />
                     <GeneralButton buttonWidth={"40rem"} fontSize={"3.6rem"} onClick={() => {handleSubmit()}} icon="mail" type="svg" text="Verstuur email"/>
         </div>
         <img className={style.image} src={"./assets/illustraties/uiltje-giggle-login.svg"} alt={"Giegelend uiltje"} />

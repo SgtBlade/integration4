@@ -8,20 +8,16 @@ import style from "./Authentication.module.css";
 import { useStores } from "../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
 import Tutorial from "../Tutorials/TutorialOne/Tutorial.js";
+import { useHistory } from "react-router-dom";
 
 const Authentication = () => { 
   const { uiStore } = useStores();
 
-  const checkUser = async () => {
-    //const result = await uiStore.verifyLogin();
-    //if(result) return <Redirect to={ROUTES.login}/>
-  }
-
+  const history = useHistory();
   if (window.location.href.indexOf("apiKey") > -1 ){
-    if(!uiStore.currentUser)checkUser();
+    uiStore.verifyLogin()
+    history.push('login');
   }
-
-  console.log(uiStore.currentUser)
 
   return useObserver(() => (
     <>

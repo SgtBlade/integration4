@@ -2,4 +2,76 @@
     background-color: var(--blueLight);
     height: 100%;
     width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.mapBanner {
+    pointer-events:none; 
+    touch-action:none;
+    position: absolute;
+    width: 100%;
+    z-index: 30;
+    display: flex;
+    justify-content: space-between;
+    padding: 3.5rem 5.5rem 0 3.5rem;
+}
+.mapBanner__Buttons {
+    touch-action: auto;
+    pointer-events: all;
+}
+
+.storyMap {
+    width: 100%;
+    height: 25rem;
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: scroll;
+    max-width: 100%;
+}
+
+.storyMap__Item {
+    flex-shrink: 0;
+    width: 11rem;
+    height: 11rem;
+    border: 5px solid;
+    border-radius: 50rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--white);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.6rem;
+    margin-left: 9.5rem;
+    z-index: 1;
+}
+.storyMap__Item:first-of-type {
+    margin-left: 7.4rem;
+}
+
+.storyMap__Chapter {
+    margin-bottom: .5rem;
+}
+
+.storyMapLine {
+    flex-shrink: 0;
+    z-index: 0;
+    width: 15rem;
+    height: 2rem;
+    position: absolute;
 }

@@ -4,7 +4,7 @@ import Header from "../Header/Header.js";
 import GeneralButton from "../../../globalComponents/GeneralButton.js";
 import CHARACTERS from "../../../globalStyles/characters.js";
 import ErrorMessage from "../../../globalComponents/ErrorMessage.js";
-import COLORS from "../../../globalStyles/publicColors.js";
+import COLORS from "../../../A_userVariables/publicColors.js";
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
 
@@ -24,9 +24,10 @@ const NameRequest = (props) => {
     if(props.character.key === 0)props.characterChange({key: CHARACTERS.length-1, character: CHARACTERS[CHARACTERS.length-1]})
     else props.characterChange({key: props.character.key-1, character: CHARACTERS[props.character.key-1]})
   }
+  
   if(props.character === "")props.characterChange({key: 0, character: CHARACTERS[0]})
-
-  const checkStatus = () => (props.name.length < 3) ? setError([true, 'gelieve een naam in te geven van minimaal 3 tekens']) : props.nextFunction();
+  const handleSubmit = e => {e.preventDefault(); checkStatus()}
+  const checkStatus = () => (props.name.length < 3 || props.name.length > 10) ? setError([true, 'gelieve een naam in te geven tussen de 3 en 10 tekens']) : props.nextFunction();
 
 
   return useObserver( () => (
@@ -34,13 +35,14 @@ const NameRequest = (props) => {
     <Header Title={"Account maken"}/>
     
       <div className={style.mainContent}>
-        <form className={style.nameForm}>
+        <form onSubmit={handleSubmit} className={style.nameForm}>
           <label className={style.nameForm__label}>Kies een gebruikersnaam</label>
           <input
           className={style.nameForm__input}
           value={props.name}
           onChange={e => props.nameChange(e.currentTarget.value)}
-          type={"text"} />
+          type={"text"} 
+          />
 
           <label className={style.nameForm__label}>Kies een kleurtje</label>
           <div onClick={toggleColors} className={style.color} style={{backgroundColor: props.color}}> </div>

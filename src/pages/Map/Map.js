@@ -1,167 +1,70 @@
 import React from "react";
-import { renderToString } from 'react-dom/server'
 import { useObserver } from "mobx-react-lite";
 import style from "./Map.module.css";
 import { useStores } from "../../hooks/useStores";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  Annotation,
-  ZoomableGroup
-} from "react-simple-maps";
+import FullMap from "./mapComponents/FullMap.js";
+import RoundArrowButton from "../globalComponents/RoundArrowButton.js"
+import RoundHomeButton from "../globalComponents/RoundHomeButton.js"
 import COLORS from "../globalStyles/colors";
-import MARKERS from "./Markers.js";
-
-import ReactLogo from './Itally.svg';
-
-const geoUrl ="https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+import STORYLINE from "../A_userVariables/storyLine.js";
+import { useHistory } from "react-router-dom";
+import { ROUTES } from "../../consts";
 
 
 const Map = () => {
   const { uiStore } = useStores();
+  const history = useHistory();
 
+  console.log(uiStore.currentUser)
+  const handleClick = (e, geo) => {if(ROUTES[geo.properties.NAME])history.push(ROUTES[geo.properties.NAME])};
 
-
-  const markers = MARKERS;
-  const handleClick = (e, geo) => {
-    console.log(e.currentTarget);
-    //e.currentTarget.style.fill = "black";
-    console.log(geo.properties.NAME)
-  };
+  const beginAssignment = (country) => {history.push(ROUTES[`Task${country}`])}
 
   return useObserver(() => (
     <div className={style.content}>
       <div className={style.map}>
-                <ComposableMap
-                projection="geoAzimuthalEqualArea"
-                projectionConfig={{
-                  rotate: [-20.0, -52.0, 0],
-                  scale: 700
-                }} >
-                  <ZoomableGroup zoom={1}>
-                  <Geographies
-                    geography={geoUrl}
-                    fill="#D6D6DA"
-                    stroke="#FFFFFF"
-                    strokeWidth={0.5} >
-                    {({ geographies }) =>
-                      geographies.map(geo => (
-                        <Geography
-                          onClick={e => {handleClick(e, geo);}}
-                          key={geo.rsmKey}
-                          geography={geo}
-                          style={{
-                            default: {
-                              
-                              borderRadius:"12px", 
-                              outline: COLORS.blue,strokeWidth: 1, 
-                              stroke: COLORS.blue, 
-                              fill: geo.properties.NAME === 'France' ? COLORS.green : geo.properties.NAME === 'Spain' ? COLORS.red :geo.properties.NAME === 'Italy' ? COLORS.yellow :  COLORS.blueDark},
-                            hover: {
-                              fill: geo.properties.NAME === 'France' ? COLORS.green : geo.properties.NAME === 'Spain' ? COLORS.red :geo.properties.NAME === 'Italy' ? COLORS.yellow :  COLORS.blueDark,
-                              outline: "none",
-                              opacity: 0.7
-
-                            },
-                            pressed: {
-                              fill: geo.properties.NAME === 'France' ? COLORS.green : geo.properties.NAME === 'Spain' ? COLORS.red :geo.properties.NAME === 'Italy' ? COLORS.yellow :  COLORS.blueDark,
-                              outline: "none",
-                              opacity: 0.7
-                            }}}/>
-                      ))
-                    }
-                  </Geographies>
-                  {markers.map(({ name, coordinates, icon }) => (
-                    <Marker key={name} coordinates={coordinates}>
-                                <g
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                transform="translate(-15, -50)"
-                              >
-                      {icon.map(ic => {return ic})}
-                      </g>
-                    </Marker>
-                  ))}
-                </ZoomableGroup>
-              </ComposableMap>
-      
+        <FullMap function={handleClick}/>
       </div>
 
-      <img src={`./assets/illustraties/markers/Itally.svg`} alt={`Itally marker`}/>
+      <div className={style.mapBanner}>
+          <div className={style.mapBanner__Buttons}><RoundArrowButton onClick={() => {console.log('test')}}/></div>
+          <div className={style.mapBanner__Buttons}><RoundHomeButton onClick={() => {console.log('test')}}/></div>
+      </div>
+
+      <ul className={style.storyMap}>
+
+
+      {STORYLINE.map((key, index) => {
+                return ([
+                <li key={index} className={style.storyMap__Item}
+
+                  onClick={parseInt(uiStore.currentUser.chapter) === index+1 || parseInt(uiStore.currentUser.chapter) > index+1 ? () => beginAssignment(key.imageName) : null}
+                  style={{
+                    borderColor: parseInt(uiStore.currentUser.chapter) > index+1 ? COLORS.grey : parseInt(uiStore.currentUser.chapter) === index+1 ? COLORS.redDark : COLORS.white,
+                    backgroundImage: parseInt(uiStore.currentUser.chapter) > index+1 ? `url('/assets/flags/${key.imageName}.svg')` : 'none',}}
+                    >
+                  <p className={style.storyMap__Chapter} style={{color: key.contrastColor ? key.color ? key.color : COLORS.white : COLORS.black}}>{index+1}</p>
+                </li>,
+        
+                (index+1 < STORYLINE.length) && (uiStore.currentUser.chapter-STORYLINE.length <= STORYLINE.length-(index+1) )?
+                  (
+                  <li key={index+100} className={style.storyMapLine}
+                  style={{
+                    marginLeft: `${(18*index)+15}rem`
+                  }}
+                  >
+                  <svg width="178" height="10" viewBox="0 0 178 10"  xmlns="http://www.w3.org/2000/svg"> 
+                  <path style={{stroke: index+2 === uiStore.currentUser.chapter ? COLORS.redDark : COLORS.grey}} d="M173 5.00024L5 5.00024" stroke="white" strokeWidth="10" strokeLinecap="round" strokeDasharray="10 15"/> </svg>
+                  </li>
+                  )
+                  :
+                  ''
+              ])
+      })}
+
+      </ul>
     </div>
   ));
 };
 
 export default Map;
-
-
-/*
-
-
-
-                      <g
-                        fill="none"
-                        stroke="#FF5533"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        transform="translate(-12, -24)"
-                      >
-                        <circle cx="12" cy="10" r="3" />
-                        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-                      </g>
-                      <text
-                        textAnchor="middle"
-                        y={markerOffset}
-                        style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
-                      >
-                        {name}
-                      </text>
-
-
-const markers = [
-  {
-    markerOffset: -30,
-    name: "Buenos Aires",
-    coordinates: [-58.3816, -34.6037]
-  },
-  { markerOffset: 15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-  { markerOffset: 15, name: "Brasilia", coordinates: [-47.8825, -15.7942] },
-  { markerOffset: 15, name: "Santiago", coordinates: [-70.6693, -33.4489] },
-  { markerOffset: 15, name: "Bogota", coordinates: [-74.0721, 4.711] },
-  { markerOffset: 15, name: "Quito", coordinates: [-78.4678, -0.1807] },
-  { markerOffset: -30, name: "Georgetown", coordinates: [-58.1551, 6.8013] },
-  { markerOffset: -30, name: "Asuncion", coordinates: [-57.5759, -25.2637] },
-  { markerOffset: 15, name: "Paramaribo", coordinates: [-55.2038, 5.852] },
-  { markerOffset: 15, name: "Montevideo", coordinates: [-56.1645, -34.9011] },
-  { markerOffset: 15, name: "Caracas", coordinates: [-66.9036, 10.4806] },
-  { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
-];
-
-
-{markers.map(({ name, coordinates, markerOffset }) => (
-        <Marker key={name} coordinates={coordinates}>
-          <g
-            fill="none"
-            stroke="#FF5533"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            transform="translate(-12, -24)"
-          >
-            <circle cx="12" cy="10" r="3" />
-            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-          </g>
-          <text
-            textAnchor="middle"
-            y={markerOffset}
-            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
-          >
-            {name}
-          </text>
-        </Marker>
-      ))}
-*/
