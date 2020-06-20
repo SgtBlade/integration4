@@ -11,6 +11,7 @@ import AlternatiefTwo from "./TutorialSteps/AternatiefTwo.js";
 import StepOne from "./TutorialSteps/StepOne.js";
 import StepTwo from "./TutorialSteps/StepTwo.js";
 import StepThree from "./TutorialSteps/StepThree.js";
+import StepFour from "./TutorialSteps/StepFour.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../TutorialHeader/Header.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
@@ -171,11 +172,15 @@ const Tutorial = () => {
 
       case SCREEN.STAP4:
         return (
-          <Header
-            Title={"Return to CAMERAREQUEST"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.CAMERAREQUEST);
+          <StepFour
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP3);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP5);
             }}
           />
         );

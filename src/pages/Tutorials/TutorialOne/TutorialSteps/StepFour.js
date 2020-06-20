@@ -14,7 +14,7 @@ const MaterialenOne = (props) => {
       <Header
         Return={true}
         function={props.startFunction}
-        Title={`Stap 2`}
+        Title={`Stap 4`}
         fontSize={"5rem"}
       />
       <StepBack onClick={props.returnFunction} />
@@ -26,10 +26,10 @@ const MaterialenOne = (props) => {
           <div className={style.stepOne__soundbutton}>
             <PlayButton />
           </div>
-          <img src="../assets/illustraties/stappen/stap2.svg" alt="Stap 2" />
+          <img src="../assets/illustraties/stappen/stap4.svg" alt="Stap 4" />
         </div>
       </div>
-      <MaterialenNeeded materialen="materialen-stapTwee" />
+      <MaterialenNeeded materialen="materialen-stapVier" />
     </section>
   );
 };
