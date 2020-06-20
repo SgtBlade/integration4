@@ -10,9 +10,9 @@ const STORYLINE = [
         color: false
     },
     {
-        imageName: 'Itally',
+        imageName: 'Italy',
         dutchName: 'Italië',
-        assignments: ROUTES.itallyTutorial,
+        assignments: ROUTES.ItalyTutorial,
         contrastColor: false,
         color: false
     },

@@ -7,9 +7,9 @@ const ROUTES = {
   map: "/map",
   TaskFrance: "/Frankrijk/opdracht",
   TaskSpain: "/Spanje/opdracht",
-  TaskItally: "/Italië/opdracht",
+  TaskItaly: "/Italië/opdracht",
   Spain: "/Spanje",
-  Itally: "/Italië",
+  Italy: "/Italië",
   France: "/Frankrijk",
 };
 
