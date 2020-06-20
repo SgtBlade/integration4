@@ -11,6 +11,9 @@ const ROUTES = {
   Spain: "/Spanje",
   Italy: "/Italië",
   France: "/Frankrijk",
+  Friends: "/vrienden",
+  FriendRequests: "/vrienden/verzoeken",
+  FriendScan: "/vrienden/scannen",
 };
 
 export { ROUTES };

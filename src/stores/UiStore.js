@@ -79,12 +79,39 @@ class UiStore {
         store: this.rootStore.userStore,
         id: data.id,
         creationDate: data.creationDate
-      }))}
+      }))
+      this.getFriends();
+      this.getFriendRequests();
+    }
 
     } else {
       console.log(`No user is logged in`);
       this.setCurrentUser(undefined);
     }
+  };
+
+  getFriends = async () => {
+    const result = await this.userService.getFriendsByUser(
+      this.currentUser,
+      this.onFriendsChanged
+    );
+  };
+
+  onFriendsChanged = friend => {
+    const incomingFriend = friend;
+    this.rootStore.friendStore.addFriend(incomingFriend)
+  };
+
+  getFriendRequests = async () => {
+    const result = await this.userService.getFriendRequests(
+      this.currentUser,
+      this.onFriendRequestsChanged
+    );
+  };
+
+  onFriendRequestsChanged = request => {
+    const incomingRequest = request;
+    this.rootStore.friendStore.addFriendRequest(incomingRequest)
   };
 
   setCurrentUser(user) {
@@ -114,6 +141,7 @@ class UiStore {
 
       console.log(this.currentUser)
   }
+
 }
 
 decorate(UiStore, {
@@ -124,7 +152,7 @@ decorate(UiStore, {
   parentalConfirmation: observable,
   setParentalConfirmation: action,
   updateUser: action,
-  onAuthStateChanged: action
+  onAuthStateChanged: action,
 });
 
 export default UiStore;

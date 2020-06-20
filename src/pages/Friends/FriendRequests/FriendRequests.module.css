@@ -1,0 +1,142 @@
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--blue);
+    background-image: url("/assets/blobs/blob10-requestList.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+}
+
+
+.EmptyrequestList__item {
+    font-size: 3.6rem;
+    color: var(--greyLight);
+    margin-left: 2.3rem;
+}
+
+.NavigatorButtons {
+    padding: 4rem 5.5rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.requestList__ScrollbarFixer {
+    justify-self: flex-end;
+    background-color: white;
+    margin-top: 4rem;
+    width: 87.3rem;
+    height: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+
+
+    display: flex;
+    flex-flow: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1.7rem;
+
+    border-top-left-radius: 6.6rem;
+    border-top-right-radius: 6.6rem;
+    padding-top: 1.7rem;
+}
+
+.requestList {
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+}
+
+.requestList__item {
+    width: 76rem;
+    height: 11.5rem;
+    max-height: 11.5rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.15rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    border-bottom: solid 1px var(--greyLight);
+}
+
+.requestList__item__Image {
+    height: 9.15rem;
+    width: 9.15rem;
+    border-radius: 5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestList__item__Name {
+    font-size: 3.6rem;
+    margin-left: 2.8rem;
+}
+
+.request__buttonsWrapper {
+    margin-left: auto;
+}
+
+.request__buttonsWrapper img{
+    margin-left: 3.3rem;
+}
+
+
+.requestList::-webkit-scrollbar {
+    display: block;
+    width: 1.5rem;
+    height: 20rem;
+    border-radius: 2rem;
+}
+.requestList::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 2rem;
+}
+    
+.requestList::-webkit-scrollbar-thumb {
+    background-color: var(--greyLight);
+    border-radius: 2rem;
+    border-right: none;
+    border-left: none;
+}
+
+.requestList::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 2rem;
+}
+
+.requestList::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 3rem;
+}
+
+.requestList__Title {
+    display: flex;
+    color: var(--blueDark);
+    font-size: 5.3rem;
+    margin: 2.2rem;
+}
+
+.requestList__Title p{
+    margin-left: 2rem;
+}
+
+
+.EmptyrequestList {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

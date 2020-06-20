@@ -1,0 +1,13 @@
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--blue);
+    background-image: url("/assets/blobs/blob10-friendList.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+}

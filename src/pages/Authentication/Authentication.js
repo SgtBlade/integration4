@@ -1,14 +1,17 @@
 import React from "react";
-import Home from "../Home/Home.js";
-import Map from "../Map/Map.js";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { ROUTES } from "../../consts/index.js";
-import LoginForm from "./LoginForm.js";
-import style from "./Authentication.module.css";
 import { useStores } from "../../hooks/useStores";
 import { useObserver } from "mobx-react-lite";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { ROUTES } from "../../consts/index.js";
+
+import Home from "../Home/Home.js";
+import Map from "../Map/Map.js";
+import LoginForm from "./LoginForm.js";
+import style from "./Authentication.module.css";
 import Tutorial from "../Tutorials/TutorialOne/Tutorial.js";
-import { useHistory } from "react-router-dom";
+import Friends from "../Friends/Friends.js";
+import FriendRequests from "../Friends/FriendRequests/FriendRequests.js";
+import ScanFriend from "../Friends/ScanFriend/ScanFriend.js";
 
 const Authentication = () => { 
   const { uiStore } = useStores();
@@ -56,6 +59,36 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Map />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
+        <Route exact path={ROUTES.Friends}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Friends />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
+        <Route exact path={ROUTES.FriendRequests}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <FriendRequests />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
+        <Route exact path={ROUTES.FriendScan}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <ScanFriend />
             </>
           ) : (
             <Redirect to={ROUTES.login} />
