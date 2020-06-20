@@ -243,3 +243,26 @@
   display: flex;
   justify-content: center;
 }
+
+.boekje__content__stepFive {
+  padding-left: 0;
+}
+
+.stepFive__wrapper {
+  width: 50%;
+  display: grid;
+}
+
+.stepFive__content {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: 13rem;
+  padding-top: 7rem;
+}
+
+.stepFive__image {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+}
