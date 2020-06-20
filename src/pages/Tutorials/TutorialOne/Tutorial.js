@@ -13,6 +13,7 @@ import StepTwo from "./TutorialSteps/StepTwo.js";
 import StepThree from "./TutorialSteps/StepThree.js";
 import StepFour from "./TutorialSteps/StepFour.js";
 import StepFive from "./TutorialSteps/StepFive.js";
+import StepSix from "./TutorialSteps/StepSix.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import Header from "../TutorialHeader/Header.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
@@ -193,21 +194,25 @@ const Tutorial = () => {
               setCurrentScreen(SCREEN.START);
             }}
             returnFunction={() => {
-              setCurrentScreen(SCREEN.STAP3);
+              setCurrentScreen(SCREEN.STAP4);
             }}
             nextFunction={() => {
-              setCurrentScreen(SCREEN.STAP5);
+              setCurrentScreen(SCREEN.STAP6);
             }}
           />
         );
 
       case SCREEN.STAP6:
         return (
-          <Header
-            Title={"Return to CAMERAGRANTED"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.CAMERAGRANTED);
+          <StepSix
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP5);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP7);
             }}
           />
         );

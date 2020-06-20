@@ -14,35 +14,50 @@ const StepFive = (props) => {
       <Header
         Return={true}
         function={props.startFunction}
-        Title={`Stap 1`}
+        Title={`Stap 5`}
         fontSize={"5rem"}
       />
       <StepBack onClick={props.returnFunction} />
       <StepForward onClick={props.nextFunction} />
       <div className={style.boekje}>
-        <div className={`${style.boekje__content} ${style.boekje__content__stepFive}`}>
+        <div
+          className={`${style.boekje__content} ${style.boekje__content__stepFive}`}
+        >
           <div className={style.stepOne__soundbutton}>
             <PlayButton />
           </div>
 
           <div className={style.stepFive__wrapper}>
-            <div className={style.stepFive__content}>
-              <p className={`${style.alternatief__tekst} ${style.tekst__stappen}`}>4x</p>
+            <div
+              className={`${style.stepFive__content} ${style.stepFive__content__space}`}
+            >
+              <p
+                className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+              >
+                8x
+              </p>
             </div>
-            <img className={style.stepFive__image} src="../assets/illustraties/stappen/stap5-partOne.svg" alt="Stap 5" />
+            <img
+              className={`${style.stepFive__image} ${style.stepFive__image__moreSpace}`}
+              src="../assets/illustraties/stappen/stap5-partOne.svg"
+              alt="Stap 5"
+            />
           </div>
           <div className={style.stepFive__wrapper}>
             <div className={style.stepFive__content}>
               <p
                 className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
               >
-                4x
+                3x
               </p>
             </div>
-            <img className={style.stepFive__image} src="../assets/illustraties/stappen/stap5-partTwo.svg" alt="Stap 5" />
-         </div>
+            <img
+              className={style.stepFive__image}
+              src="../assets/illustraties/stappen/stap5-partTwo.svg"
+              alt="Stap 5"
+            />
+          </div>
         </div>
-        
       </div>
       <MaterialenNeeded materialen="materialen-stapVijf" />
     </section>

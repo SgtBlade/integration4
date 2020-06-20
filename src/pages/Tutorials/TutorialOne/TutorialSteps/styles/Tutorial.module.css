@@ -266,3 +266,16 @@
   justify-self: center;
   align-self: center;
 }
+
+.stepFive__image__moreSpace {
+  margin-left: 12rem;
+}
+
+.stepFive__content__space {
+  padding-top: 10rem;
+  padding-left: 10rem;
+}
+
+.boekje__content__stepCenter__lessPaddingLeft {
+  padding-left: 1rem;
+}
