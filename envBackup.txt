@@ -1,9 +1,0 @@
-REACT_APP_apiKey= "AIzaSyA2YzqTnYQo3mOzZx0EFsqiJ0OTXZPRnqc"
-REACT_APP_authDomain= "integration4backup.firebaseapp.com"
-REACT_APP_databaseURL= "https://integration4backup.firebaseio.com"
-REACT_APP_projectId= "integration4backup"
-REACT_APP_storageBucket= "integration4backup.appspot.com""
-REACT_APP_messagingSenderId= "1054751344013"
-REACT_APP_appId= "1:1054751344013:web:1f7804a174f367f6d1a9c4"
-REACT_APP_measurementId= "G-T7L9PHBLB9"
-HTTPS=true
