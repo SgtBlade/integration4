@@ -359,3 +359,60 @@
   grid-column: 1;
   grid-row: 1;
 }
+
+.fotoNemen {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+
+.uitlje__content__spraak__tekst__neemFoto {
+  width: 83%;
+  padding-left: 3.5rem;
+  color: white;
+}
+
+.stepTwelve__wrapper__uiltje__left {
+  left: 1.5rem;
+  right: auto;
+}
+
+.uitlje__content__button__neemFoto {
+  justify-self: flex-end;
+}
+
+.uiltje__content__neemFoto {
+  margin-top: 1rem;
+}
+
+.neemFoto__button {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+}
+
+.bevestigFoto {
+  height: 44rem;
+  width: 44rem;
+  background-color: var(--grey);
+}
+
+.boekje__content__stepCenter__bevestigFoto {
+  align-items: center;
+}
+
+.bevestigFoto__buttons {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.bevestigFoto__button {
+  margin: 0 0.5rem;
+}
