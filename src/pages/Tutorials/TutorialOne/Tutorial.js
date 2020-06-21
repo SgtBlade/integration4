@@ -21,7 +21,7 @@ import StepTen from "./TutorialSteps/StepTen.js";
 import StepEleven from "./TutorialSteps/StepEleven.js";
 import StepTwelve from "./TutorialSteps/StepTwelve.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
-import TutorialPicture from "./TutorialSteps/TutorialPicture.js";
+import TakePicture from "./TutorialSteps/TakePicture.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -316,7 +316,7 @@ const Tutorial = () => {
         );
       case SCREEN.PICTURE:
         return (
-          <TutorialPicture
+          <TakePicture
             startFunction={() => {
               setCurrentScreen(SCREEN.START);
             }}
