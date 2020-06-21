@@ -23,7 +23,7 @@ const StepNine = (props) => {
       />
       <StepBack onClick={props.returnFunction} />
       <StepForward onClick={props.nextFunction} />
-      <div className={style.boekje}>
+      <div className={`${style.boekje} ${style.boekje__nine}`}>
         <div
           className={`${style.boekje__content} ${style.boekje__content__stepCenter}`}
         >

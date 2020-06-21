@@ -5,6 +5,62 @@
   background-position: center 0.5rem;
 }
 
+.boekje__two {
+  background: url(/assets/illustraties/boek-stap2.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__three {
+  background: url(/assets/illustraties/boek-stap3.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__four {
+  background: url(/assets/illustraties/boek-stap4.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__five {
+  background: url(/assets/illustraties/boek-stap5.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__six {
+  background: url(/assets/illustraties/boek-stap6.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__seven {
+  background: url(/assets/illustraties/boek-stap7.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__eight {
+  background: url(/assets/illustraties/boek-stap8.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__nine {
+  background: url(/assets/illustraties/boek-stap9.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__ten {
+  background: url(/assets/illustraties/boek-stap10.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__eleven {
+  background: url(/assets/illustraties/boek-stap11.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+.boekje__twelve {
+  background: url(/assets/illustraties/boek-stap12.svg);
+  background-repeat: no-repeat;
+  background-position: center 0.5rem;
+}
+
 .boekje__content {
   width: 88.1rem;
   margin: auto;
