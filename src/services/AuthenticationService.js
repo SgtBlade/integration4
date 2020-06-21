@@ -9,7 +9,7 @@ class AuthService {
 
   login = async (email) => {
     const actionCodeSettings = {
-      url: 'https://migueldp.be',
+      url: 'https://migueldp.be/#/login',
       handleCodeInApp: true,
     };
 
