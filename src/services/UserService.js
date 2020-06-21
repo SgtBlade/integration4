@@ -122,6 +122,37 @@ class UserService {
     this.denyRequestById(user, fsUserObj.id)
     return fsUserObj;
   };
+
+  getAllRequestID = async user => {
+    const results = [];
+    const incomingData =  await this.db
+    .collection("kinderen")
+    .doc(user.email)
+    .collection("verzoeken")
+    .get();
+
+    for (const res of incomingData.docs) {
+      const user = res.data();
+      results.push(user.userID)
+    }
+
+    return results;
+  }
+
+  sendFriendRequest = async (currentUser, user) => {
+    const result = await this.getAllRequestID(user)
+    if(result.includes(currentUser.id))return [false, 'Je hebt deze vriend al een verzoek gestuurd']
+    else {
+      await this.db
+      .collection("kinderen")
+      .doc(user.email)
+      .collection("verzoeken")
+      .doc()
+      .withConverter(userConverter)
+      .set(currentUser);
+      return [true, 'Je vriendschaps verzoek is verstuurd'];
+    }
+  }
 }
 
 export default UserService;
