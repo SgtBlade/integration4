@@ -5,7 +5,6 @@ class User {
     this.id = id;
     this.name = name;
     this.creations = [];
-    this.friends = [];
     this.color = color;
     this.chapter = chapter;
     this.avatar = avatar;
@@ -36,6 +35,7 @@ class User {
   setColor(color) {
     this.color = color
   }
+
 }
 
 const userConverter = {

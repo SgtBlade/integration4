@@ -27,23 +27,20 @@ const Home = () => {
     console.log(uiStore.currentUser);
   };
 
-  console.log(uiStore.currentUser)
-
   return useObserver(() => (
     <>
       <div className={`${style.home__bg}`}>
         <div className={`${style.home__buttons}`}>
           <div className={`${style.home__buttons__friends}`}>
-          <img className={`${style.imageChosen}`} src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`} alt={"gekozen uiltje"}/>
-            <GeneralButton
-              onClick={logOut}
+          <img onClick={logOut} className={`${style.imageChosen}`} src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`} alt={"gekozen uiltje"}/>
+            <Link to={ROUTES.Friends}><GeneralButton
               icon="friends"
               backgroundColor="white"
               iconBackgroundColor={COLORS.grey}
               boxShadow={`0rem .5rem ${COLORS.greyLight}`}
               type="svg"
               text="Mijn vrienden"
-            />
+            /></Link>
             <p className={`${style.home__buttons__friends__total}`}>+5</p>
           </div>
           <div className={`${style.home__buttons__settings}`}>
