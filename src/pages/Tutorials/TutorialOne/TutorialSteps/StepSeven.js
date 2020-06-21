@@ -1,6 +1,7 @@
 import React from "react";
 import styleBg from "./styles/BackgroundProjectOne.module.css";
 import style from "./styles/Tutorial.module.css";
+import progress from "./styles/ProgressBarAnimation.module.css";
 import Header from "../../TutorialHeader/Header.js";
 import PlayButton from "../../../globalComponents/PlayButton.js";
 import StepBack from "../../TutorialComponents/ButtonStepBack/StepBack.js";
@@ -13,6 +14,9 @@ const StepSeven = (props) => {
     <section className={styleBg.container}>
       <Header
         Return={true}
+        Bar={true}
+        procent="58"
+        progress={progress.stapZeven}
         function={props.startFunction}
         Title={`Stap 7`}
         fontSize={"5rem"}

@@ -5,7 +5,13 @@ import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
 
 const Header = (props) => {
   return (
-    <div className={style.wrapperHead}>
+    <div
+      className={
+        props.Bar
+          ? `${style.wrapperHead} ${style.wrapperHead__special}`
+          : style.wrapperHead
+      }
+    >
       {props.Return ? (
         <div className={style.buttonWrap}>
           <RoundArrowButton onClick={props.function} />
@@ -22,6 +28,16 @@ const Header = (props) => {
         >
           {props.Title}
         </h1>
+      ) : (
+        ""
+      )}
+      {props.Bar ? (
+        <div className={style.wrapperHead__progressbar}>
+          <span
+            className={`${style.progressbar__progress} ${props.progress}`}
+          ></span>
+          <p className={style.progressbar__text}>{props.procent}%</p>
+        </div>
       ) : (
         ""
       )}

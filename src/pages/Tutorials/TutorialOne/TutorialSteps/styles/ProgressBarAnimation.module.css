@@ -1,0 +1,158 @@
+@keyframes stap1 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 3.6rem;
+  }
+}
+@keyframes stap2 {
+  0% {
+    width: 3.6rem;
+  }
+  100% {
+    width: 4.855rem;
+  }
+}
+@keyframes stap3 {
+  0% {
+    width: 4.855rem;
+  }
+  100% {
+    width: 10.224rem;
+  }
+}
+@keyframes stap4 {
+  0% {
+    width: 10.224rem;
+  }
+  100% {
+    width: 13.639rem;
+  }
+}
+@keyframes stap5 {
+  0% {
+    width: 13.639rem;
+  }
+  100% {
+    width: 17.578rem;
+  }
+}
+@keyframes stap6 {
+  0% {
+    width: 17.578rem;
+  }
+  100% {
+    width: 20.132rem;
+  }
+}
+@keyframes stap7 {
+  0% {
+    width: 20.132rem;
+  }
+  100% {
+    width: 23.005rem;
+  }
+}
+@keyframes stap8 {
+  0% {
+    width: 23.005rem;
+  }
+  100% {
+    width: 27.811rem;
+  }
+}
+@keyframes stap9 {
+  0% {
+    width: 27.811rem;
+  }
+  100% {
+    width: 31.178rem;
+  }
+}
+@keyframes stap10 {
+  0% {
+    width: 31.178rem;
+  }
+  100% {
+    width: 34.975rem;
+  }
+}
+@keyframes stap11 {
+  0% {
+    width: 34.975rem;
+  }
+  100% {
+    width: 37.858rem;
+  }
+}
+@keyframes stap12 {
+  0% {
+    width: 37.858rem;
+  }
+  100% {
+    width: 41.113rem;
+  }
+}
+
+.stapEen {
+  width: 3.6rem;
+  animation-name: stap1;
+  animation-duration: 1.5s;
+}
+
+.stapTwee {
+  width: 4.855rem;
+  animation-name: stap2;
+  animation-duration: 1.5s;
+}
+.stapDrie {
+  width: 10.224rem;
+  animation-name: stap3;
+  animation-duration: 1.5s;
+}
+.stapVier {
+  width: 13.639rem;
+  animation-name: stap4;
+  animation-duration: 1.5s;
+}
+.stapVijf {
+  width: 17.578rem;
+  animation-name: stap5;
+  animation-duration: 1.5s;
+}
+.stapZes {
+  width: 20.132rem;
+  animation-name: stap6;
+  animation-duration: 1.5s;
+}
+.stapZeven {
+  width: 23.005rem;
+  animation-name: stap7;
+  animation-duration: 1.5s;
+}
+.stapAcht {
+  width: 27.811rem;
+  animation-name: stap8;
+  animation-duration: 1.5s;
+}
+.stapNegen {
+  width: 31.178rem;
+  animation-name: stap9;
+  animation-duration: 1.5s;
+}
+.stapTien {
+  width: 34.975rem;
+  animation-name: stap10;
+  animation-duration: 1.5s;
+}
+.stapElf {
+  width: 37.858rem;
+  animation-name: stap11;
+  animation-duration: 1.5s;
+}
+.stapTwaalf {
+  width: 41.113rem;
+  animation-name: stap12;
+  animation-duration: 1.5s;
+}
