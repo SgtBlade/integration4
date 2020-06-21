@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useObserver } from "mobx-react-lite";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import style from "./Friends.module.css";
 import { useStores } from "../../hooks/useStores";
 import QRCode from "react-qr-code";
-import QrReader from "react-qr-reader";
 
 import RoundArrowButton from "../globalComponents/RoundArrowButton.js"
 import GeneralButton from "../globalComponents/GeneralButton";
@@ -19,6 +18,8 @@ const Friends = () => {
     const [warning, setWarning] = useState([false, null]);
     const toggleQR = () => largeQR ? setLargeQR(false) : setLargeQR(true);
     const toggleWarning = (data) => { warning[0] ? setWarning([false]) : setWarning([true, data]);}
+
+    console.log(uiStore.currentUser)
 
     return useObserver(() => (
         <div onClick={largeQR ? toggleQR : null} className={style.container}>
@@ -47,13 +48,13 @@ const Friends = () => {
             <div className={style.addFriendButtons}>
                 
                 <div className={style.addFriendButtons__buttonWrap}>
-                    <span onClick={toggleQR} className={style.addFriendButtons__buttonFrame}><QRCode size={120} value={`${uiStore.currentUser.userID}`}/></span>
+                    <span onClick={toggleQR} className={style.addFriendButtons__buttonFrame}><QRCode size={120} value={`${uiStore.currentUser.id}`}/></span>
                     <p className={style.addFriendButtons__label}>Jouw vriendecode</p>
                 </div>
 
                 <div className={style.addFriendButtons__buttonWrap}>
-                    <span className={`${style.addFriendButtons__buttonFrame} ${style.addFriendButtons__addIcon}`}><img src={"./assets/icons/addFriend.svg"} /></span>
-                    <p className={style.addFriendButtons__label}>Vrienden toevoegen</p>
+                    <Link to={ROUTES.FriendScan}><span className={`${style.addFriendButtons__buttonFrame} ${style.addFriendButtons__addIcon}`}><img src={"./assets/icons/addFriend.svg"} alt={"Vriend toevoegen icoon"}/></span>
+                    <p className={style.addFriendButtons__label}>Vrienden toevoegen</p></Link>
                 </div>
                 
             </div>
@@ -85,7 +86,7 @@ const Friends = () => {
         {largeQR ?
          (<div className={style.largeQRWrap}>
              <p className={style.largeQRInfo}>Laat je vrienden dit scannen</p>
-            <span className={style.largeQR}><QRCode size={460} value={`${uiStore.currentUser.userID}`}/></span>
+            <span className={style.largeQR}><QRCode size={460} value={`${uiStore.currentUser.id}`}/></span>
           </div>)
         :
         ''
@@ -111,44 +112,3 @@ const Friends = () => {
     };
 
 export default Friends;
-
-
-/*
-          <QrReader
-            delay={300}
-            onError={handleError}
-            onScan={handleScan}
-            style={{ width: "100%" }}
-          />
-
-
-          const testUsers = [
-          {
-            avatar: "dad",
-            color: "#36EA93",
-            name: "testUser12",
-            userID: "4123123"
-          },
-          {
-            avatar: "mom",
-            color: "#32EA93",
-            name: "LALALAND",
-          },
-          {
-            avatar: "pirate",
-            color: "#32EA93",
-            name: "LALALAND",
-          },
-          {
-            avatar: "regular",
-            color: "#32EA93",
-            name: "LALALAND",
-          },
-          {
-            avatar: "giggle",
-            color: "#32EA93",
-            name: "LALALAND",
-          }
-        ]
-
-*/

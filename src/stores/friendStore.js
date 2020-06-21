@@ -1,6 +1,5 @@
 import { decorate, action, observable } from "mobx";
 import UserService from "../services/UserService";
-import User from "../models/User";
 
 class FriendStore {
   constructor(rootStore) {
@@ -32,6 +31,17 @@ class FriendStore {
   acceptFriendRequest = async (mail) => {
     const result = await this.userService.addToFriendlist(this.rootStore.uiStore.currentUser, mail)
     this.requests.splice(this.requests.findIndex(item => item.id === result.id), 1)
+  }
+
+  findFriend = async (scannedID) => {
+    return await this.userService.getChildByID(scannedID);
+
+    /*
+    TODO::
+    -- If user == current user -> NOGO
+    -- If user == in requests -> ADD INSTANTLY
+    -- if user == in friends -> NOGO
+    */
   }
 
 }

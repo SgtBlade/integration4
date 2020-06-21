@@ -14,6 +14,19 @@ class UserService {
       .get();
   };
 
+  getChildByID = async (userId) => {
+    const usr = await this.db
+      .collectionGroup("kinderen")
+      .where("userID", "==", userId)
+      .withConverter(userConverter)
+      .get();
+
+    let user = false;
+    if(usr.docs[0].exists)user = await this.getChildByMail(usr.docs[0].id)
+    
+    return user.data();
+  };
+
   createUser = async user => {
     return await this.db
       .collection("kinderen")
@@ -24,7 +37,7 @@ class UserService {
 
   getFriendsByUser = async (user, onChange) => {
 
-    const contactsRef = this.db
+    this.db
       .collection("kinderen")
       .doc(user.email)
       .collection("vrienden")
@@ -41,7 +54,7 @@ class UserService {
 
   getFriendRequests = async (user, onChange) => {
 
-    const contactsRef = this.db
+    this.db
       .collection("kinderen")
       .doc(user.email)
       .collection("verzoeken")
@@ -49,8 +62,8 @@ class UserService {
       .onSnapshot(async snapshot => {
         snapshot.docChanges().forEach(async change => {
           if (change.type === "added") {
-            const messageObj = change.doc.data();
-            onChange(messageObj);
+            const requestObj = change.doc.data();
+            onChange(requestObj);
           }
         });
       });

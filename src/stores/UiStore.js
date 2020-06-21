@@ -91,7 +91,7 @@ class UiStore {
   };
 
   getFriends = async () => {
-    const result = await this.userService.getFriendsByUser(
+    await this.userService.getFriendsByUser(
       this.currentUser,
       this.onFriendsChanged
     );
@@ -103,7 +103,7 @@ class UiStore {
   };
 
   getFriendRequests = async () => {
-    const result = await this.userService.getFriendRequests(
+    await this.userService.getFriendRequests(
       this.currentUser,
       this.onFriendRequestsChanged
     );

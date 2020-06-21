@@ -6,10 +6,9 @@ import { useStores } from "../../hooks/useStores";
 import GeneralButton from "../globalComponents/GeneralButton";
 import COLORS from "../globalStyles/colors";
 import { ROUTES } from "../../consts";
-import { toJS } from "mobx";
 
 const Home = () => {
-  const { uiStore, friendStore } = useStores();
+  const { uiStore } = useStores();
 
   const logOut = () => {
     const fb = uiStore.firebase;

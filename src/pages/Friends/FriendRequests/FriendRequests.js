@@ -10,7 +10,7 @@ import { ROUTES } from "../../../consts";
 
 const FriendRequests = () => {
   
-    const {uiStore, friendStore} = useStores();
+    const {friendStore} = useStores();
 
     return useObserver(() => (
         <div className={style.container}>
@@ -21,7 +21,7 @@ const FriendRequests = () => {
             </div>
             
             <div className={style.requestList__ScrollbarFixer}>
-              <span className={style.requestList__Title}><img src={"/assets/icons/addFriendblue.svg"}/><p>Mijn verzoekjes</p></span>
+              <span className={style.requestList__Title}><img src={"/assets/icons/addFriendblue.svg"} alt={"Vriend toevoegen icoon"}/><p>Mijn verzoekjes</p></span>
               <ul className={`${style.requestList} ${friendStore.requests.length <= 0 ? style.EmptyrequestList : ''}`}>      
                   {friendStore.requests.length <= 0 ? 
                   <li className={style.EmptyrequestList__item}>Je hebt nog geen vriendschaps verzoekjes gekregen</li>
