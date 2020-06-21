@@ -53,8 +53,8 @@ const Friends = () => {
                 </div>
 
                 <div className={style.addFriendButtons__buttonWrap}>
-                    <Link to={ROUTES.FriendScan}><span className={`${style.addFriendButtons__buttonFrame} ${style.addFriendButtons__addIcon}`}><img src={"./assets/icons/addFriend.svg"} alt={"Vriend toevoegen icoon"}/></span>
-                    <p className={style.addFriendButtons__label}>Vrienden toevoegen</p></Link>
+                    <Link to={ROUTES.FriendScan}><span className={`${style.addFriendButtons__buttonFrame} ${style.addFriendButtons__addIcon}`}><img src={"./assets/icons/addFriend.svg"} alt={"Vriend toevoegen icoon"}/></span></Link>
+                    <p className={style.addFriendButtons__label}>Vrienden toevoegen</p>
                 </div>
                 
             </div>

@@ -34,8 +34,12 @@ class FriendStore {
   }
 
   findFriend = async (scannedID) => {
-    return await this.userService.getChildByID(scannedID);
-
+    const foundUser =  await this.userService.getChildByID(scannedID);
+    if(foundUser.id === this.rootStore.uiStore.currentUser.id)return [false, "Je kan jezelf niet toevoegen"]
+    else if(this.requests.find(request => request.id === foundUser.id)) return [true, `${foundUser.name} is toegevoegd aan je vriendenlijst`]
+    else if(this.friends.find(friend => friend.id === foundUser.id)) return [true, `${foundUser.name} zit al in je vriendenlijst`]
+    else return foundUser
+    
     /*
     TODO::
     -- If user == current user -> NOGO
@@ -43,6 +47,12 @@ class FriendStore {
     -- if user == in friends -> NOGO
     */
   }
+
+  sendFriendRequest = async (user) => {
+    const result = await this.userService.sendFriendRequest(this.rootStore.uiStore.currentUser, user)
+    return (result)
+  }
+  
 
 }
 decorate(FriendStore, {
