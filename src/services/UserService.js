@@ -44,9 +44,9 @@ class UserService {
       .withConverter(userConverter)
       .onSnapshot(async snapshot => {
         snapshot.docChanges().forEach(async change => {
-          if (change.type === "added") {
+          if (change.type === "added" || change.type === "removed") {
             const messageObj = change.doc.data();
-            onChange(messageObj);
+            onChange([change.type, messageObj]);
           }
         });
       });
@@ -85,9 +85,18 @@ class UserService {
           });
         });
     })
+
+    const friend = await this.getChildByID(userId)
+    this.db
+    .collection("kinderen")
+    .doc(friend.email)
+    .collection('vrienden')
+    .doc(currentUser.email)
+    .delete();
   };
 
   denyRequestById = async (currentUser, userId) => {
+    console.log(userId)
     this.db
     .collection("kinderen")
     .doc(currentUser.email)
@@ -105,22 +114,36 @@ class UserService {
     })
   };
 
-  addToFriendlist = async (user, friend) => {
-    const fsUser = await this.getChildByMail(friend);
-    const fsUserObj = fsUser.data();
+  addToFriendlist = async (currentUser, addedUserEmail) => {
+    const fsUser = await this.getChildByMail(addedUserEmail);
+    const addedUserObj = fsUser.data();
 
-    const contactsRef = this.db
+    //adding to your friendlist
+    const friendRef = this.db
       .collection("kinderen")
-      .doc(user.email)
+      .doc(currentUser.email)
       .collection("vrienden");
 
-    await contactsRef
-      .doc(fsUserObj.email)
+    await friendRef
+      .doc(addedUserObj.email)
       .withConverter(userConverter)
-      .set(fsUserObj);
+      .set(addedUserObj);
 
-    this.denyRequestById(user, fsUserObj.id)
-    return fsUserObj;
+    this.denyRequestById(currentUser, addedUserObj.id)
+
+    //adding to the other persons friendlist
+    const yourFriendRef = this.db
+      .collection("kinderen")
+      .doc(addedUserEmail)
+      .collection("vrienden");
+
+    await yourFriendRef
+      .doc(currentUser.email)
+      .withConverter(userConverter)
+      .set(currentUser);
+
+
+    return addedUserObj;
   };
 
   getAllRequestID = async user => {
@@ -153,6 +176,7 @@ class UserService {
       return [true, 'Je vriendschaps verzoek is verstuurd'];
     }
   }
+
 }
 
 export default UserService;

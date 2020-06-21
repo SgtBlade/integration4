@@ -8,7 +8,7 @@ import COLORS from "../globalStyles/colors";
 import { ROUTES } from "../../consts";
 
 const Home = () => {
-  const { uiStore } = useStores();
+  const { uiStore, friendStore } = useStores();
 
   const logOut = () => {
     const fb = uiStore.firebase;
@@ -41,7 +41,7 @@ const Home = () => {
               type="svg"
               text="Mijn vrienden"
             /></Link>
-            <p className={`${style.home__buttons__friends__total}`}>+5</p>
+            {friendStore.requests.length > 0 ? <p className={`${style.home__buttons__friends__total}`}>+{friendStore.requests.length}</p> : ''}
           </div>
           <div className={`${style.home__buttons__settings}`}>
             <GeneralButton

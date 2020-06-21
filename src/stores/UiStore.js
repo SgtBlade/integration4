@@ -98,8 +98,9 @@ class UiStore {
   };
 
   onFriendsChanged = friend => {
-    const incomingFriend = friend;
-    this.rootStore.friendStore.addFriend(incomingFriend)
+    const incomingFriend = friend[1];
+    if(friend[0] === 'removed') this.rootStore.friendStore.removeFriend(incomingFriend)
+    else this.rootStore.friendStore.addFriend(incomingFriend)
   };
 
   getFriendRequests = async () => {

@@ -25,25 +25,46 @@ const Friends = () => {
         <div onClick={largeQR ? toggleQR : null} className={style.container}>
 
             <div className={style.NavigatorButtons}>
-                <Link to={ROUTES.home}><RoundArrowButton/></Link>
-                <Link className={style.button_requests} to={ROUTES.FriendRequests}><GeneralButton
-                onClick={() =>{}}
-                icon="mailOpen"
-                buttonWidth={"27rem"}
-                backgroundColor="white"
-                iconBackgroundColor={COLORS.grey}
-                boxShadow={`0rem .5rem ${COLORS.greyLight}`}
-                type="svg"
-                text="Verzoeken"
-                />
                 
-                {friendStore.requests.length > 0 ?
-                <p className={style.button__requestsCount}>{friendStore.requests.length}</p>
+                {largeQR ?
+                <>
+                    <RoundArrowButton onClick={toggleQR}/>
+                    <Link to={ROUTES.Friends} className={style.button_requests}><GeneralButton
+                    onClick={() =>{}}
+                    icon="share"
+                    buttonWidth={"27rem"}
+                    backgroundColor="white"
+                    iconBackgroundColor={COLORS.grey}
+                    boxShadow={`0rem .5rem ${COLORS.greyLight}`}
+                    type="svg"
+                    text="Deel via mail"
+                    />
+                    </Link>
+                </>
                 :
-                ''
+                <>
+                    <Link to={ROUTES.home}><RoundArrowButton/></Link>
+                    <Link className={style.button_requests} to={ROUTES.FriendRequests}><GeneralButton
+                    onClick={() =>{}}
+                    icon="mailOpen"
+                    buttonWidth={"27rem"}
+                    backgroundColor="white"
+                    iconBackgroundColor={COLORS.grey}
+                    boxShadow={`0rem .5rem ${COLORS.greyLight}`}
+                    type="svg"
+                    text="Verzoeken"
+                    />
+                    
+                    {friendStore.requests.length > 0 ?
+                    <p className={style.button__requestsCount}>{friendStore.requests.length}</p>
+                    :
+                    ''
+                    }
+                    
+                    </Link>
+                </>
                 }
                 
-                </Link>
             </div>
             <div className={style.addFriendButtons}>
                 
@@ -86,7 +107,7 @@ const Friends = () => {
         {largeQR ?
          (<div className={style.largeQRWrap}>
              <p className={style.largeQRInfo}>Laat je vrienden dit scannen</p>
-            <span className={style.largeQR}><QRCode size={460} value={`${uiStore.currentUser.id}`}/></span>
+            <span className={style.largeQR}><QRCode size={440} value={`${uiStore.currentUser.id}`}/></span>
           </div>)
         :
         ''
