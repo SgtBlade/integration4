@@ -27,11 +27,11 @@ const TutorialStart = (props) => {
         <div className={style.nextButton}>
           <GeneralButton
             buttonWidth={"34.5rem"}
-            fontSize={"3.6rem"}
+            fontSize={"2.8rem"}
             onClick={props.nextFunction}
             icon="play"
             type="svg"
-            text="Materialen"
+            text="Begin knutselen"
           />
         </div>
       </div>

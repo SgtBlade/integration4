@@ -73,7 +73,7 @@
 }
 
 .boekje__content__wrapper__second {
-  background: url(/assets/illustraties/uiltjePointing-tutorial.svg);
+  background: url(/assets/illustraties/uiltjePointing-tutorial2.svg);
   background-repeat: no-repeat;
   background-size: 42%;
   background-position: 19rem 25rem;
@@ -164,6 +164,10 @@
 
 .tekst__red {
   color: var(--red);
+}
+
+.tekst__orange {
+  color: var(--orange);
 }
 
 .alternatief__content {
@@ -278,4 +282,80 @@
 
 .boekje__content__stepCenter__lessPaddingLeft {
   padding-left: 1rem;
+}
+
+.stepTwelve__wrapper {
+  width: 50%;
+  padding: 3rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepTwelve__tekst {
+  font-size: 4.6rem;
+}
+.stepTwelve__options {
+  display: flex;
+}
+
+.stepTwelve__titel {
+  font-size: 4.6rem;
+  margin-bottom: 5rem;
+}
+
+.stepTwelve__wrapper__partTwo {
+  justify-content: flex-start;
+}
+
+.stepTwelve__option {
+  padding: 2.5rem;
+  padding-top: 0;
+}
+
+.stepTwelve__wrapper__uiltje {
+  position: fixed;
+  bottom: 0;
+  right: 1.5rem;
+  display: flex;
+}
+
+.uitlje__content__spraak__tekst {
+  width: 60%;
+  font-size: 1.8rem;
+}
+
+.uiltje__content {
+  display: grid;
+  margin-top: 5rem;
+  width: 31rem;
+  height: 13rem;
+}
+
+.uiltje__wrapper {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.uitlje__content__spraak {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.uitlje__content__spraak__image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.uitlje__content__spraak__tekst {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.uitlje__content__button {
+  grid-column: 1;
+  grid-row: 1;
 }
