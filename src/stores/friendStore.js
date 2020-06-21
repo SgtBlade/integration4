@@ -11,8 +11,7 @@ class FriendStore {
 
 
   deleteFriend = async (id) => {
-    this.userService.deleteFriendById(this.rootStore.uiStore.currentUser, id)
-    this.friends.splice(this.friends.findIndex(item => item.id === id), 1)
+    this.userService.deleteFriendById(this.rootStore.uiStore.currentUser, id);
   }
 
   addFriend(friend) {
@@ -36,7 +35,10 @@ class FriendStore {
   findFriend = async (scannedID) => {
     const foundUser =  await this.userService.getChildByID(scannedID);
     if(foundUser.id === this.rootStore.uiStore.currentUser.id)return [false, "Je kan jezelf niet toevoegen"]
-    else if(this.requests.find(request => request.id === foundUser.id)) return [true, `${foundUser.name} is toegevoegd aan je vriendenlijst`]
+    else if(this.requests.find(request => request.id === foundUser.id)) {
+      this.acceptFriendRequest(foundUser.email)
+      return [true, `${foundUser.name} is toegevoegd aan je vriendenlijst`]
+    }
     else if(this.friends.find(friend => friend.id === foundUser.id)) return [true, `${foundUser.name} zit al in je vriendenlijst`]
     else return foundUser
     
@@ -53,6 +55,9 @@ class FriendStore {
     return (result)
   }
   
+  removeFriend = (friend) =>  {
+    if(friend.id !== this.rootStore.uiStore.currentUser.id) this.friends.splice(this.friends.findIndex(item => item.id === friend.id), 1);
+  }
 
 }
 decorate(FriendStore, {
