@@ -14,8 +14,14 @@ import StepThree from "./TutorialSteps/StepThree.js";
 import StepFour from "./TutorialSteps/StepFour.js";
 import StepFive from "./TutorialSteps/StepFive.js";
 import StepSix from "./TutorialSteps/StepSix.js";
+import StepSeven from "./TutorialSteps/StepSeven.js";
+import StepEight from "./TutorialSteps/StepEight.js";
+import StepNine from "./TutorialSteps/StepNine.js";
+import StepTen from "./TutorialSteps/StepTen.js";
+import StepEleven from "./TutorialSteps/StepEleven.js";
+import StepTwelve from "./TutorialSteps/StepTwelve.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
-import Header from "../TutorialHeader/Header.js";
+import TutorialPicture from "./TutorialSteps/TutorialPicture.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 //import { ROUTES } from "../../consts";
@@ -40,6 +46,8 @@ const Tutorial = () => {
     STAP10: "STAP10",
     STAP11: "STAP11",
     STAP12: "STAP12",
+    PICTURE: "PICTURE",
+    PICTURECONFIRM: "PICTURECONFIRM",
   };
   const [currentScreen, setCurrentScreen] = useState("");
 
@@ -219,66 +227,115 @@ const Tutorial = () => {
 
       case SCREEN.STAP7:
         return (
-          <Header
-            Title={"Return to MAILSENT"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.EMAILSCREEN);
+          <StepSeven
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP6);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP8);
             }}
           />
         );
 
       case SCREEN.STAP8:
         return (
-          <Header
-            Title={"Return to EMAILSCREEN"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.MAILSENT);
+          <StepEight
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP7);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP9);
             }}
           />
         );
 
       case SCREEN.STAP9:
         return (
-          <Header
-            Title={"Return to MAILSENT"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.FIRSTLOGIN);
+          <StepNine
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP8);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP10);
             }}
           />
         );
 
       case SCREEN.STAP10:
         return (
-          <Header
-            Title={"Return to FIRSTLOGIN"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.NAMEREQUEST);
+          <StepTen
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP9);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP11);
             }}
           />
         );
 
       case SCREEN.STAP11:
         return (
-          <Header
-            Title={"Return to FIRSTLOGIN"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.NAMEREQUEST);
+          <StepEleven
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP10);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.STAP12);
             }}
           />
         );
 
       case SCREEN.STAP12:
         return (
-          <Header
-            Title={"Return to FIRSTLOGIN"}
-            Return={true}
-            function={() => {
-              setCurrentScreen(SCREEN.NAMEREQUEST);
+          <StepTwelve
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP10);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.PICTURE);
+            }}
+          />
+        );
+      case SCREEN.PICTURE:
+        return (
+          <TutorialPicture
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP12);
+            }}
+            nextFunction={() => {
+              setCurrentScreen(SCREEN.PICTURECONFIRM);
+            }}
+          />
+        );
+      case SCREEN.PICTURECONFIRM:
+        return (
+          <StepTwelve
+            startFunction={() => {
+              setCurrentScreen(SCREEN.START);
+            }}
+            returnFunction={() => {
+              setCurrentScreen(SCREEN.STAP10);
             }}
           />
         );
