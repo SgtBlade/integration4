@@ -5,21 +5,21 @@ const STORYLINE = [
     {
         imageName: 'France',
         dutchName: 'Frankrijk',
-        assignments: ROUTES.frankrijkTutorial,
+        assignments: ROUTES.TaskFrance,
         contrastColor: false,
         color: false
     },
     {
         imageName: 'Italy',
         dutchName: 'Italië',
-        assignments: ROUTES.ItalyTutorial,
+        assignments: ROUTES.TaskSpain,
         contrastColor: false,
         color: false
     },
     {
         imageName: 'Spain',
         dutchName: 'Spanje',
-        assignments: ROUTES.spanjeTutorial,
+        assignments: ROUTES.TaskItaly,
         contrastColor: false,
         color: false
     },
