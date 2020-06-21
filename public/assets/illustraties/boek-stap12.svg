@@ -11,6 +11,8 @@
 <path d="M58.5 19C58.5 16.5147 60.5147 14.5 63 14.5H430.5V524.5H63C60.5147 524.5 58.5 522.485 58.5 520V19Z" fill="white" stroke="#E6E6E6"/>
 <path d="M451.5 14.5H849C851.485 14.5 853.5 16.5147 853.5 19V520C853.5 522.485 851.485 524.5 849 524.5H451.5V14.5Z" fill="white" stroke="#E6E6E6"/>
 <rect x="431" y="14" width="20" height="511" fill="#E6E6E6"/>
+<path d="M68.5879 14.5056H431.088V524.506H68.5879C66.1026 524.506 64.0879 522.491 64.0879 520.006V19.0056C64.0879 16.5203 66.1026 14.5056 68.5879 14.5056Z" fill="white" stroke="#E6E6E6"/>
+<path d="M74.2285 14.5056H431.088V524.506H74.2285C71.7432 524.506 69.7285 522.491 69.7285 520.006V19.0056C69.7285 16.5203 71.7432 14.5056 74.2285 14.5056Z" fill="white" stroke="#E6E6E6"/>
 <defs>
 <filter id="filter0_d" x="0" y="0" width="881" height="547" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
