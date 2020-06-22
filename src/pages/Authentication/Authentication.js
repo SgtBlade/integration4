@@ -45,7 +45,7 @@ const Authentication = () => {
           )}
         </Route>
 
-        <Route exact path={ROUTES.tutorialone}>
+        <Route exact path={ROUTES.TaskFrance}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Tutorial />

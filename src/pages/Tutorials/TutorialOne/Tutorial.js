@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Resizer from 'react-image-file-resizer';
 import style from "./Tutorial.module.css";
 // import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
 // import Welcome from "./LoginSequence/Welcome/Welcome.js";
@@ -50,7 +51,30 @@ const Tutorial = () => {
     PICTURE: "PICTURE",
     PICTURECONFIRM: "PICTURECONFIRM",
   };
-  const [currentScreen, setCurrentScreen] = useState("");
+  const [currentScreen, setCurrentScreen] = useState();
+  const [picture, setPicture] = useState(false);
+
+  const handleChangePhotoFileInput = e => {
+    const target = e.currentTarget;
+    const file = target.files.item(0);
+    if (!file.type.startsWith("image/")) {
+      alert("File is not an image");
+      return;
+    }else{
+      if(currentScreen === SCREEN.PICTURE)setCurrentScreen(SCREEN.PICTURECONFIRM)
+      Resizer.imageFileResizer(
+        file,
+        440,
+        440,
+        'JPEG',
+        80,
+        0,
+        uri => {setPicture(uri)},
+        'base64'
+    );
+    }
+  }
+
 
   const returnScreen = () => {
     switch (currentScreen) {
@@ -318,6 +342,9 @@ const Tutorial = () => {
       case SCREEN.PICTURE:
         return (
           <TakePicture
+
+            setPicture={setPicture}
+            photoInput={handleChangePhotoFileInput}
             returnFunction={() => {
               setCurrentScreen(SCREEN.STAP12);
             }}
@@ -329,6 +356,9 @@ const Tutorial = () => {
       case SCREEN.PICTURECONFIRM:
         return (
           <PictureConfirm
+            photoInput={handleChangePhotoFileInput}
+            setPicture={setPicture}
+            picture={picture}
             returnFunction={() => {
               setCurrentScreen(SCREEN.PICTURE);
             }}

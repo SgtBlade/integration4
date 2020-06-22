@@ -4,6 +4,7 @@ import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
 import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
 
 const Header = (props) => {
+
   return (
     <div
       className={

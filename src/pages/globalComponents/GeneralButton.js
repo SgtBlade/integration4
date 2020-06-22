@@ -23,7 +23,7 @@ const GeneralButton = (props) => {
       <div>
         <img
           className={`${style.buttonYellowIcon}`}
-          src={`./assets/icons/${props.icon}.${props.type}`}
+          src={`/assets/icons/${props.icon}.${props.type}`}
           alt="icon"
           style={{
             backgroundColor: props.iconBackgroundColor

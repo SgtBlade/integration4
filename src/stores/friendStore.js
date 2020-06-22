@@ -41,13 +41,6 @@ class FriendStore {
     }
     else if(this.friends.find(friend => friend.id === foundUser.id)) return [true, `${foundUser.name} zit al in je vriendenlijst`]
     else return foundUser
-    
-    /*
-    TODO::
-    -- If user == current user -> NOGO
-    -- If user == in requests -> ADD INSTANTLY
-    -- if user == in friends -> NOGO
-    */
   }
 
   sendFriendRequest = async (user) => {

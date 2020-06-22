@@ -2,7 +2,6 @@ import { decorate, observable, action } from "mobx";
 import AuthService from "../services/AuthenticationService";
 import UserService from "../services/UserService";
 import User from "../models/User";
-
 class UiStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -10,6 +9,7 @@ class UiStore {
     this.currentUser = undefined;
     this.cameraPermission = false;
     this.parentalConfirmation = false;
+    this.uploadState = false;
     this.authService = new AuthService( this.rootStore.firebase, this.onAuthStateChanged);
     this.userService = new UserService(this.rootStore.firebase);
   }
@@ -56,7 +56,7 @@ class UiStore {
             id: user.uid,
             name: user.displayName,
             email: user.email,
-            store: this.rootStore.userStore,
+            store: this.rootStore,
             avatar: user.photoURL
           })
         );
@@ -64,7 +64,7 @@ class UiStore {
         id: user.uid,
         name: user.displayName,
         email: user.email,
-        store: this.rootStore.userStore,
+        store: this.rootStore,
         avatar: user.photoURL
       }))
       }
@@ -76,7 +76,7 @@ class UiStore {
         chapter: data.chapter,
         avatar: data.avatar,
         color: data.color,
-        store: this.rootStore.userStore,
+        store: this.rootStore,
         id: data.id,
         creationDate: data.creationDate
       }))
@@ -137,12 +137,27 @@ class UiStore {
         color: color,
         id: this.currentUser.id,
         creationDate: this.currentUser.creationDate,
-        store: this.rootStore.userStore,
+        store: this.rootStore,
       }));
 
       console.log(this.currentUser)
   }
 
+  uploadImage = async (country, file) => {
+    this.setUploadState(true);
+    this.userService.addImageToStorage(this.currentUser,country, file, this.setUploadState);
+  }
+
+  setUploadState = newState => this.uploadState = newState;
+
+  updateChapter = async (unlockedChapter) => {
+    if(unlockedChapter-1 === this.currentUser.chapter){
+      await this.userService.updateUserChapter(this.currentUser, unlockedChapter); 
+      this.currentUser.setChapter(unlockedChapter)
+      return true
+    }
+    else return true
+  }
 }
 
 decorate(UiStore, {
@@ -154,6 +169,8 @@ decorate(UiStore, {
   setParentalConfirmation: action,
   updateUser: action,
   onAuthStateChanged: action,
+  uploadState: observable,
+  setUploadState: action
 });
 
 export default UiStore;
