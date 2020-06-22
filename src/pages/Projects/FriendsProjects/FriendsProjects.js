@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "../Projects.module.css";
+import style from "../styles/Projects.module.css";
 //import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
 //import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
 import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 
-const FrankrijkHeader = (props) => {
+const FriendsProjects = (props) => {
   return (
     <section className={style.container}>
-      <ProjectsHeader />
+      <ProjectsHeader image="verfborstel-blackSoft" link={ROUTES.France} />
       <div className={style.toggle}>
         <div className={style.toggle__wrapper}>
           <div className={`${style.toggle__background}`}></div>
@@ -35,7 +35,7 @@ const FrankrijkHeader = (props) => {
           <h2 className={style.piece__title}>West-Europa 1/6</h2>
           <div className={style.piece__wrapper}>
             <Link
-              to={ROUTES.FriendsProjectsDetail}
+              to={ROUTES.FriendsProjectsOverview}
               className={style.piece__box}
             >
               <div className={style.layer}>
@@ -115,4 +115,4 @@ const FrankrijkHeader = (props) => {
   );
 };
 
-export default FrankrijkHeader;
+export default FriendsProjects;
