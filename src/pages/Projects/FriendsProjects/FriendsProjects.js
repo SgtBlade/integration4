@@ -1,9 +1,9 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import style from "../Projects.module.css";
 //import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
 //import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
-//import { ROUTES } from "../../../consts";
+import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 
 const FrankrijkHeader = (props) => {
@@ -30,92 +30,87 @@ const FrankrijkHeader = (props) => {
           />
         </div>
       </div>
-
-      <article className={style.piece}>
-        <h2 className={style.piece__title}>West-Europa 1/6</h2>
-        <div className={style.piece__wrapper}>
-          <div className={style.piece__box}>
-            <section className={style.piece__titleBox}>
-              <h3 className={style.piece__titleBox__title}>
-                iffeltoren
-                <span className={style.piece__titleBox__title__part}>
-                  Frankrijk
-                </span>
-              </h3>
-            </section>
-            <div className={style.piece__content}>
-              <img
-                className={style.piece__content__image}
-                src="../assets/illustraties/eiffeltoren.svg"
-                alt="eiffeltoren"
-              />
+      <div className={style.wrapper}>
+        <article className={style.piece}>
+          <h2 className={style.piece__title}>West-Europa 1/6</h2>
+          <div className={style.piece__wrapper}>
+            <Link
+              to={ROUTES.FriendsProjectsDetail}
+              className={style.piece__box}
+            >
+              <div className={style.layer}>
+                <img src="../assets/illustraties/slotje.svg" alt="icon" />
+                <div className={style.piece__friends}>
+                  <img src="../assets/icons/friends-white.svg" alt="icon" />
+                </div>
+              </div>
+              <section className={style.piece__titleBox}>
+                <h3 className={style.piece__titleBox__title}>
+                  iffeltoren
+                  <span className={style.piece__titleBox__title__part}>
+                    Frankrijk
+                  </span>
+                </h3>
+              </section>
+              <div className={style.piece__content}>
+                <img
+                  className={style.piece__content__image}
+                  src="../assets/illustraties/eiffeltoren.svg"
+                  alt="eiffeltoren"
+                />
+              </div>
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
+            </Link>
+            <div
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie}`}
+            >
+              <img src="../assets/illustraties/slotje.svg" alt="icon" />
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
             </div>
-            <div className={style.piece__friends}>
-              <img src="../assets/icons/friends-white.svg" alt="icon" />
-            </div>
-          </div>
-          <div className={style.piece__box}>
-            <section className={style.piece__titleBox}>
-              <h3 className={style.piece__titleBox__title}>
-                iffeltoren
-                <span className={style.piece__titleBox__title__part}>
-                  Frankrijk
-                </span>
-              </h3>
-            </section>
-            <div className={style.piece__content}>
-              <img
-                className={style.piece__content__image}
-                src="../assets/illustraties/eiffeltoren.svg"
-                alt="eiffeltoren"
-              />
-            </div>
-            <div className={style.piece__friends}>
-              <img src="../assets/icons/friends-white.svg" alt="icon" />
-            </div>
-          </div>
-          <div className={style.piece__box}>
-            <section className={style.piece__titleBox}>
-              <h3 className={style.piece__titleBox__title}>
-                iffeltoren
-                <span className={style.piece__titleBox__title__part}>
-                  Frankrijk
-                </span>
-              </h3>
-            </section>
-            <div className={style.piece__content}>
-              <img
-                className={style.piece__content__image}
-                src="../assets/illustraties/eiffeltoren.svg"
-                alt="eiffeltoren"
-              />
-            </div>
-            <div className={style.piece__friends}>
-              <img src="../assets/icons/friends-white.svg" alt="icon" />
+            <div
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+            >
+              <img src="../assets/illustraties/slotje.svg" alt="icon" />
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
             </div>
           </div>
-          <div className={style.piece__box}>
-            <section className={style.piece__titleBox}>
-              <h3 className={style.piece__titleBox__title}>
-                iffeltoren
-                <span className={style.piece__titleBox__title__part}>
-                  Frankrijk
-                </span>
-              </h3>
-            </section>
-            <div className={style.piece__content}>
-              <img
-                className={style.piece__content__image}
-                src="../assets/illustraties/eiffeltoren.svg"
-                alt="eiffeltoren"
-              />
+        </article>
+        <article className={style.piece}>
+          <h2 className={style.piece__title}>Benelux 1/3</h2>
+          <div className={style.piece__wrapper}>
+            <div
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+            >
+              <img src="../assets/illustraties/slotje.svg" alt="icon" />
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
             </div>
-            <div className={style.piece__friends}>
-              <img src="../assets/icons/friends-white.svg" alt="icon" />
+            <div
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie}`}
+            >
+              <img src="../assets/illustraties/slotje.svg" alt="icon" />
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
+            </div>
+            <div
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+            >
+              <img src="../assets/illustraties/slotje.svg" alt="icon" />
+              <div className={style.piece__friends}>
+                <img src="../assets/icons/friends-white.svg" alt="icon" />
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </section>
   );
 };

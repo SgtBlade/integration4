@@ -12,7 +12,8 @@ const ROUTES = {
   Friends: "/vrienden",
   FriendRequests: "/vrienden/verzoeken",
   FriendScan: "/vrienden/scannen",
-  FriendsProjects: "/werkjes/vrienden",
+  FriendsProjects: "/projecten/vrienden",
+  FriendsProjectsDetail: "/projecten/vrienden/werkjes",
 };
 
 export { ROUTES };
