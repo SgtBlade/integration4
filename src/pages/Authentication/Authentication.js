@@ -13,6 +13,7 @@ import Friends from "../Friends/Friends.js";
 import FriendRequests from "../Friends/FriendRequests/FriendRequests.js";
 import ScanFriend from "../Friends/ScanFriend/ScanFriend.js";
 import Frankrijk from "../PlayAgain/Frankrijk";
+import Postcards from "../Postcards/Postcards";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -106,6 +107,16 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Frankrijk />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
+        <Route exact path={ROUTES.Postcards}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Postcards />
             </>
           ) : (
             <Redirect to={ROUTES.login} />

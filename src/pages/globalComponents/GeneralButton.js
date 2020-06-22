@@ -18,6 +18,7 @@ const GeneralButton = (props) => {
           ? props.boxShadow
           : `0rem .5rem ${COLORS.yellowShadow}`,
         width: props.buttonWidth ? props.buttonWidth : "40rem",
+        height: props.buttonHeight ? props.buttonHeight : "auto",
       }}
     >
       <div>

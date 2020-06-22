@@ -1,0 +1,13 @@
+
+
+.headerWrapper {
+    padding: 3.4rem 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    color: var(--white);
+    font-size: 4.8rem;
+  
+  }

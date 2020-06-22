@@ -7,21 +7,24 @@ const STORYLINE = [
         dutchName: 'Frankrijk',
         assignments: ROUTES.TaskFrance,
         contrastColor: false,
-        color: false
+        color: false,
+        continent: 'Europe'
     },
     {
         imageName: 'Italy',
         dutchName: 'Italië',
         assignments: ROUTES.TaskSpain,
         contrastColor: false,
-        color: false
+        color: false,
+        continent: 'Europe'
     },
     {
         imageName: 'Spain',
         dutchName: 'Spanje',
         assignments: ROUTES.TaskItaly,
         contrastColor: false,
-        color: false
+        color: false,
+        continent: 'Europe'
     },
 
 ]

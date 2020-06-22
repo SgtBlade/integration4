@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  background-image: url("/assets/blobs/postcards.svg");
+  background-size: 100% auto;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.header {
+  width: 100%;
+}
+.mainContent {
+  width: 100%;
+  height: 100%;
+}
+
+
+.extraClass {
+  background-image: url("/assets/blobs/sendPostcard.svg");
+}
