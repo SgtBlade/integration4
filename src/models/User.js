@@ -4,19 +4,11 @@ class User {
   constructor({ id = v4(), name, color = "", chapter = 0, store = null, avatar = "", email, creationDate = Date.now() }) {
     this.id = id;
     this.name = name;
-    this.creations = [];
     this.color = color;
     this.chapter = chapter;
     this.avatar = avatar;
     this.creationDate = creationDate;
     this.store = store;
-    /*
-    if (!store) {
-      throw new Error("voorzie een store");
-    }
-    this.store = store;
-    this.store.addUser(this);
-    */
     this.email = email;
   }
 
@@ -35,6 +27,8 @@ class User {
   setColor(color) {
     this.color = color
   }
+
+  setChapter(number){this.chapter = number}
 
 }
 

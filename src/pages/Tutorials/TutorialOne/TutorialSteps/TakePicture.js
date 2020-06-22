@@ -7,8 +7,17 @@ import COLORS from "../../../globalStyles/colors";
 import GeneralButton from "../../../globalComponents/GeneralButton";
 
 const TakePicture = (props) => {
+
+  let  inputFileRef = null;
+
+  const handleChangePhotoButton = e => {
+    e.preventDefault();
+    inputFileRef.click();
+  };
+
   return (
     <section className={styleBg.container}>
+
       <Header
         Return={true}
         function={props.returnFunction}
@@ -56,8 +65,17 @@ const TakePicture = (props) => {
             />
           </div>
         </div>
-        <div onClick={props.nextFunction} className={style.neemFoto__button}>
+        <div className={style.neemFoto__button}>
+
+            <input
+              onChange={props.photoInput}
+              ref={input => (inputFileRef = input)}
+              style={{ display: "none" }}
+              type="file"
+            />
+
           <GeneralButton
+            onClick={handleChangePhotoButton}
             text="Foto nemen"
             icon="camera"
             type="svg"

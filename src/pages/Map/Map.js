@@ -4,10 +4,9 @@ import style from "./Map.module.css";
 import { useStores } from "../../hooks/useStores";
 import FullMap from "./mapComponents/FullMap.js";
 import RoundArrowButton from "../globalComponents/RoundArrowButton.js"
-import RoundHomeButton from "../globalComponents/RoundHomeButton.js"
 import COLORS from "../globalStyles/colors";
 import STORYLINE from "../A_userVariables/storyLine.js";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { ROUTES } from "../../consts";
 
 
@@ -27,8 +26,7 @@ const Map = () => {
       </div>
 
       <div className={style.mapBanner}>
-          <div className={style.mapBanner__Buttons}><RoundArrowButton onClick={() => {console.log('test')}}/></div>
-          <div className={style.mapBanner__Buttons}><RoundHomeButton onClick={() => {console.log('test')}}/></div>
+          <Link to={ROUTES.home} className={style.mapBanner__Buttons}><RoundArrowButton/></Link>
       </div>
 
       <ul className={style.storyMap}>
@@ -37,8 +35,9 @@ const Map = () => {
       {STORYLINE.map((key, index) => {
                 return ([
                 <li key={index} className={style.storyMap__Item}
-
-                  onClick={parseInt(uiStore.currentUser.chapter) === index+1 || parseInt(uiStore.currentUser.chapter) > index+1 ? () => beginAssignment(key.imageName) : null}
+                  onClick={
+                    parseInt(uiStore.currentUser.chapter) === index+1 ? () => beginAssignment(key.imageName) : parseInt(uiStore.currentUser.chapter) > index+1 ? 
+                    () => history.push('Frankrijk') : null}
                   style={{
                     borderColor: parseInt(uiStore.currentUser.chapter) > index+1 ? COLORS.grey : parseInt(uiStore.currentUser.chapter) === index+1 ? COLORS.redDark : COLORS.white,
                     backgroundImage: parseInt(uiStore.currentUser.chapter) > index+1 ? `url('/assets/flags/${key.imageName}.svg')` : 'none',}}

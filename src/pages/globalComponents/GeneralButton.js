@@ -18,17 +18,21 @@ const GeneralButton = (props) => {
           ? props.boxShadow
           : `0rem .5rem ${COLORS.yellowShadow}`,
         width: props.buttonWidth ? props.buttonWidth : "40rem",
+        height: props.buttonHeight ? props.buttonHeight : "auto",
       }}
     >
       <div>
         <img
           className={`${style.buttonYellowIcon}`}
-          src={`./assets/icons/${props.icon}.${props.type}`}
+          src={`/assets/icons/${props.icon}.${props.type}`}
           alt="icon"
           style={{
             backgroundColor: props.iconBackgroundColor
               ? props.iconBackgroundColor
               : COLORS.yellowLight,
+            width: props.iconWidth ? props.iconWidth : "8rem",
+            height: props.iconHeight ? props.iconHeight : "8rem",
+            padding: props.padding ? props.padding : "2rem",
           }}
         />
       </div>
@@ -40,8 +44,7 @@ const GeneralButton = (props) => {
             fontSize: props.fontSize ? props.fontSize : "2.8rem",
           }}
         >
-          {" "}
-          {props.text}{" "}
+          {props.text}
         </p>
       ) : (
         ""

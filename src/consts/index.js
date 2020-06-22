@@ -1,19 +1,20 @@
 const ROUTES = {
   home: "/",
-  klik: { path: "/:id", to: "/" },
   login: "/login",
-  tutorialone: "/tutorialone",
   register: "/register",
   map: "/map",
   TaskFrance: "/Frankrijk/opdracht",
-  TaskSpain: "/Spanje/opdracht",
-  TaskItaly: "/Italië/opdracht",
+  TaskSpain: "/map",
+  TaskItaly: "/map",
   Spain: "/Spanje",
   Italy: "/Italië",
   France: "/Frankrijk",
   Friends: "/vrienden",
   FriendRequests: "/vrienden/verzoeken",
   FriendScan: "/vrienden/scannen",
+  Postcards: { path: "/postkaarten/:id", to: "/postkaarten/" },
+  FriendsProjects: "/projecten/vrienden",
+  FriendsProjectsDetail: "/projecten/vrienden/werkjes",
 };
 
 export { ROUTES };

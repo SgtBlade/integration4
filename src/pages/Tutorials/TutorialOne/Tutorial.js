@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Resizer from 'react-image-file-resizer';
 import style from "./Tutorial.module.css";
 // import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
 // import Welcome from "./LoginSequence/Welcome/Welcome.js";
@@ -25,6 +26,7 @@ import TakePicture from "./TutorialSteps/TakePicture.js";
 import PictureConfirm from "./TutorialSteps/PictureConfirm.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
+import { useStores } from "../../../hooks/useStores";
 //import { ROUTES } from "../../consts";
 
 const Tutorial = () => {
@@ -50,7 +52,32 @@ const Tutorial = () => {
     PICTURE: "PICTURE",
     PICTURECONFIRM: "PICTURECONFIRM",
   };
-  const [currentScreen, setCurrentScreen] = useState("");
+  const {uiStore} = useStores();
+  const [currentScreen, setCurrentScreen] = useState();
+  const [picture, setPicture] = useState(false);
+  const [seenVideo, setSeenVideo] = useState(false)
+
+  const handleChangePhotoFileInput = e => {
+    const target = e.currentTarget;
+    const file = target.files.item(0);
+    if (!file.type.startsWith("image/")) {
+      alert("Dit is geen foto");
+      return;
+    }else{
+      if(currentScreen === SCREEN.PICTURE)setCurrentScreen(SCREEN.PICTURECONFIRM)
+      Resizer.imageFileResizer(
+        file,
+        440,
+        440,
+        'JPEG',
+        80,
+        0,
+        uri => {setPicture(uri)},
+        'base64'
+    );
+    }
+  }
+
 
   const returnScreen = () => {
     switch (currentScreen) {
@@ -318,6 +345,9 @@ const Tutorial = () => {
       case SCREEN.PICTURE:
         return (
           <TakePicture
+
+            setPicture={setPicture}
+            photoInput={handleChangePhotoFileInput}
             returnFunction={() => {
               setCurrentScreen(SCREEN.STAP12);
             }}
@@ -329,6 +359,9 @@ const Tutorial = () => {
       case SCREEN.PICTURECONFIRM:
         return (
           <PictureConfirm
+            photoInput={handleChangePhotoFileInput}
+            setPicture={setPicture}
+            picture={picture}
             returnFunction={() => {
               setCurrentScreen(SCREEN.PICTURE);
             }}
@@ -347,9 +380,27 @@ const Tutorial = () => {
     }
   };
 
-  console.log(currentScreen);
+  let videoRef = null;
+  const skipVideo = e => {
+    videoRef.pause();
+    setSeenVideo(true)
+  };
+
+  if(uiStore.currentUser.chapter > 1 && !seenVideo)setSeenVideo(true)
+
 
   return useObserver(() => (
+
+    !seenVideo ? 
+      <div className={style.videoContent}>
+      <div onClick={skipVideo} className={style.skipButton}><img src={'/assets/icons/skip.svg'} alt="skip icon"/></div>
+      <video  ref={video => (videoRef = video)} className={style.video} onEnded={()=> {setSeenVideo(true)}} autoPlay>
+          <source src={"/assets/videos/frankrijk.mp4"} type="video/mp4" />
+          <p>Je internet browser ondersteund geen video</p>
+       </video>
+       <div className={style.loaderWrap}><div className={style.loader}></div></div>
+       </div>
+    :
     <div className={style.container}>{returnScreen()}</div>
   ));
 };

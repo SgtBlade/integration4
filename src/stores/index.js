@@ -1,5 +1,4 @@
 import UiStore from "./UiStore";
-import UserStore from "./UserStore";
 import FriendStore from "./friendStore";
 
 import * as firebase from "firebase/app";
@@ -18,7 +17,6 @@ class RootStore {
     // Initialize Firebase
     this.firebase = firebase.initializeApp(firebaseConfig);
 
-    this.userStore = new UserStore(this);
     this.friendStore = new FriendStore(this);
     this.uiStore = new UiStore(this);
   }

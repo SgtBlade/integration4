@@ -1,9 +1,12 @@
 import "firebase/firestore";
+import 'firebase/storage'; 
 import { userConverter } from "../models/User";
+import { v4 } from "uuid";
 
 class UserService {
   constructor(firebase) {
     this.db = firebase.firestore();
+    this.storage = firebase.storage();
   }
 
   getChildByMail = async mail => {
@@ -175,6 +178,39 @@ class UserService {
       .set(currentUser);
       return [true, 'Je vriendschaps verzoek is verstuurd'];
     }
+  }
+
+  addImageToStorage = async (currentUser,country, file, onChange) => {
+
+    const storageRef = this.storage.ref();
+    const imageName = v4();
+    const userID = currentUser.id;
+
+    const metadata = {
+      contentType: 'image/jpeg',
+      creator: currentUser.name,
+      creationDate: Date.now()
+    };
+
+    const uploadTask = storageRef.child(`${userID}/${country}/${imageName}.jpg`).putString(file, 'data_url', metadata)
+
+      uploadTask.on("state_changed", {
+        error: error => {
+         return [false, "Er is een fout opgetreden"];
+        },
+        complete: () => {
+          onChange('finished');
+        }
+      });
+  }
+
+  updateUserChapter = async (currentUser, newChapter) => {
+    const result = await this.db
+    .collection('kinderen')
+    .doc(currentUser.email)
+    .update({chapter: newChapter})
+
+    return result;
   }
 
 }
