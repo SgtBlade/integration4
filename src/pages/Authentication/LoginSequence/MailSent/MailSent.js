@@ -18,7 +18,7 @@ const MailSent = (props) => {
     <img className={style.plane} src={"./assets/icons/plane.svg"} alt={"vliegtuigje"} />
       <div className={style.mainContent}>
         <img className={style.mailIcon} src={"./assets/icons/mailOpen.svg"} alt={"Open mail icon"} />
-        <p className={style.mainContentText}>We hebben u een email verstuurd  waarmee uw kind zich kan aanmelden</p>
+        <p className={style.mainContentText}>We hebben u een email verstuurd  waarmee uw kind zich kan aanmelden.</p>
       </div>
       <img className={style.image} src={"./assets/illustraties/uiltje-giggle-login.svg"} alt={"Giegelend uiltje"} />
     </div>

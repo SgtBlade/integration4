@@ -8,7 +8,7 @@ const PostcardInitial = (props) => {
   
   return (
     <div className={style.container}>
-      <img className={style.chosenImage} src={"/assets/testSubjects/test.JPG"} alt={"Gekozen image"} width="440" height="440" />
+      <img className={style.chosenImage} src={"/assets/testSubjects/test.JPG"} alt={"Gekozen afbeelding"} width="440" height="440" />
       
 
       <div className={style.bottomButtons}>

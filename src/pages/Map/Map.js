@@ -37,7 +37,7 @@ const Map = () => {
                 <li key={index} className={style.storyMap__Item}
                   onClick={
                     parseInt(uiStore.currentUser.chapter) === index+1 ? () => beginAssignment(key.imageName) : parseInt(uiStore.currentUser.chapter) > index+1 ? 
-                    () => history.push('Frankrijk') : null}
+                    () => history.push('Frankrijk') : null}//verander naar key.``dutchName als er meerdere landen zijn
                   style={{
                     borderColor: parseInt(uiStore.currentUser.chapter) > index+1 ? COLORS.grey : parseInt(uiStore.currentUser.chapter) === index+1 ? COLORS.redDark : COLORS.white,
                     backgroundImage: parseInt(uiStore.currentUser.chapter) > index+1 ? `url('/assets/flags/${key.imageName}.svg')` : 'none',}}
