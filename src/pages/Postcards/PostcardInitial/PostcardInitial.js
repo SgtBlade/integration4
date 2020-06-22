@@ -1,5 +1,4 @@
 import React from "react";
-import { useObserver } from "mobx-react-lite";
 import style from "./PostcardInitial.module.css";
 import GeneralButton from "../../globalComponents/GeneralButton";
 import COLORS from "../../globalStyles/colors";

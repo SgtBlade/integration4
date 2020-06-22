@@ -61,7 +61,7 @@ const Tutorial = () => {
     const target = e.currentTarget;
     const file = target.files.item(0);
     if (!file.type.startsWith("image/")) {
-      alert("File is not an image");
+      alert("Dit is geen foto");
       return;
     }else{
       if(currentScreen === SCREEN.PICTURE)setCurrentScreen(SCREEN.PICTURECONFIRM)
@@ -380,20 +380,26 @@ const Tutorial = () => {
     }
   };
 
-  
+  let videoRef = null;
+  const skipVideo = e => {
+    videoRef.pause();
+    setSeenVideo(true)
+  };
+
   if(uiStore.currentUser.chapter > 1 && !seenVideo)setSeenVideo(true)
 
 
   return useObserver(() => (
 
     !seenVideo ? 
-      <>
-      <video onEnded={()=> {setSeenVideo(true)}} autoPlay>
+      <div className={style.videoContent}>
+      <div onClick={skipVideo} className={style.skipButton}><img src={'/assets/icons/skip.svg'} alt="skip icon"/></div>
+      <video  ref={video => (videoRef = video)} className={style.video} onEnded={()=> {setSeenVideo(true)}} autoPlay>
           <source src={"/assets/videos/frankrijk.mp4"} type="video/mp4" />
           <p>Je internet browser ondersteund geen video</p>
        </video>
        <div className={style.loaderWrap}><div className={style.loader}></div></div>
-       </>
+       </div>
     :
     <div className={style.container}>{returnScreen()}</div>
   ));

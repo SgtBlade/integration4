@@ -16,10 +16,10 @@ const Postcards = () => {
     STICKERS: 'STICKERS',
     CONFIRM: 'CONFIRM'
   }
-  const [screen, setScreen] = useState(SCREENS.CONFIRM)
+  const [screen, setScreen] = useState()
   const [postcard, setPostcard] = useState({
-    background: 'country',
-    sticker: {name: 'sticker1', width: 96, height: 96}
+    background: null,
+    sticker: {name: '', width: 0, height: 0}
   })
   const country = 'France' // -> DIT WORDT DAN MEE GEGEVEN MET PROPS
 

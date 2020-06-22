@@ -5,9 +5,10 @@ import { ROUTES } from "../../consts/index";
 import FrankrijkHeader from "./FrankrijkHeader.js";
 import GeneralButton from "../globalComponents/GeneralButton";
 import COLORS from "../globalStyles/colors.js";
+import { useObserver } from "mobx-react-lite";
 
 const Frankrijk = (props) => {
-  return (
+  return useObserver( () => (
     <section className={style.container}>
       <FrankrijkHeader />
       <div className={style.wrapper}>
@@ -120,7 +121,7 @@ const Frankrijk = (props) => {
               />
               <Link
                 className={`${style.textBalloon__button} ${style.textBalloon__button__three}`}
-                to={ROUTES.map}
+                to={`${ROUTES.Postcards.to}Frankrijk`}
               >
                 <GeneralButton
                   text="Mijn werkjes"
@@ -142,7 +143,7 @@ const Frankrijk = (props) => {
         </div>
       </div>
     </section>
-  );
+  ));
 };
 
 export default Frankrijk;

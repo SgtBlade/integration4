@@ -1,9 +1,7 @@
 import React from "react";
-import { useObserver } from "mobx-react-lite";
 import style from "./PostcardConfirm.module.css";
 import GeneralButton from "../../globalComponents/GeneralButton";
 import COLORS from "../../globalStyles/colors";
-import SoundButton from "../../globalComponents/SoundButton";
 import StepSidebar from "../StepSidebar/StepSidebar";
 import { useHistory } from "react-router-dom";
 
@@ -17,7 +15,7 @@ const PostcardConfirm = (props) => {
 
       <div className={style.mainContent}>
         <StepSidebar current={3}/>
-        <div className={style.image} style={{backgroundImage: `url('./assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
+        <div className={style.image} style={{backgroundImage: `url('../assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
         <img 
           className={style.sticker}
           width={`${props.postcard.stickerwidth}`} 

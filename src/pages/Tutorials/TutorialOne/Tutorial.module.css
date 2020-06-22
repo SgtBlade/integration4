@@ -8,6 +8,12 @@
 }
 
 
+.videoContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .loaderWrap {
     width: 100%;
@@ -36,3 +42,24 @@
     100% { transform: rotate(360deg); }
   }
   
+  .video {
+    max-height: 100vh;
+  }
+
+.skipButton {
+  height: 8.4rem;
+  width: 8.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--redLight);
+  border-radius: 50%;
+}
+
+.skipButton img {
+  margin-left: 1rem;
+}

@@ -77,6 +77,17 @@ const Authentication = () => {
           )}
         </Route>
 
+
+        <Route path={ROUTES.Postcards.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Postcards />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+
         <Route exact path={ROUTES.FriendScan}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
@@ -123,15 +134,6 @@ const Authentication = () => {
           )}
         </Route>
 
-        <Route exact path={ROUTES.Postcards}>
-          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
-            <>
-              <Postcards />
-            </>
-          ) : (
-            <Redirect to={ROUTES.login} />
-          )}
-        </Route>
       </Switch>
     </>
   ));
