@@ -29,6 +29,9 @@ const GeneralButton = (props) => {
             backgroundColor: props.iconBackgroundColor
               ? props.iconBackgroundColor
               : COLORS.yellowLight,
+            width: props.iconWidth ? props.iconWidth : "8rem",
+            height: props.iconHeight ? props.iconHeight : "8rem",
+            padding: props.padding ? props.padding : "2rem",
           }}
         />
       </div>
@@ -40,8 +43,7 @@ const GeneralButton = (props) => {
             fontSize: props.fontSize ? props.fontSize : "2.8rem",
           }}
         >
-          {" "}
-          {props.text}{" "}
+          {props.text}
         </p>
       ) : (
         ""

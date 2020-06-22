@@ -12,14 +12,17 @@
   --green: #43edb0;
   --greenLight: #54ffc1;
   --greenShadow: #29b270;
+  --greenShadowTwo: #3bdba1;
   --greenDark: #36ea93;
   --blue: #335dff;
-  --blueLight: #2885F2;
+  --blueLight: #2885f2;
   --blueDark: #1037d0;
   --white: #ffffff;
   --grey: #e6e6e6;
   --greyLighter: #f2f2f2;
   --greyLight: #9e9d9d;
+  --greyShadow: #b2b2b2;
   --greyDark: #3d3d3d;
   --black: #000000;
+  --blackSoft: #3d3d3d;
 }
