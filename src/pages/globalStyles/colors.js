@@ -12,6 +12,7 @@ const COLORS = {
   greenLight: "#54FFC1",
   green: "#43EDB0",
   greenShadow: "#29B270",
+  greenShadowTwo: "#3BDBA1",
   greenDark: "#3BDBA1",
   blue: "#335DFF",
   blueLight: "#2885F2",
@@ -20,7 +21,9 @@ const COLORS = {
   grey: "#E6E6E6",
   greyLight: "#9E9D9D",
   greyDark: "#3D3D3D",
+  greyShadow: "#b2b2b2",
   black: "#000000",
+  blackSoft: "#3d3d3d",
 };
 
 export default COLORS;
