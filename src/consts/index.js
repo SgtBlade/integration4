@@ -14,6 +14,7 @@ const ROUTES = {
   FriendScan: "/vrienden/scannen",
   FriendsProjects: "/projecten/vrienden",
   FriendsProjectsDetail: "/projecten/vrienden/werkjes",
+  Postcards: "/postkaarten",
 };
 
 export { ROUTES };

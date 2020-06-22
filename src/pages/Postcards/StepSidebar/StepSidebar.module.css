@@ -1,0 +1,33 @@
+.progressList {
+    height: 26rem;
+    width: 12rem;
+
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+
+    color: var(--redLight);
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.progressList__item {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    height: 5.65rem;
+    width: .27rem;
+    background-color: var(--redLight);
+    margin: 1rem;
+}
+
+.progressList__item__current {
+    color: var(--white);
+}
+.line__current {
+    background-color: var(--white);
+}

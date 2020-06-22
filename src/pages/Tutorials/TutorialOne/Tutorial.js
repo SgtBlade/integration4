@@ -26,6 +26,7 @@ import TakePicture from "./TutorialSteps/TakePicture.js";
 import PictureConfirm from "./TutorialSteps/PictureConfirm.js";
 //import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
+import { useStores } from "../../../hooks/useStores";
 //import { ROUTES } from "../../consts";
 
 const Tutorial = () => {
@@ -51,8 +52,10 @@ const Tutorial = () => {
     PICTURE: "PICTURE",
     PICTURECONFIRM: "PICTURECONFIRM",
   };
+  const {uiStore} = useStores();
   const [currentScreen, setCurrentScreen] = useState();
   const [picture, setPicture] = useState(false);
+  const [seenVideo, setSeenVideo] = useState(false)
 
   const handleChangePhotoFileInput = e => {
     const target = e.currentTarget;
@@ -377,9 +380,21 @@ const Tutorial = () => {
     }
   };
 
-  console.log(currentScreen);
+  
+  if(uiStore.currentUser.chapter > 1 && !seenVideo)setSeenVideo(true)
+
 
   return useObserver(() => (
+
+    !seenVideo ? 
+      <>
+      <video onEnded={()=> {setSeenVideo(true)}} autoPlay>
+          <source src={"/assets/videos/frankrijk.mp4"} type="video/mp4" />
+          <p>Je internet browser ondersteund geen video</p>
+       </video>
+       <div className={style.loaderWrap}><div className={style.loader}></div></div>
+       </>
+    :
     <div className={style.container}>{returnScreen()}</div>
   ));
 };
