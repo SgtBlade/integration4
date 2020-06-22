@@ -14,6 +14,7 @@ import FriendRequests from "../Friends/FriendRequests/FriendRequests.js";
 import ScanFriend from "../Friends/ScanFriend/ScanFriend.js";
 import Frankrijk from "../PlayAgain/Frankrijk";
 import Postcards from "../Postcards/Postcards";
+import FriendsProjects from "../Projects/FriendsProjects/FriendsProjects";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -89,6 +90,15 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <Map />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.FriendsProjects}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <FriendsProjects />
             </>
           ) : (
             <Redirect to={ROUTES.login} />
