@@ -1,3 +1,14 @@
+@keyframes overlay {
+  from {
+    transform: scale(1);
+    opacity: 100%;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
 @keyframes animatie {
   0% {
     transform: scale(0);
@@ -54,9 +65,15 @@
   margin-top: 1.25rem;
 }
 
+.wrapper {
+  height: 65.4vh;
+  overflow-y: auto;
+}
+
 .piece {
   width: 100vw;
   padding-left: 5rem;
+  margin-bottom: 5rem;
 }
 .piece__title {
   font-size: 3rem;
@@ -79,6 +96,8 @@
   margin-right: 2.5rem;
   position: relative;
   box-shadow: 0 0.5rem var(--blueDark);
+  animation-name: animatie;
+  animation-duration: 0.5s;
 }
 
 .piece__titleBox {
@@ -112,4 +131,43 @@
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+
+.piece__box__slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piece__box__slot__italie {
+  background: url(/assets/illustraties/italie-bg.svg), var(--blueLight);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.piece__box__slot__spanje {
+  background: url(/assets/illustraties/spanje-bg.svg), var(--blueLight);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 26.34rem;
+  height: 26.34rem;
+  border-radius: 2.5rem;
+  background: url(/assets/illustraties/italie-bg.svg), var(--blueLight);
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: overlay;
+  animation-delay: 1s;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
 }

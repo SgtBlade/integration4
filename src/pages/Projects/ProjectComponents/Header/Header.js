@@ -9,7 +9,7 @@ import { ROUTES } from "../../../../consts";
 const ProjectsHeader = (props) => {
   return (
     <div className={style.wrapperHead}>
-      <Link to={ROUTES.map} className={style.buttonWrap}>
+      <Link to={ROUTES.France} className={style.buttonWrap}>
         <RoundArrowButton />
       </Link>
       <h1
