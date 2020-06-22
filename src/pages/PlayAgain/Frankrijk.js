@@ -93,7 +93,7 @@ const Frankrijk = (props) => {
               />
               <Link
                 className={`${style.textBalloon__button} ${style.textBalloon__button__two}`}
-                to={ROUTES.map}
+                to={ROUTES.FriendsProjects}
               >
                 <GeneralButton
                   text="Werkjes vrienden"
