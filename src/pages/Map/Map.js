@@ -35,10 +35,9 @@ const Map = () => {
       {STORYLINE.map((key, index) => {
                 return ([
                 <li key={index} className={style.storyMap__Item}
-
                   onClick={
-                    parseInt(uiStore.currentUser.chapter) === index+1 || parseInt(uiStore.currentUser.chapter) > index+1 ? 
-                    () => beginAssignment(key.imageName) : null}
+                    parseInt(uiStore.currentUser.chapter) === index+1 ? () => beginAssignment(key.imageName) : parseInt(uiStore.currentUser.chapter) > index+1 ? 
+                    () => history.push('Frankrijk') : null}
                   style={{
                     borderColor: parseInt(uiStore.currentUser.chapter) > index+1 ? COLORS.grey : parseInt(uiStore.currentUser.chapter) === index+1 ? COLORS.redDark : COLORS.white,
                     backgroundImage: parseInt(uiStore.currentUser.chapter) > index+1 ? `url('/assets/flags/${key.imageName}.svg')` : 'none',}}
