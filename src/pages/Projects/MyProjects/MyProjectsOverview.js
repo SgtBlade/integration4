@@ -20,6 +20,7 @@ const MyProjectsOverview = (props) => {
 
         {uiStore.currentUser[id] ? 
           uiStore.currentUser[id].map((item, index) => (
+           
                 <div key={`${uiStore.currentUser.id}${index}`} className={style.project}>
                   <div className={style.project__pictureBox}>
                     <img
@@ -41,7 +42,7 @@ const MyProjectsOverview = (props) => {
                     </div>
                     <div className={style.project__bar__buttonbox}>
                       <Link
-                        to={`${ROUTES.Postcards.to}${index}/${uiStore.currentUser.id}/${id}`}
+                      to={`${ROUTES.MyProjectsDetail.to}${index}/${id}`}
                       >
                         <img
                           src="/assets/icons/postkaartjeTwo.svg"
