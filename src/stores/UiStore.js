@@ -2,6 +2,7 @@ import { decorate, observable, action } from "mobx";
 import AuthService from "../services/AuthenticationService";
 import UserService from "../services/UserService";
 import User from "../models/User";
+import STORYLINE from "../pages/A_userVariables/storyLine";
 class UiStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -82,6 +83,7 @@ class UiStore {
       }))
       this.getFriends();
       this.getFriendRequests();
+      this.getPersonalCreations();
     }
 
     } else {
@@ -145,7 +147,7 @@ class UiStore {
 
   uploadImage = async (country, file) => {
     this.setUploadState(true);
-    this.userService.addImageToStorage(this.currentUser,country, file, this.setUploadState);
+    this.userService.addImageToStorage(this.currentUser,country, file, this.setUploadState, this.pushImagesToUser);
   }
 
   setUploadState = newState => this.uploadState = newState;
@@ -159,6 +161,28 @@ class UiStore {
     else return true
   }
 
+  sendPostcard = async (user, postcard, location) => {const res = await this.userService.sendPostcard(user, postcard, location); return res}
+
+  getPersonalCreations = () => {
+    STORYLINE.forEach(story => {
+      this.userService.getUploadsByUser(this.currentUser, story.imageName, this.pushImagesToUser)
+      this.userService.getPostcards(this.currentUser, story.imageName, this.pushPostcardsToUser)
+    })
+  }
+
+  pushImagesToUser = (friend, country, imageLink, imageName) => {
+    if(this.currentUser[country])this.currentUser[country].push({link: imageLink, name: imageName})
+    else this.currentUser[country] = [{link: imageLink, name: imageName}]
+  }
+
+  pushPostcardsToUser = (country, postcard) => {
+    if(this.currentUser.postcards){
+      if(this.currentUser.postcards[country])this.currentUser.postcards[country].push(postcard)
+      else this.currentUser.postcards[country] = [postcard]
+    }else this.currentUser['postcards']= {[country]: [postcard]}
+  }
+
+
 }
 
 decorate(UiStore, {
@@ -171,7 +195,9 @@ decorate(UiStore, {
   updateUser: action,
   onAuthStateChanged: action,
   uploadState: observable,
-  setUploadState: action
+  setUploadState: action,
+  pushImagesToUser: action,
+  pushPostcardsToUser: action
 });
 
 export default UiStore;

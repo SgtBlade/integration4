@@ -22,7 +22,13 @@ const Postcards = () => {
     const image = userObj[loc][id]
 
     if(!userObj || !image) return <Redirect to={`${ROUTES.FriendsProjectsOverview.to}${loc}`}/>
-    else setCurrentUser({user: userObj, image: image})
+    else {setCurrentUser({user: userObj, image: image})
+        setPostcard({
+          background: postcard.background,
+          sticker: postcard.sticker,
+          image: image.name
+        })
+        }
   }
   const SCREENS = {
     INITIAL: 'INITIAL',
@@ -33,7 +39,8 @@ const Postcards = () => {
   const [screen, setScreen] = useState()
   const [postcard, setPostcard] = useState({
     background: null,
-    sticker: {name: '', width: 0, height: 0}
+    sticker: null,
+    image: null
   })
   const country = 'France' // -> DIT WORDT DAN MEE GEGEVEN MET PROPS
 
@@ -62,14 +69,14 @@ const Postcards = () => {
           break;
       case SCREENS.CONFIRM:
           title = 'Dit kaartje versturen?';
-          previousScreen = () => {setScreen(SCREENS.POSTCARD)}
+          previousScreen = () => {setScreen(SCREENS.STICKERS)}
           extraClass = 'extraClass'
-          component = <PostcardConfirm nextFunction={() => {setScreen(SCREENS.POSTCARD)}} postcard={postcard} onClick={setPostcard} country={country}/>
+          component = <PostcardConfirm location={loc} userData={currentUser} nextFunction={() => {setScreen(SCREENS.POSTCARD)}} postcard={postcard} onClick={setPostcard} country={country}/>
           break;
       default:
         title = 'Werkje van Sara';
         previousScreen = ROUTES[country]
-        component = <PostcardInitial location={loc} userData={currentUser} image={currentUser.image.link}  nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
+        component = <PostcardInitial image={currentUser.image.link}  nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
         break;
     }
 

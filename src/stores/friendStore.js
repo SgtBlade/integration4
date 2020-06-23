@@ -18,29 +18,19 @@ class FriendStore {
   addFriend(friend) {
     this.friends.push((friend))
     STORYLINE.forEach(story => {
-      this.getAllFilesFromUser(friend, story.imageName)
+      this.getAllFilesFromUser(friend, story.imageName, this.addImagesToUser)
     })
-
-    console.log(this.friends)
   }
 
-  getAllFilesFromUser = async (user, country) => {
-    const result = await this.userService.getUploadsByUser(user, country, this.addImagesToUser);
+  getAllFilesFromUser = async (user, country, activator) => {
+    await this.userService.getUploadsByUser(user, country, activator);
   }
 
   addImagesToUser = (friend, country, imageLink, imageName) => {
-    
     let objIndex = this.friends.findIndex((obj => obj.id === friend.id));
     if(this.friends[objIndex][country])this.friends[objIndex][country].push({link: imageLink, name: imageName})
     else this.friends[objIndex][country] = [{link: imageLink, name: imageName}]
   }
-
-
-
-
-
-
-
 
   addFriendRequest(friend) {
     this.requests.push((friend))
@@ -75,7 +65,7 @@ class FriendStore {
   removeFriend = (friend) =>  {
     if(friend.id !== this.rootStore.uiStore.currentUser.id) this.friends.splice(this.friends.findIndex(item => item.id === friend.id), 1);
   }
-
+  
 }
 decorate(FriendStore, {
   requests: observable,

@@ -29,11 +29,6 @@
   margin-left:14rem;
 }
 
-.sticker {
-  margin-right: 2rem;
-  margin-top: 4rem;
-  height: 6rem;
-}
 
 .nextButton {
   height: 100%;
@@ -46,4 +41,10 @@
 .sticker3, .sticker2 {
   fill: black;
   transform: rotate(30deg);
+}
+
+
+.sticker {
+  margin-right: 3rem;
+  margin-top: 8rem;
 }

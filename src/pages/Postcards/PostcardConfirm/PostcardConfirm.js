@@ -4,12 +4,15 @@ import GeneralButton from "../../globalComponents/GeneralButton";
 import COLORS from "../../globalStyles/colors";
 import StepSidebar from "../StepSidebar/StepSidebar";
 import { useHistory } from "react-router-dom";
+import { useStores } from "../../../hooks/useStores";
 
 const PostcardConfirm = (props) => {
   
-  const history = useHistory()
-  const handleSumbit = () => {
-    history.push('');
+  const history = useHistory();
+  const {uiStore} = useStores();
+  const handleSumbit = async () => {
+    await uiStore.sendPostcard(props.userData.user, props.postcard, props.location)//location userData
+    history.push(`/projecten/vrienden/werkjes/${props.location}`)
   }
 
   return (
@@ -20,7 +23,7 @@ const PostcardConfirm = (props) => {
         <div className={style.image} style={{backgroundImage: `url('/assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
         <img 
           className={`${style.sticker} ${style[props.postcard.sticker.name]}`}
-          src={`/assets/postcards/${props.country}/${props.postcard.sticker.name}.svg`} 
+          src={`/assets/postcards/${props.country}/large/${props.postcard.sticker}.svg`} 
           alt={`Postkaart`}/>
         </div>
       </div>

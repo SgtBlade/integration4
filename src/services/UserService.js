@@ -180,7 +180,7 @@ class UserService {
     }
   }
 
-  addImageToStorage = async (currentUser,country, file, onChange) => {
+  addImageToStorage = async (currentUser,country, file, onChange, addImageToUser) => {
 
     const storageRef = this.storage.ref();
     const imageName = v4();
@@ -200,6 +200,9 @@ class UserService {
         },
         complete: () => {
           onChange('finished');
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            addImageToUser(null, country, downloadURL, uploadTask.snapshot.ref.name)
+          });
         }
       });
   }
@@ -225,14 +228,34 @@ class UserService {
         });
         res.items.forEach(function(itemRef) {
         itemRef.getDownloadURL().then(function(url) {
-          pushImages(user, country, url, itemRef.name)
+          pushImages(user, country, url, itemRef.name);
         })
       });
-
-      console.log(images);
     }).catch(function(error) {
       //Error occured
     });
+  }
+
+  sendPostcard = async (user, postcard, location) => {
+    return await this.db
+      .collection("kinderen")
+      .doc(user.email)
+      .collection(location)
+      .doc(v4())
+      .set(postcard);
+  };
+
+  getPostcards = async (user, country, pushPostcardsToUser) => {
+    this.db
+    .collection('kinderen')
+    .doc(user.email)
+    .collection(country)
+    .get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          pushPostcardsToUser(country, doc.data())
+      });
+  });
   }
 }
 

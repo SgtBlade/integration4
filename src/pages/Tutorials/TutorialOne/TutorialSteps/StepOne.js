@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styleBg from "./styles/BackgroundProjectOne.module.css";
 import style from "./styles/Tutorial.module.css";
 import progress from "./styles/ProgressBarAnimation.module.css";

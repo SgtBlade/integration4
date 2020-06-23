@@ -30,6 +30,7 @@ const PostcardBackgrounds = (props) => {
                     props.onClick({
                       background: imageName,
                       sticker: props.postcard.sticker,
+                      image: props.postcard.image
                     });
                   }}
                   width={"261"}
