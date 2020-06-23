@@ -25,7 +25,7 @@ class UserService {
       .get();
 
     let user = false;
-    if(usr.docs[0].exists)user = await this.getChildByMail(usr.docs[0].id)
+    if(usr)if(usr.docs[0].exists)user = await this.getChildByMail(usr.docs[0].id)
     
     return user.data();
   };

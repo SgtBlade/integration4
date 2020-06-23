@@ -36,7 +36,7 @@ const TheThief = (props) => {
             className={style.thievesList__item__text}
             style={{ color: COLORS.orangeDark }}
           >
-            Een vos
+            Een wasbeer
           </p>
         </li>
 

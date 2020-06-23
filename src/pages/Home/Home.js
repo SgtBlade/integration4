@@ -72,7 +72,7 @@ const Home = () => {
           className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}
         >
           <div className={`${style.home__head}`}>
-            <Link to={`${ROUTES.MyProjectsDetail}`}>
+            <Link to={`${ROUTES.MyProjectsDetail.to}2/France`}>
               <h1 className={`${style.home__titel}`}>Reisuil</h1>
             </Link>
           </div>
