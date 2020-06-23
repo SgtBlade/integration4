@@ -44,9 +44,7 @@ const MyProjectsOverview = (props) => {
                     </div>
                     <div className={style.project__bar__buttonbox}>
                       {console.log(index)}
-                      <Link
-                        to={`${ROUTES.Postcards.to}${index}/${friend.id}/${id}`}
-                      >
+                      <Link to={`${ROUTES.MyProjectsDetail}`}>
                         <img
                           src="/assets/icons/postkaartjeTwo.svg"
                           alt="Toevoegen knop"
@@ -67,7 +65,7 @@ const MyProjectsOverview = (props) => {
             <p>Je hebt nog geen werkjes gemaakt</p>
           </div>
         )}
-        <Link to={ROUTES.TaskFrance} className={style.addProject}>
+        <Link to={ROUTES.MyProjectsDetail} className={style.addProject}>
           <img
             src="../../../assets/icons/addProject.svg"
             alt="voeg project toe"

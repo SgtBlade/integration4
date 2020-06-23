@@ -18,6 +18,7 @@ import FriendsProjects from "../Projects/FriendsProjects/FriendsProjects";
 import FriendsProjectsOverview from "../Projects/FriendsProjects/FriendsProjectsOverview";
 import MyProjects from "../Projects/MyProjects/MyProjects";
 import MyProjectsOverview from "../Projects/MyProjects/MyProjectsOverview";
+import MyProjectsDetail from "../Projects/MyProjects/MyProjectsDetail";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -130,6 +131,15 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <MyProjectsOverview />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjectsDetail}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjectsDetail />
             </>
           ) : (
             <Redirect to={ROUTES.login} />
