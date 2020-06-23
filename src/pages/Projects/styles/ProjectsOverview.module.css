@@ -1,3 +1,14 @@
+@keyframes load {
+  from {
+    transform: scale(1);
+    opacity: 100%;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
 .container {
   background: url(/assets/blobs/blob15-vrienden.svg),
     url(/assets/blobs/blob16-vrienden.svg), var(--greenLight);
