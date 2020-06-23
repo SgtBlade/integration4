@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { useObserver } from "mobx-react-lite";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import style from "./Intro.module.css";
 import { useStores } from "../../hooks/useStores";
 import SoundWarning from "./SoundWarning/SoundWarning"
 import GeneralButton from "../globalComponents/GeneralButton";
-import COLORS from "../globalStyles/colors";
-import { ROUTES } from "../../consts";
 import TheThief from "./TheThief/TheThief";
 
 const Intro = () => {
-  const { uiStore, friendStore } = useStores();
+  const { uiStore } = useStores();
   const history = useHistory();
 
 

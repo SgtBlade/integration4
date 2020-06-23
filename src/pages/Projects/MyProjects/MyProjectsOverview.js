@@ -7,9 +7,7 @@ import { useStores } from "../../../hooks/useStores";
 
 const MyProjectsOverview = (props) => {
   const { id } = useParams();
-  const { friendStore } = useStores();
-  let foundUsers = false;
-
+  const { uiStore } = useStores();
   return id ? (
     <section className={`${style.container} ${style.container__bg}`}>
       <ProjectsHeader
@@ -19,17 +17,16 @@ const MyProjectsOverview = (props) => {
         color="#FFFFFF"
       />
       <div className={style.wrapper}>
-        {friendStore.friends.map((friend) =>
-          friend[id]
-            ? friend[id].map((url, index) => (
-                <div key={`${friend.id}${index}`} className={style.project}>
-                  {(foundUsers = true)}
+
+        {uiStore.currentUser[id] ? 
+          uiStore.currentUser[id].map((item, index) => (
+                <div key={`${uiStore.currentUser.id}${index}`} className={style.project}>
                   <div className={style.project__pictureBox}>
                     <img
                       className={style.project__bar__buttonbox__image}
                       width="240"
                       height="240"
-                      src={url}
+                      src={item.link}
                       alt="project"
                     />
                   </div>
@@ -43,30 +40,23 @@ const MyProjectsOverview = (props) => {
                       <p className={style.project__bar__name}>Bekijken</p>
                     </div>
                     <div className={style.project__bar__buttonbox}>
-                      {console.log(index)}
                       <Link
-                        to={`${ROUTES.Postcards.to}${index}/${friend.id}/${id}`}
+                        to={`${ROUTES.Postcards.to}${index}/${uiStore.currentUser.id}/${id}`}
                       >
                         <img
                           src="/assets/icons/postkaartjeTwo.svg"
                           alt="Toevoegen knop"
                         />
-                        <p className={style.buttonbox__aantal}>3</p>
+                        <p className={style.buttonbox__aantal}>{(uiStore.getPostcardsPerImage(id, item.name).length)}</p>
                       </Link>
                     </div>
                   </div>
                 </div>
               ))
             : ""
-        )}
-
-        {foundUsers ? (
-          ""
-        ) : (
-          <div className={`${style.NoneFound} ${style.NoneFound__green}`}>
-            <p>Je hebt nog geen werkjes gemaakt</p>
-          </div>
-        )}
+      
+        }
+        
         <Link to={ROUTES.TaskFrance} className={style.addProject}>
           <img
             src="../../../assets/icons/addProject.svg"

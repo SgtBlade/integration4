@@ -19,7 +19,8 @@ const Postcards = () => {
 
   const getUserWithImage =  () => {
     const userObj = friendStore.friends[friendStore.friends.findIndex((obj => obj.id === user))];
-    const image = userObj[loc][id]
+    let image = false;
+    if(userObj)if(userObj[loc])image = userObj[loc][id]
 
     if(!userObj || !image) return <Redirect to={`${ROUTES.FriendsProjectsOverview.to}${loc}`}/>
     else {setCurrentUser({user: userObj, image: image})

@@ -181,6 +181,13 @@ class UiStore {
       else this.currentUser.postcards[country] = [postcard]
     }else this.currentUser['postcards']= {[country]: [postcard]}
     }
+
+  getPostcardsPerImage(country, image) {
+      if(this.currentUser.postcards){//Wou dezel wel computed doen maar heb deze 2 dingen nodig
+        if(this.currentUser.postcards[country])return this.currentUser.postcards[country].filter(postcard => postcard.image === image);
+        else return []
+      }else return []
+  } 
   }
 
 decorate(UiStore, {

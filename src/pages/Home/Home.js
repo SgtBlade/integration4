@@ -10,8 +10,6 @@ import { ROUTES } from "../../consts";
 const Home = () => {
   const { uiStore, friendStore } = useStores();
 
-  console.log(uiStore.currentUser)
-
   const logOut = () => {
     const fb = uiStore.firebase;
     fb.auth()

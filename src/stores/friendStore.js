@@ -66,6 +66,7 @@ class FriendStore {
     if(friend.id !== this.rootStore.uiStore.currentUser.id) this.friends.splice(this.friends.findIndex(item => item.id === friend.id), 1);
   }
   
+  
 }
 decorate(FriendStore, {
   requests: observable,

@@ -5,6 +5,8 @@
   max-height: 100vh;
   overflow: hidden;
   background-color: var(--blue);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 
   display: flex;
   justify-content: center;
