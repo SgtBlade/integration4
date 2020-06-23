@@ -18,6 +18,7 @@ const ROUTES = {
     path: "/projecten/vrienden/werkjes/:id",
     to: "/projecten/vrienden/werkjes/",
   },
+  Intro: "/intro",
   MyProjects: "/projecten/mijnwerkjes",
   MyProjectsOverview: {
     path: "/projecten/mijnprojecten/werkjes/:id",

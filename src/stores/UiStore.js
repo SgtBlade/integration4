@@ -180,10 +180,8 @@ class UiStore {
       if(this.currentUser.postcards[country])this.currentUser.postcards[country].push(postcard)
       else this.currentUser.postcards[country] = [postcard]
     }else this.currentUser['postcards']= {[country]: [postcard]}
+    }
   }
-
-
-}
 
 decorate(UiStore, {
   currentUser: observable,

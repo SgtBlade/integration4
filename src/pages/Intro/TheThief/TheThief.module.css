@@ -1,0 +1,33 @@
+.text {
+  color: var(--white);
+  font-size: 6.4rem;
+}
+
+
+.thievesList {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.thievesList__item {
+  height: 44rem;
+  width: 30.8rem;
+  background-color: var(--white);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 2rem;
+  margin: 1.2rem;
+
+  
+}
+
+.thievesList__item__image {
+  margin-top: 5.8rem;
+}
+
+.thievesList__item__text {
+  font-size: 3.6rem;
+}

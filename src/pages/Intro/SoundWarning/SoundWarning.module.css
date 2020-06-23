@@ -1,0 +1,24 @@
+.tekst {
+    color: var(--white);
+    font-size: 3.6rem;
+    text-align: center;
+    padding: 3rem;
+}
+
+.play {
+    background-color: var(--white);
+    height: 8.4rem;
+    width: 8.4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+
+    box-shadow: 3px 7px 4px rgba(0, 0, 0, 0.15);
+    transition: all .1s;
+}
+
+.play:active {
+    opacity: 0.8;
+}
