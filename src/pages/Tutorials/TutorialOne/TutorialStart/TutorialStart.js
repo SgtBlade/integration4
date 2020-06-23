@@ -9,7 +9,7 @@ import GeneralButton from "../../../globalComponents/GeneralButton";
 const TutorialStart = (props) => {
   return (
     <section className={style.wrapper}>
-      <Link to={ROUTES.TaskFrance} className={style.buttonWrap}>
+      <Link to={ROUTES.map} className={style.buttonWrap}>
         <RoundArrowButton/>
       </Link>
       <Header Title={`Eiffeltoren`} />

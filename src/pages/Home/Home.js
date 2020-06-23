@@ -72,7 +72,7 @@ const Home = () => {
               className={`${style.home__start__stripestop}`}
               src={`./assets/illustraties/strokes-boven.svg`}
             />
-            <Link to={`${ROUTES.map}`}>
+            <Link to={`${uiStore.currentUser.chapter === 0 ? ROUTES.Intro : ROUTES.map}`}>
               <GeneralButton icon="play" type="svg" text="Start verhaaltje" />
             </Link>
             <img
