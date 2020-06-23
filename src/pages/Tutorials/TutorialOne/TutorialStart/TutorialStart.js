@@ -9,8 +9,8 @@ import GeneralButton from "../../../globalComponents/GeneralButton";
 const TutorialStart = (props) => {
   return (
     <section className={style.wrapper}>
-      <Link to={ROUTES.home} className={style.buttonWrap}>
-        <RoundArrowButton onClick={props.function} />
+      <Link to={ROUTES.TaskFrance} className={style.buttonWrap}>
+        <RoundArrowButton/>
       </Link>
       <Header Title={`Eiffeltoren`} />
       <div className={style.wrapperContent}>

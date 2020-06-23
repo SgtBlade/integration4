@@ -32,7 +32,7 @@
 .sticker {
   margin-right: 2rem;
   margin-top: 4rem;
-  height: 22rem;
+  height: 6rem;
 }
 
 .nextButton {
@@ -40,4 +40,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.sticker3, .sticker2 {
+  fill: black;
+  transform: rotate(30deg);
 }

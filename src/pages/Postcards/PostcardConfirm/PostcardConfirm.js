@@ -17,9 +17,7 @@ const PostcardConfirm = (props) => {
         <StepSidebar current={3}/>
         <div className={style.image} style={{backgroundImage: `url('../assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
         <img 
-          className={style.sticker}
-          width={`${props.postcard.stickerwidth}`} 
-          height={`${props.postcard.stickerheight}`} 
+          className={`${style.sticker} ${style[props.postcard.sticker.name]}`}
           src={`/assets/postcards/${props.country}/${props.postcard.sticker.name}.svg`} 
           alt={`Postkaart`}/>
         </div>

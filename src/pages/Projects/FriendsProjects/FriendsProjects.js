@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "../styles/Projects.module.css";
-//import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
-//import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
 import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 
 const FriendsProjects = (props) => {
+
+
+
+
   return (
     <section className={style.container}>
       <ProjectsHeader image="verfborstel-blackSoft" link={ROUTES.France} />
@@ -35,7 +37,7 @@ const FriendsProjects = (props) => {
           <h2 className={style.piece__title}>West-Europa 1/6</h2>
           <div className={style.piece__wrapper}>
             <Link
-              to={ROUTES.FriendsProjectsOverview}
+              to={`${ROUTES.FriendsProjectsOverview.to}France`}
               className={style.piece__box}
             >
               <div className={style.layer}>

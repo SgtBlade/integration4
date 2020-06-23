@@ -106,7 +106,7 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
-        <Route exact path={ROUTES.FriendsProjectsOverview}>
+        <Route exact path={ROUTES.FriendsProjectsOverview.path}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <FriendsProjectsOverview />

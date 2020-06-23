@@ -213,6 +213,27 @@ class UserService {
     return result;
   }
 
+  getUploadsByUser = async (user, country, pushImages) => {
+
+    const storageRef = this.storage.ref();
+    let listRef = storageRef.child(`${user.id}/${country}`);
+
+    listRef.listAll()
+      .then(function(res, images) {
+        res.prefixes.forEach(function(folderRef) {
+
+        });
+      res.items.forEach(function(itemRef) {
+        itemRef.getDownloadURL().then(function(url) {
+          pushImages(user, country, url)
+        })
+      });
+
+      console.log(images);
+    }).catch(function(error) {
+      //Error occured
+    });
+  }
 }
 
 export default UserService;

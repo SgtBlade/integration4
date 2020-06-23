@@ -53,3 +53,27 @@
 .project__bar__name {
   font-size: 1.8rem;
 }
+
+.project__bar__buttonbox__image {
+  object-fit: cover;
+}
+
+.NoneFound {
+  height: 27rem;
+  width: 25rem;
+  padding: 5rem;
+  font-size: 2.2rem;
+
+  background: var(--blue);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem var(--blueDark);
+  text-align: center;
+  color: var(--white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  line-height: 2.3rem;
+  
+}

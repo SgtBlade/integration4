@@ -1,5 +1,6 @@
 import { decorate, action, observable } from "mobx";
 import UserService from "../services/UserService";
+import STORYLINE from "../pages/A_userVariables/storyLine";
 
 class FriendStore {
   constructor(rootStore) {
@@ -16,7 +17,31 @@ class FriendStore {
 
   addFriend(friend) {
     this.friends.push((friend))
+    STORYLINE.forEach(story => {
+      this.getAllFilesFromUser(friend, story.imageName)
+    })
+
+    console.log(this.friends)
   }
+
+  getAllFilesFromUser = async (user, country) => {
+    const result = await this.userService.getUploadsByUser(user, country, this.addImagesToUser);
+    console.log(result)
+  }
+
+  addImagesToUser = (friend, country, imageLink) => {
+    
+    let objIndex = this.friends.findIndex((obj => obj.id === friend.id));
+    if(this.friends[objIndex][country])this.friends[objIndex][country].push(imageLink)
+    else this.friends[objIndex][country] = [imageLink]
+  }
+
+
+
+
+
+
+
 
   addFriendRequest(friend) {
     this.requests.push((friend))

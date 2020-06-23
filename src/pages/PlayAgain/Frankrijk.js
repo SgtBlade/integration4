@@ -26,7 +26,7 @@ const Frankrijk = (props) => {
             />
           </div>
           <div className={style.partOne__buttons}>
-            <Link className={style.buttons__button} to={ROUTES.TaskFrankrijk}>
+            <Link className={style.buttons__button} to={ROUTES.TaskFrance}>
               <GeneralButton
                 text="Opnieuw spelen"
                 icon="again__blackSoft"
@@ -67,6 +67,7 @@ const Frankrijk = (props) => {
                 alt=""
               />
               <Link
+                to={`${ROUTES.videos}/Frankrijk`}
                 className={`${style.textBalloon__button} ${style.textBalloon__button__one}`}
               >
                 <GeneralButton
@@ -121,7 +122,7 @@ const Frankrijk = (props) => {
               />
               <Link
                 className={`${style.textBalloon__button} ${style.textBalloon__button__three}`}
-                to={`${ROUTES.Postcards.to}Frankrijk`}
+                to={`${ROUTES.Postcards.to}France`}
               >
                 <GeneralButton
                   text="Mijn werkjes"

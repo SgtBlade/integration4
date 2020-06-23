@@ -15,8 +15,7 @@ const MaterialenOne = (props) => {
   const [redirect, setRedirect] = useState(false)
 
   const handleSubmit = async e => {
-    const result = await uiStore.uploadImage('france', props.picture)
-    console.log(result)
+    await uiStore.uploadImage('France', props.picture)
   };
 
   let inputFileRef = null;
@@ -27,12 +26,13 @@ const MaterialenOne = (props) => {
 
   const handleFinish = async () => {
     const result = await uiStore.updateChapter(2);
-    if(result)setRedirect(true);
+    if(result){uiStore.setUploadState(false);setRedirect(true);}
   }
 
   return useObserver( () => (
     <section className={styleBg.container}>
-      {redirect? <Redirect to={ROUTES.map} /> : ''}
+      {redirect? 
+      <Redirect to={ROUTES.map}  /> : ''}
       {uiStore.uploadState ?
         uiStore.uploadState === 'finished' ? 
         <div className={style.uploadMessage}>

@@ -10,6 +10,12 @@ const MaterialenNeeded = (props) => {
   const toggleMaterials = (e) =>
     changeView ? changeViewHeight(false) : changeViewHeight(true);
 
+  if(props.guidedUser && changeView) {
+    props.setGuidedUser(false)
+    setTimeout(function () { changeViewHeight(false) }, 200);
+    setTimeout(function () { changeViewHeight(true) }, 1000);
+  }
+
   return useObserver(() => (
     <>
       {changeView ? (

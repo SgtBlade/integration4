@@ -158,6 +158,7 @@ class UiStore {
     }
     else return true
   }
+
 }
 
 decorate(UiStore, {

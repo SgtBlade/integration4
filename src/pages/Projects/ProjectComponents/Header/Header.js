@@ -20,7 +20,7 @@ const ProjectsHeader = (props) => {
       >
         <img
           className={style.title__icon}
-          src={`../../assets/icons/${props.image}.svg`}
+          src={`/assets/icons/${props.image}.svg`}
           alt="icon"
         />
         Werkjes van vrienden

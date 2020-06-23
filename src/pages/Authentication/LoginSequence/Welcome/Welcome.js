@@ -10,18 +10,10 @@ const Welcome = (props) => {
   const { uiStore } = useStores();
 
   const startLogin = async () => {
-  const email = await prompt("Hohohooo, you found the secred login skipper. Enter your email adress below and get access");
+  const email = await prompt("Hohohooo, you found the secret login skipper. Enter your email adress below and get access");
   localStorage.setItem("emailForSignIn", email)
   await uiStore.loginWithEmail(email);
   }
-
-  /* REMOVE IF APP KEEPS WORKING
-  if (window.location.href.indexOf("apiKey") > -1) {
-    
-    const result = uiStore.verifyLogin();
-    if(result) return <Redirect to={ROUTES.login}/>
-    else throw new Error('test');
-  }*/
 
   return useObserver( () => (
     <div className={style.container}>

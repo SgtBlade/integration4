@@ -12,9 +12,9 @@ const ROUTES = {
   Friends: "/vrienden",
   FriendRequests: "/vrienden/verzoeken",
   FriendScan: "/vrienden/scannen",
-  Postcards: { path: "/postkaarten/:id", to: "/postkaarten/" },
+  Postcards: { path: "/postkaarten/:id/:user/:loc", to: "/postkaarten/" },
   FriendsProjects: "/projecten/vrienden",
-  FriendsProjectsOverview: "/projecten/vrienden/werkjes",
+  FriendsProjectsOverview:  { path: "/projecten/vrienden/werkjes/:id", to: "/projecten/vrienden/werkjes/" },
 };
 
 export { ROUTES };

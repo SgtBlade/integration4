@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styleBg from "./styles/BackgroundProjectOne.module.css";
 import style from "./styles/Tutorial.module.css";
 import progress from "./styles/ProgressBarAnimation.module.css";
@@ -10,6 +10,7 @@ import MaterialenNeeded from "../../TutorialComponents/MaterialenNeeded/Material
 //import COLORS from "../../../globalStyles/colors";
 
 const MaterialenOne = (props) => {
+
   return (
     <section className={styleBg.container}>
       <Header
@@ -40,7 +41,8 @@ const MaterialenOne = (props) => {
           <img src="../assets/illustraties/stappen/stap1.svg" alt="Stap 1" />
         </div>
       </div>
-      <MaterialenNeeded materialen="materialen-stapEen" />
+
+      <MaterialenNeeded guidedUser={props.guidedUser} setGuidedUser={props.setGuidedUser} materialen="materialen-stapEen" />
     </section>
   );
 };

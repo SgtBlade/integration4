@@ -55,7 +55,8 @@ const Tutorial = () => {
   const {uiStore} = useStores();
   const [currentScreen, setCurrentScreen] = useState();
   const [picture, setPicture] = useState(false);
-  const [seenVideo, setSeenVideo] = useState(false)
+  const [seenVideo, setSeenVideo] = useState(false);
+  const [guidedUser, setGuidedUser] = useState(true);
 
   const handleChangePhotoFileInput = e => {
     const target = e.currentTarget;
@@ -166,6 +167,8 @@ const Tutorial = () => {
       case SCREEN.STAP1:
         return (
           <StepOne
+          guidedUser={guidedUser}
+          setGuidedUser={setGuidedUser}
             startFunction={() => {
               setCurrentScreen(SCREEN.START);
             }}
