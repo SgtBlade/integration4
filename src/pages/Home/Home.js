@@ -32,16 +32,29 @@ const Home = () => {
       <div className={`${style.home__bg}`}>
         <div className={`${style.home__buttons}`}>
           <div className={`${style.home__buttons__friends}`}>
-          <img onClick={logOut} className={`${style.imageChosen}`} src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`} alt={"gekozen uiltje"}/>
-            <Link to={ROUTES.Friends}><GeneralButton
-              icon="friends"
-              backgroundColor="white"
-              iconBackgroundColor={COLORS.grey}
-              boxShadow={`0rem .5rem ${COLORS.greyLight}`}
-              type="svg"
-              text="Mijn vrienden"
-            /></Link>
-            {friendStore.requests.length > 0 ? <p className={`${style.home__buttons__friends__total}`}>+{friendStore.requests.length}</p> : ''}
+            <img
+              onClick={logOut}
+              className={`${style.imageChosen}`}
+              src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`}
+              alt={"gekozen uiltje"}
+            />
+            <Link to={ROUTES.Friends}>
+              <GeneralButton
+                icon="friends"
+                backgroundColor="white"
+                iconBackgroundColor={COLORS.grey}
+                boxShadow={`0rem .5rem ${COLORS.greyLight}`}
+                type="svg"
+                text="Mijn vrienden"
+              />
+            </Link>
+            {friendStore.requests.length > 0 ? (
+              <p className={`${style.home__buttons__friends__total}`}>
+                +{friendStore.requests.length}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
           <div className={`${style.home__buttons__settings}`}>
             <GeneralButton
@@ -59,10 +72,9 @@ const Home = () => {
           className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}
         >
           <div className={`${style.home__head}`}>
-
-          <Link to={`${ROUTES.map}`}>
-            <h1 className={`${style.home__titel}`}>Reisuil</h1>
-          </Link>
+            <Link to={`${ROUTES.MyProjectsDetail}`}>
+              <h1 className={`${style.home__titel}`}>Reisuil</h1>
+            </Link>
           </div>
           <div className={`${style.home__start}`}>
             <img

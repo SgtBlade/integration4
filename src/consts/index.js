@@ -24,6 +24,7 @@ const ROUTES = {
     path: "/projecten/mijnprojecten/werkjes/:id",
     to: "/projecten/mijnprojecten/werkjes/",
   },
+  MyProjectsDetail: "/projecten/mijnprojecten/detail",
 };
 
 export { ROUTES };

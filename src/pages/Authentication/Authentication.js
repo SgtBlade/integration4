@@ -18,7 +18,8 @@ import FriendsProjects from "../Projects/FriendsProjects/FriendsProjects";
 import FriendsProjectsOverview from "../Projects/FriendsProjects/FriendsProjectsOverview";
 import MyProjects from "../Projects/MyProjects/MyProjects";
 import MyProjectsOverview from "../Projects/MyProjects/MyProjectsOverview";
-import Intro from "../Intro/Intro.js"
+import MyProjectsDetail from "../Projects/MyProjects/MyProjectsDetail";
+import Intro from "../Intro/Intro.js";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -144,6 +145,15 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
+        <Route exact path={ROUTES.MyProjectsDetail}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjectsDetail />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
         <Route exact path={ROUTES.MyProjects}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
@@ -171,7 +181,6 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
-
       </Switch>
     </>
   ));
