@@ -4,44 +4,47 @@ import style from "../styles/Projects.module.css";
 import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 
-const FriendsProjects = (props) => {
+const MyProjects = (props) => {
   return (
-    <section className={style.container}>
+    <section className={`${style.container} ${style.container__bg}`}>
       <ProjectsHeader
-        image="verfborstel-blackSoft"
+        image="verfborstel-white"
+        color="#FFFFFF"
         link={ROUTES.France}
         icon={true}
-        title="Werkjes van vrienden"
+        title="Mijn werkjes"
       />
       <div className={style.toggle}>
-        <Link to={ROUTES.MyProjects} className={style.toggle__wrapper}>
-          <div className={`${style.toggle__background}`}></div>
-          <img
-            src="../assets/icons/mijnwerkjes.svg"
-            className={style.toggle__image}
-            alt="icon"
-          />
-        </Link>
         <div className={style.toggle__wrapper}>
           <div
             className={`${style.toggle__background} ${style.toggle__background__active}`}
           ></div>
           <img
+            src="../assets/icons/mijnwerkjes.svg"
+            className={style.toggle__image}
+            alt="icon"
+          />
+        </div>
+        <Link to={ROUTES.FriendsProjects} className={style.toggle__wrapper}>
+          <div className={`${style.toggle__background}`}></div>
+          <img
             src="../assets/icons/vrienden.svg"
             className={`${style.toggle__image} ${style.toggle__image__special}`}
             alt="icon"
           />
-        </div>
+        </Link>
       </div>
       <div className={style.wrapper}>
         <article className={style.piece}>
-          <h2 className={style.piece__title}>West-Europa 1/6</h2>
+          <h2 className={`${style.piece__title} ${style.piece__title__white}`}>
+            West-Europa 1/6
+          </h2>
           <div className={style.piece__wrapper}>
             <Link
-              to={`${ROUTES.FriendsProjectsOverview.to}France`}
-              className={style.piece__box}
+              to={`${ROUTES.MyProjectsOverview.to}France`}
+              className={`${style.piece__box} ${style.piece__box__green}`}
             >
-              <div className={style.layer}>
+              <div className={`${style.layer} ${style.layer__green}`}>
                 <img src="../assets/illustraties/slotje.svg" alt="icon" />
                 <div className={style.piece__friends}>
                   <img src="../assets/icons/friends-white.svg" alt="icon" />
@@ -58,7 +61,7 @@ const FriendsProjects = (props) => {
               <div className={style.piece__content}>
                 <img
                   className={style.piece__content__image}
-                  src="../assets/illustraties/eiffeltoren.svg"
+                  src="../assets/illustraties/eifeltoren-mijnwerkjes.svg"
                   alt="eiffeltoren"
                 />
               </div>
@@ -67,7 +70,7 @@ const FriendsProjects = (props) => {
               </div>
             </Link>
             <div
-              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie}`}
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie__white}`}
             >
               <img src="../assets/illustraties/slotje.svg" alt="icon" />
               <div className={style.piece__friends}>
@@ -75,7 +78,7 @@ const FriendsProjects = (props) => {
               </div>
             </div>
             <div
-              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje__white}`}
             >
               <img src="../assets/illustraties/slotje.svg" alt="icon" />
               <div className={style.piece__friends}>
@@ -85,10 +88,12 @@ const FriendsProjects = (props) => {
           </div>
         </article>
         <article className={style.piece}>
-          <h2 className={style.piece__title}>Benelux 1/3</h2>
+          <h2 className={`${style.piece__title} ${style.piece__title__white}`}>
+            Benelux 1/3
+          </h2>
           <div className={style.piece__wrapper}>
             <div
-              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje__white}`}
             >
               <img src="../assets/illustraties/slotje.svg" alt="icon" />
               <div className={style.piece__friends}>
@@ -96,7 +101,7 @@ const FriendsProjects = (props) => {
               </div>
             </div>
             <div
-              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie}`}
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__italie__white}`}
             >
               <img src="../assets/illustraties/slotje.svg" alt="icon" />
               <div className={style.piece__friends}>
@@ -104,7 +109,7 @@ const FriendsProjects = (props) => {
               </div>
             </div>
             <div
-              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje}`}
+              className={`${style.piece__box} ${style.piece__box__slot} ${style.piece__box__slot__spanje__white}`}
             >
               <img src="../assets/illustraties/slotje.svg" alt="icon" />
               <div className={style.piece__friends}>
@@ -118,4 +123,4 @@ const FriendsProjects = (props) => {
   );
 };
 
-export default FriendsProjects;
+export default MyProjects;

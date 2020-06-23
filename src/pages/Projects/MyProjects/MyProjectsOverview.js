@@ -5,23 +5,23 @@ import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 import { useStores } from "../../../hooks/useStores";
 
-const FriendsProjectsOverview = (props) => {
+const MyProjectsOverview = (props) => {
   const { id } = useParams();
   const { friendStore } = useStores();
   let foundUsers = false;
 
   return id ? (
-    <section className={style.container}>
+    <section className={`${style.container} ${style.container__bg}`}>
       <ProjectsHeader
         image="vrienden-blackSoft"
-        link={ROUTES.FriendsProjects}
-        icon={true}
+        link={ROUTES.MyProjects}
         title="Eiffeltoren"
+        color="#FFFFFF"
       />
       <div className={style.wrapper}>
         {friendStore.friends.map((friend) =>
           friend[id]
-            ? friend[id].map((image, index) => (
+            ? friend[id].map((url, index) => (
                 <div key={`${friend.id}${index}`} className={style.project}>
                   {(foundUsers = true)}
                   <div className={style.project__pictureBox}>
@@ -29,7 +29,7 @@ const FriendsProjectsOverview = (props) => {
                       className={style.project__bar__buttonbox__image}
                       width="240"
                       height="240"
-                      src={image.link}
+                      src={url}
                       alt="project"
                     />
                   </div>
@@ -37,10 +37,10 @@ const FriendsProjectsOverview = (props) => {
                     <div className={style.project__bar__autor}>
                       <img
                         className={style.project__bar__image}
-                        src="/assets/icons/vrienden-blackSoft.svg"
+                        src="/assets/icons/vergrootglas.svg"
                         alt="icon"
                       />
-                      <p className={style.project__bar__name}>{friend.name}</p>
+                      <p className={style.project__bar__name}>Bekijken</p>
                     </div>
                     <div className={style.project__bar__buttonbox}>
                       {console.log(index)}
@@ -48,9 +48,10 @@ const FriendsProjectsOverview = (props) => {
                         to={`${ROUTES.Postcards.to}${index}/${friend.id}/${id}`}
                       >
                         <img
-                          src="/assets/icons/postkaartjeToevoegen.svg"
+                          src="/assets/icons/postkaartjeTwo.svg"
                           alt="Toevoegen knop"
                         />
+                        <p className={style.buttonbox__aantal}>3</p>
                       </Link>
                     </div>
                   </div>
@@ -62,10 +63,16 @@ const FriendsProjectsOverview = (props) => {
         {foundUsers ? (
           ""
         ) : (
-          <div className={style.NoneFound}>
-            <p>Je vrienden hebben hiervan nog geen werkjes gemaakt</p>
+          <div className={`${style.NoneFound} ${style.NoneFound__green}`}>
+            <p>Je hebt nog geen werkjes gemaakt</p>
           </div>
         )}
+        <Link to={ROUTES.TaskFrance} className={style.addProject}>
+          <img
+            src="../../../assets/icons/addProject.svg"
+            alt="voeg project toe"
+          />
+        </Link>
       </div>
     </section>
   ) : (
@@ -73,4 +80,4 @@ const FriendsProjectsOverview = (props) => {
   );
 };
 
-export default FriendsProjectsOverview;
+export default MyProjectsOverview;

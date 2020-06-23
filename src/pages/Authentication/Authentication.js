@@ -16,6 +16,8 @@ import Frankrijk from "../PlayAgain/Frankrijk";
 import Postcards from "../Postcards/Postcards";
 import FriendsProjects from "../Projects/FriendsProjects/FriendsProjects";
 import FriendsProjectsOverview from "../Projects/FriendsProjects/FriendsProjectsOverview";
+import MyProjects from "../Projects/MyProjects/MyProjects";
+import MyProjectsOverview from "../Projects/MyProjects/MyProjectsOverview";
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -119,6 +121,24 @@ const Authentication = () => {
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <FriendsProjects />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjectsOverview.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjectsOverview />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjects}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjects />
             </>
           ) : (
             <Redirect to={ROUTES.login} />

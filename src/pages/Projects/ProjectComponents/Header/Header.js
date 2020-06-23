@@ -18,12 +18,16 @@ const ProjectsHeader = (props) => {
           color: props.color ? props.color : COLORS.blackSoft,
         }}
       >
-        <img
-          className={style.title__icon}
-          src={`/assets/icons/${props.image}.svg`}
-          alt="icon"
-        />
-        Werkjes van vrienden
+        {props.icon ? (
+          <img
+            className={style.title__icon}
+            src={`/assets/icons/${props.image}.svg`}
+            alt="icon"
+          />
+        ) : (
+          ""
+        )}
+        {props.title}
       </h1>
       <div className={style.buttonWrapHome}>
         <RoundHomeButton />

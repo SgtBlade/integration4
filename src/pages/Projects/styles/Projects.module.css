@@ -26,12 +26,20 @@
   height: 100%;
 }
 
+.container__bg {
+  background: url(/assets/blobs/blob13-werkjes.svg),
+    url(/assets/blobs/blob14-werkjes.svg), var(--blueLight);
+  background-repeat: no-repeat;
+  background-position: left top, right center;
+  height: 100%;
+}
+
 .toggle {
   height: 7.142rem;
   width: 17.786rem;
   display: flex;
   padding: 0.5rem;
-  background-color: var(--blueLight);
+  background-color: var(--blue);
   border-radius: 1.5rem;
   margin: auto;
   justify-content: space-between;
@@ -78,6 +86,11 @@
 .piece__title {
   font-size: 3rem;
   margin-bottom: 2.5rem;
+  color: var(--blackSoft);
+}
+
+.piece__title__white {
+  color: white;
 }
 
 .piece__wrapper {
@@ -98,6 +111,11 @@
   box-shadow: 0 0.5rem var(--blueDark);
   animation-name: animatie;
   animation-duration: 0.5s;
+}
+
+.piece__box__green {
+  background-color: var(--green);
+  box-shadow: 0 0.5rem var(--greenShadowTwo);
 }
 
 .piece__titleBox {
@@ -145,11 +163,26 @@
   background-position: center center;
 }
 
+.piece__box__slot__italie__white {
+  background: url(/assets/illustraties/italie-bg-white.svg), var(--green);
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-shadow: 0 0.5rem var(--greenShadowTwo);
+}
+
 .piece__box__slot__spanje {
   background: url(/assets/illustraties/spanje-bg.svg), var(--blueLight);
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.piece__box__slot__spanje__white {
+  background: url(/assets/illustraties/spanje-bg-white.svg), var(--green);
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-shadow: 0 0.5rem var(--greenShadowTwo);
+}
+
 .layer {
   position: absolute;
   top: 0;
@@ -159,7 +192,7 @@
   width: 26.34rem;
   height: 26.34rem;
   border-radius: 2.5rem;
-  background: url(/assets/illustraties/italie-bg.svg), var(--blueLight);
+  background: url(/assets/illustraties/frankrijk-bg.svg), var(--blueLight);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
@@ -170,4 +203,10 @@
   animation-duration: 0.5s;
   animation-direction: alternate;
   animation-fill-mode: forwards;
+}
+
+.layer__green {
+  background: url(/assets/illustraties/frankrijk-bg-white.svg), var(--green);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
