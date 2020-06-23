@@ -8,14 +8,16 @@ import { useHistory } from "react-router-dom";
 const PostcardConfirm = (props) => {
   
   const history = useHistory()
-  const handleSumbit = () => {history.push('')}
+  const handleSumbit = () => {
+    history.push('');
+  }
 
   return (
     <div className={style.container}>
 
       <div className={style.mainContent}>
         <StepSidebar current={3}/>
-        <div className={style.image} style={{backgroundImage: `url('../assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
+        <div className={style.image} style={{backgroundImage: `url('/assets/postcards/${props.country}/${props.postcard.background}.svg')`}} >
         <img 
           className={`${style.sticker} ${style[props.postcard.sticker.name]}`}
           src={`/assets/postcards/${props.country}/${props.postcard.sticker.name}.svg`} 

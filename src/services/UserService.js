@@ -223,9 +223,9 @@ class UserService {
         res.prefixes.forEach(function(folderRef) {
 
         });
-      res.items.forEach(function(itemRef) {
+        res.items.forEach(function(itemRef) {
         itemRef.getDownloadURL().then(function(url) {
-          pushImages(user, country, url)
+          pushImages(user, country, url, itemRef.name)
         })
       });
 

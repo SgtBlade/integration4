@@ -22,12 +22,12 @@ const FriendsProjectsOverview = (props) => {
       <div className={style.wrapper}>
       {friendStore.friends.map((friend) => (
           friend[id] ? 
-          friend[id].map((url, index) => (
+          friend[id].map((image, index) => (
             
             <div key={`${friend.id}${index}`} className={style.project}>
               {foundUsers = true}
               <div className={style.project__pictureBox}>
-                  <img className={style.project__bar__buttonbox__image} width="240" height="240"  src={url} alt="project" />
+                  <img className={style.project__bar__buttonbox__image} width="240" height="240"  src={image.link} alt="project" />
               </div>
               <div className={style.project__bar}>
                 <div className={style.project__bar__autor}>

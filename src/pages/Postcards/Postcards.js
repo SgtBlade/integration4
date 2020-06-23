@@ -7,9 +7,23 @@ import { ROUTES } from "../../consts";
 import PostcardBackgrounds from "./PostcardBackgrounds/PostcardBackgrounds";
 import PostcardStickers from "./PostcardStickers/PostcardStickers";
 import PostcardConfirm from "./PostcardConfirm/PostcardConfirm";
+import { useParams, Redirect } from "react-router-dom";
+import { useStores } from "../../hooks/useStores";
 
 const Postcards = () => {
 
+
+  const { id, user, loc } = useParams();
+  const {friendStore} = useStores()
+  const [currentUser, setCurrentUser] = useState()
+
+  const getUserWithImage =  () => {
+    const userObj = friendStore.friends[friendStore.friends.findIndex((obj => obj.id === user))];
+    const image = userObj[loc][id]
+
+    if(!userObj || !image) return <Redirect to={`${ROUTES.FriendsProjectsOverview.to}${loc}`}/>
+    else setCurrentUser({user: userObj, image: image})
+  }
   const SCREENS = {
     INITIAL: 'INITIAL',
     POSTCARD: 'POSTCARD',
@@ -34,7 +48,7 @@ const Postcards = () => {
       case SCREENS.INITIAL:
          title = 'Werkje van Sara';
          previousScreen = ROUTES[country]
-         component = <PostcardInitial  nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
+         component = <PostcardInitial image={currentUser.image.link}  nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
          break;
       case SCREENS.POSTCARD:
         title = 'Kies je postkaartje';
@@ -55,7 +69,7 @@ const Postcards = () => {
       default:
         title = 'Werkje van Sara';
         previousScreen = ROUTES[country]
-        component = <PostcardInitial nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
+        component = <PostcardInitial location={loc} userData={currentUser} image={currentUser.image.link}  nextFunction={() => {setScreen(SCREENS.POSTCARD)}}/>
         break;
     }
 
@@ -68,7 +82,10 @@ const Postcards = () => {
   }
   
   return useObserver(() => (
-      getScreen()
+    !currentUser ?
+    getUserWithImage()
+    :
+    getScreen()
   ));
 };
 

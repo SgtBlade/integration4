@@ -26,14 +26,13 @@ class FriendStore {
 
   getAllFilesFromUser = async (user, country) => {
     const result = await this.userService.getUploadsByUser(user, country, this.addImagesToUser);
-    console.log(result)
   }
 
-  addImagesToUser = (friend, country, imageLink) => {
+  addImagesToUser = (friend, country, imageLink, imageName) => {
     
     let objIndex = this.friends.findIndex((obj => obj.id === friend.id));
-    if(this.friends[objIndex][country])this.friends[objIndex][country].push(imageLink)
-    else this.friends[objIndex][country] = [imageLink]
+    if(this.friends[objIndex][country])this.friends[objIndex][country].push({link: imageLink, name: imageName})
+    else this.friends[objIndex][country] = [{link: imageLink, name: imageName}]
   }
 
 
