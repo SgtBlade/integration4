@@ -10,19 +10,6 @@ import { ROUTES } from "../../consts";
 const Home = () => {
   const { uiStore, friendStore } = useStores();
 
-  const logOut = () => {
-    const fb = uiStore.firebase;
-    fb.auth()
-      .signOut()
-      .then(function () {
-        console.log("Logged out");
-        localStorage.clear();
-      })
-      .catch(function (error) {
-        console.log("error occured: ".error.code);
-      });
-  };
-
   return useObserver(() => (
     <>
       <div className={`${style.home__bg}`}
@@ -50,17 +37,27 @@ const Home = () => {
               ""
             )}
           </div>
-          <div className={`${style.home__buttons__settings}`}>
-            <GeneralButton
-              onClick={logOut}
-              icon="settings"
-              backgroundColor="white"
-              iconBackgroundColor={COLORS.grey}
-              boxShadow={`0rem .5rem ${COLORS.greyLight}`}
-              type="svg"
-              text="Ouders & instellingen"
-            />
-          </div>
+          {uiStore.currentUser.chapter > 0 ?
+            <div className={`${style.home__buttons__settings}`}>
+            <Link
+                  className={`${style.textBalloon__button} ${style.textBalloon__button__three}`}
+                  to={`${ROUTES.MyProjects}`}
+                >
+                <GeneralButton
+                icon="verfborstel"
+                backgroundColor="#FFFFFF"
+                iconBackgroundColor={COLORS.grey}
+                boxShadow={`0rem .5rem ${COLORS.greyLight}`}
+                type="svg"
+                text="Mijn werkjes"
+              />
+                </Link>
+              
+            </div>
+          :
+          ''
+          }
+          
         </div>
         <section className={`${style.home__wrapper}`}>
           

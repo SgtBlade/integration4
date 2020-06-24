@@ -3,20 +3,9 @@ import style from "./Welcome.module.css";
 import Header from "../Header/Header.js";
 import SoundButton from "../../../globalComponents/SoundButton.js";
 import GeneralButton from "../../../globalComponents/GeneralButton";
-import { useStores } from "../../../../hooks/useStores.js";
 import { useObserver } from "mobx-react-lite";
 
 const Welcome = (props) => {
-  const { uiStore } = useStores();
-
-  const startLogin = async () => {
-    const email = await prompt(
-      "Hohohooo, you found the secret login skipper. Enter your email adress below and get access"
-    );
-    localStorage.setItem("emailForSignIn", email);
-    await uiStore.loginWithEmail(email);
-  };
-  
 
   return useObserver(() => (
     <div className={style.container}>
@@ -28,7 +17,7 @@ const Welcome = (props) => {
             Welkom in mijn bos, mijn naam is Eldrick. Ga je mee op avontuur?
           </p>
           <div className={style.soundButton}>
-            <SoundButton play={"Welkom"} />
+            <SoundButton play={"welkom"} />
           </div>
         </div>
 
@@ -42,7 +31,7 @@ const Welcome = (props) => {
             text="Begin"
           />
         </div>
-        <div onClick={startLogin} className={style.secretCube}></div>
+        <div className={style.secretCube}></div>
         <div onClick={props.skipLogin} className={style.alreadyAnAccount}>
           <p>Ik heb al een account</p>
         </div>

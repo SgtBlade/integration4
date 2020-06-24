@@ -86,7 +86,7 @@ class UserService {
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
               doc.ref.delete().then(function() {
-              console.log("Document successfully deleted!");
+              
           }).catch(function(error) {
               console.error("Error removing document: ", error);
           });
@@ -103,7 +103,6 @@ class UserService {
   };
 
   denyRequestById = async (currentUser, userId) => {
-    console.log(userId)
     this.db
     .collection("kinderen")
     .doc(currentUser.email)
