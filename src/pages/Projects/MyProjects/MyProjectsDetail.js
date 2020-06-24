@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Redirect, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import style from "../styles/ProjectsDetail.module.css";
 import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";

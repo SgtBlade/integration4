@@ -23,10 +23,6 @@ const Home = () => {
       });
   };
 
-  const logUser = () => {
-    console.log(uiStore.currentUser);
-  };
-
   return useObserver(() => (
     <>
       <div className={`${style.home__bg}`}

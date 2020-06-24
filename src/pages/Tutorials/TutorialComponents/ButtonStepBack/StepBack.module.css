@@ -1,6 +1,6 @@
 .oneStepBack {
+    pointer-events: none;
     z-index: 50;
-    -webkit-transform:translate3d(0,0,0);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -9,10 +9,12 @@
     display: flex;
     align-items: center;
     padding-top: 6rem;
+    background:transparent;
     
   }
   
   .oneStepBack__image {
+    pointer-events: auto;
     background-color: var(--blue);
     padding: 1.5rem;
     width: 6rem;

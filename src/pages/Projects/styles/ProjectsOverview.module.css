@@ -30,12 +30,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  margin-top: 2rem;
   grid-row-gap: 4rem;
   height: 75%;
 
   overflow: scroll;
-  padding-bottom: 10rem;
 }
 
 .project__pictureBox {
