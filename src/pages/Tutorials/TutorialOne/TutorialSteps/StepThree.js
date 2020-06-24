@@ -32,7 +32,7 @@ const MaterialenOne = (props) => {
           </div>
           <div className={style.stepOne__content}>
             <p
-              className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+              className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__one}`}
             >
               8x
             </p>

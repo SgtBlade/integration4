@@ -67,6 +67,7 @@
   height: 54.7rem;
   padding: 3rem 4rem;
   display: flex;
+  position: relative;
 }
 
 .boekje__content__wrapper {
@@ -301,7 +302,25 @@
   font-size: 4rem;
   position: absolute;
   bottom: 1rem;
+  left: 4rem;
+}
+
+.tekst__stappen__one {
   left: -6rem;
+}
+
+.tekst__stappen__noparent {
+  left: 5rem;
+  bottom: 4rem;
+}
+
+.tekst__stappen__noparent__end {
+  left: 7rem;
+  bottom: 4rem;
+}
+
+.tekst__stappen__halves {
+  left: 5rem;
 }
 
 .boekje__content__stepCenter {
@@ -323,6 +342,7 @@
   grid-row: 1;
   padding-left: 13rem;
   padding-top: 7rem;
+  position: relative;
 }
 
 .stepFive__image {
@@ -469,7 +489,7 @@
   height: 44rem;
   object-fit: cover;
 }
- 
+
 .boekje__content__stepCenter__bevestigFoto {
   align-items: center;
 }
@@ -498,11 +518,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-
 
 .uploadMessage {
   position: absolute;

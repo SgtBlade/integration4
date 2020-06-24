@@ -10,7 +10,6 @@ import MaterialenNeeded from "../../TutorialComponents/MaterialenNeeded/Material
 //import COLORS from "../../../globalStyles/colors";
 
 const MaterialenOne = (props) => {
-
   return (
     <section className={styleBg.container}>
       <Header
@@ -33,7 +32,7 @@ const MaterialenOne = (props) => {
           </div>
           <div className={style.stepOne__content}>
             <p
-              className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+              className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__one}`}
             >
               4x
             </p>
@@ -42,7 +41,11 @@ const MaterialenOne = (props) => {
         </div>
       </div>
 
-      <MaterialenNeeded guidedUser={props.guidedUser} setGuidedUser={props.setGuidedUser} materialen="materialen-stapEen" />
+      <MaterialenNeeded
+        guidedUser={props.guidedUser}
+        setGuidedUser={props.setGuidedUser}
+        materialen="materialen-stapEen"
+      />
     </section>
   );
 };
