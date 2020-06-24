@@ -15,6 +15,12 @@ import ScanFriend from "../Friends/ScanFriend/ScanFriend.js";
 import Frankrijk from "../PlayAgain/Frankrijk";
 import Postcards from "../Postcards/Postcards";
 import FriendsProjects from "../Projects/FriendsProjects/FriendsProjects";
+import FriendsProjectsOverview from "../Projects/FriendsProjects/FriendsProjectsOverview";
+import MyProjects from "../Projects/MyProjects/MyProjects";
+import MyProjectsOverview from "../Projects/MyProjects/MyProjectsOverview";
+import MyProjectsDetail from "../Projects/MyProjects/MyProjectsDetail";
+import Intro from "../Intro/Intro.js";
+import Videos from "../Videos/Videos.js"
 
 const Authentication = () => {
   const { uiStore } = useStores();
@@ -77,7 +83,6 @@ const Authentication = () => {
           )}
         </Route>
 
-
         <Route path={ROUTES.Postcards.path}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
@@ -87,7 +92,15 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
-
+        <Route exact path={ROUTES.Intro}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Intro />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
         <Route exact path={ROUTES.FriendScan}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
@@ -106,10 +119,55 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
+        <Route exact path={ROUTES.FriendsProjectsOverview.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <FriendsProjectsOverview />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
         <Route exact path={ROUTES.FriendsProjects}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
               <FriendsProjects />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjectsOverview.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjectsOverview />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjectsDetail.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjectsDetail />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.Videos.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Videos />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
+        <Route exact path={ROUTES.MyProjects}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <MyProjects />
             </>
           ) : (
             <Redirect to={ROUTES.login} />
@@ -133,7 +191,6 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
-
       </Switch>
     </>
   ));

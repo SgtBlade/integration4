@@ -8,7 +8,7 @@ import COLORS from "../globalStyles/colors.js";
 import { useObserver } from "mobx-react-lite";
 
 const Frankrijk = (props) => {
-  return useObserver( () => (
+  return useObserver(() => (
     <section className={style.container}>
       <FrankrijkHeader />
       <div className={style.wrapper}>
@@ -26,7 +26,7 @@ const Frankrijk = (props) => {
             />
           </div>
           <div className={style.partOne__buttons}>
-            <Link className={style.buttons__button} to={ROUTES.TaskFrankrijk}>
+            <Link className={style.buttons__button} to={ROUTES.TaskFrance}>
               <GeneralButton
                 text="Opnieuw spelen"
                 icon="again__blackSoft"
@@ -67,6 +67,7 @@ const Frankrijk = (props) => {
                 alt=""
               />
               <Link
+                to={`${ROUTES.Videos.to}France`}
                 className={`${style.textBalloon__button} ${style.textBalloon__button__one}`}
               >
                 <GeneralButton
@@ -121,7 +122,7 @@ const Frankrijk = (props) => {
               />
               <Link
                 className={`${style.textBalloon__button} ${style.textBalloon__button__three}`}
-                to={`${ROUTES.Postcards.to}Frankrijk`}
+                to={`${ROUTES.MyProjects}`}
               >
                 <GeneralButton
                   text="Mijn werkjes"

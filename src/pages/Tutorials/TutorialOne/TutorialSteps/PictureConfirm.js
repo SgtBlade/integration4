@@ -13,10 +13,11 @@ const MaterialenOne = (props) => {
 
   const {uiStore} = useStores();
   const [redirect, setRedirect] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = async e => {
-    const result = await uiStore.uploadImage('france', props.picture)
-    console.log(result)
+    setSubmitted(true)
+    await uiStore.uploadImage('France', props.picture)
   };
 
   let inputFileRef = null;
@@ -27,12 +28,13 @@ const MaterialenOne = (props) => {
 
   const handleFinish = async () => {
     const result = await uiStore.updateChapter(2);
-    if(result)setRedirect(true);
+    if(result){uiStore.setUploadState(false);setRedirect(true);}
   }
-
+ 
   return useObserver( () => (
     <section className={styleBg.container}>
-      {redirect? <Redirect to={ROUTES.map} /> : ''}
+      {redirect? 
+      <Redirect to={ROUTES.map}  /> : ''}
       {uiStore.uploadState ?
         uiStore.uploadState === 'finished' ? 
         <div className={style.uploadMessage}>
@@ -100,7 +102,7 @@ const MaterialenOne = (props) => {
             buttonWidth="27.5rem"
             icon="save"
             type="svg"
-            onClick={handleSubmit}
+            onClick={submitted ? null : handleSubmit}
           />
         </div>
         <div className={style.stepTwelve__wrapper__uiltje}>

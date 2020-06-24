@@ -10,7 +10,8 @@
     background-color: var(--white);
     background-image: url("/assets/blobs/blob9-characterConfirmation.svg");
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
+    
 }
 
 .warningWrap {

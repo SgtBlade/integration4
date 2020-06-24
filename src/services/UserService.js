@@ -25,9 +25,13 @@ class UserService {
       .get();
 
     let user = false;
-    if(usr.docs[0].exists)user = await this.getChildByMail(usr.docs[0].id)
+    if(usr.docs[0] !== undefined)if(usr.docs[0].exists){
+      user = await this.getChildByMail(usr.docs[0].id)
+      return user.data();
+    }else return false;
     
-    return user.data();
+    
+   
   };
 
   createUser = async user => {
@@ -180,7 +184,7 @@ class UserService {
     }
   }
 
-  addImageToStorage = async (currentUser,country, file, onChange) => {
+  addImageToStorage = async (currentUser,country, file, onChange, addImageToUser) => {
 
     const storageRef = this.storage.ref();
     const imageName = v4();
@@ -200,6 +204,9 @@ class UserService {
         },
         complete: () => {
           onChange('finished');
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            addImageToUser(null, country, downloadURL, uploadTask.snapshot.ref.name)
+          });
         }
       });
   }
@@ -213,6 +220,47 @@ class UserService {
     return result;
   }
 
+  getUploadsByUser = async (user, country, pushImages) => {
+
+    const storageRef = this.storage.ref();
+    let listRef = storageRef.child(`${user.id}/${country}`);
+
+    listRef.listAll()
+      .then(function(res, images) {
+        res.prefixes.forEach(function(folderRef) {
+
+        });
+        res.items.forEach(function(itemRef) {
+        itemRef.getDownloadURL().then(function(url) {
+          pushImages(user, country, url, itemRef.name);
+        })
+      });
+    }).catch(function(error) {
+      //Error occured
+    });
+  }
+
+  sendPostcard = async (user, postcard, location) => {
+    return await this.db
+      .collection("kinderen")
+      .doc(user.email)
+      .collection(location)
+      .doc(v4())
+      .set(postcard);
+  };
+
+  getPostcards = async (user, country, pushPostcardsToUser) => {
+    this.db
+    .collection('kinderen')
+    .doc(user.email)
+    .collection(country)
+    .get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          pushPostcardsToUser(country, doc.data())
+      });
+  });
+  }
 }
 
 export default UserService;

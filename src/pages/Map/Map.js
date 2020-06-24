@@ -37,12 +37,12 @@ const Map = () => {
                 <li key={index} className={style.storyMap__Item}
                   onClick={
                     parseInt(uiStore.currentUser.chapter) === index+1 ? () => beginAssignment(key.imageName) : parseInt(uiStore.currentUser.chapter) > index+1 ? 
-                    () => history.push('Frankrijk') : null}
+                    () => history.push('Frankrijk') : null}//verander naar key.``dutchName als er meerdere landen zijn
                   style={{
                     borderColor: parseInt(uiStore.currentUser.chapter) > index+1 ? COLORS.grey : parseInt(uiStore.currentUser.chapter) === index+1 ? COLORS.redDark : COLORS.white,
                     backgroundImage: parseInt(uiStore.currentUser.chapter) > index+1 ? `url('/assets/flags/${key.imageName}.svg')` : 'none',}}
                     >
-                  <p className={style.storyMap__Chapter} style={{color: key.contrastColor ? key.color ? key.color : COLORS.white : COLORS.black}}>{index+1}</p>
+                  <p className={style.storyMap__Chapter} style={{color: parseInt(uiStore.currentUser.chapter) > index+1 ? (key.contrastColor ? COLORS.black : COLORS.white) : COLORS.white}}>{index+1}</p>
                 </li>,
         
                 (index+1 < STORYLINE.length) && (uiStore.currentUser.chapter-STORYLINE.length <= STORYLINE.length-(index+1) )?

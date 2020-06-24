@@ -36,7 +36,7 @@ const StepFive = (props) => {
               className={`${style.stepFive__content} ${style.stepFive__content__space}`}
             >
               <p
-                className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+                className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__halves}`}
               >
                 8x
               </p>
@@ -50,7 +50,7 @@ const StepFive = (props) => {
           <div className={style.stepFive__wrapper}>
             <div className={style.stepFive__content}>
               <p
-                className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+                className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__halves}`}
               >
                 3x
               </p>

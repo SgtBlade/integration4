@@ -1,5 +1,6 @@
 import { decorate, action, observable } from "mobx";
 import UserService from "../services/UserService";
+import STORYLINE from "../pages/A_userVariables/storyLine";
 
 class FriendStore {
   constructor(rootStore) {
@@ -16,6 +17,19 @@ class FriendStore {
 
   addFriend(friend) {
     this.friends.push((friend))
+    STORYLINE.forEach(story => {
+      this.getAllFilesFromUser(friend, story.imageName, this.addImagesToUser)
+    })
+  }
+
+  getAllFilesFromUser = async (user, country, activator) => {
+    await this.userService.getUploadsByUser(user, country, activator);
+  }
+
+  addImagesToUser = (friend, country, imageLink, imageName) => {
+    let objIndex = this.friends.findIndex((obj => obj.id === friend.id));
+    if(this.friends[objIndex][country])this.friends[objIndex][country].push({link: imageLink, name: imageName})
+    else this.friends[objIndex][country] = [{link: imageLink, name: imageName}]
   }
 
   addFriendRequest(friend) {
@@ -33,14 +47,19 @@ class FriendStore {
   }
 
   findFriend = async (scannedID) => {
-    const foundUser =  await this.userService.getChildByID(scannedID);
-    if(foundUser.id === this.rootStore.uiStore.currentUser.id)return [false, "Je kan jezelf niet toevoegen"]
-    else if(this.requests.find(request => request.id === foundUser.id)) {
-      this.acceptFriendRequest(foundUser.email)
-      return [true, `${foundUser.name} is toegevoegd aan je vriendenlijst`]
-    }
-    else if(this.friends.find(friend => friend.id === foundUser.id)) return [true, `${foundUser.name} zit al in je vriendenlijst`]
-    else return foundUser
+      const foundUser =  await this.userService.getChildByID(scannedID);
+      if(foundUser){
+        if(foundUser.id === this.rootStore.uiStore.currentUser.id)return [false, "Je kan jezelf niet toevoegen"]
+        else if(this.requests.find(request => request.id === foundUser.id)) {
+          this.acceptFriendRequest(foundUser.email)
+          return [true, `${foundUser.name} is toegevoegd aan je vriendenlijst`]
+        }
+        else if(this.friends.find(friend => friend.id === foundUser.id)) return [true, `${foundUser.name} zit al in je vriendenlijst`]
+        else return foundUser
+      }
+      
+    
+    
   }
 
   sendFriendRequest = async (user) => {
@@ -51,7 +70,8 @@ class FriendStore {
   removeFriend = (friend) =>  {
     if(friend.id !== this.rootStore.uiStore.currentUser.id) this.friends.splice(this.friends.findIndex(item => item.id === friend.id), 1);
   }
-
+  
+  
 }
 decorate(FriendStore, {
   requests: observable,

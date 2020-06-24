@@ -3,7 +3,7 @@ import style from "./PostcardStickers.module.css";
 import GeneralButton from "../../globalComponents/GeneralButton";
 import COLORS from "../../globalStyles/colors";
 import StepSidebar from "../StepSidebar/StepSidebar";
-import { useObservable, useObserver } from "mobx-react-lite";
+import { useObserver } from "mobx-react-lite";
 
 const PostcardStickers = (props) => {
   
@@ -21,9 +21,9 @@ const PostcardStickers = (props) => {
             <ul className={style.postcardOptions}>
                 {stickers.map((sticker, index) => {
                 return <li 
-                onClick={() => {props.onClick({background: props.postcard.background, sticker: sticker})}} 
+                onClick={() => {props.onClick({background: props.postcard.background, sticker: sticker.name, image: props.postcard.image})}} 
                 style={{backgroundImage: `url('/assets/postcards/${props.country}/${props.postcard.background}.png')`}} 
-                className={`${style.postcardOptions__option} ${props.postcard.sticker.name === sticker.name ? style.selected : ''}`} 
+                className={`${style.postcardOptions__option} ${props.postcard.sticker === sticker.name ? style.selected : ''}`} 
                 key={index}>
 
                 <img 

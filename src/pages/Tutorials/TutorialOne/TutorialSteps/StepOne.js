@@ -32,7 +32,7 @@ const MaterialenOne = (props) => {
           </div>
           <div className={style.stepOne__content}>
             <p
-              className={`${style.alternatief__tekst} ${style.tekst__stappen}`}
+              className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__one}`}
             >
               4x
             </p>
@@ -40,7 +40,12 @@ const MaterialenOne = (props) => {
           <img src="../assets/illustraties/stappen/stap1.svg" alt="Stap 1" />
         </div>
       </div>
-      <MaterialenNeeded materialen="materialen-stapEen" />
+
+      <MaterialenNeeded
+        guidedUser={props.guidedUser}
+        setGuidedUser={props.setGuidedUser}
+        materialen="materialen-stapEen"
+      />
     </section>
   );
 };

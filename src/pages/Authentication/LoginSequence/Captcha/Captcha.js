@@ -25,7 +25,7 @@ const Captcha = (props) => {
     }
   };
   const askBirthDate = () => {
-    if (parseInt(prompt("Wat is uw geboortedatum?")) <= 2004) {
+    if (parseInt(prompt("Wat is uw geboortejaar?")) <= 2004) {
       uiStore.setParentalConfirmation(true);
       props.nextFunction();
     }

@@ -38,7 +38,7 @@ const CameraRequest = (props) => {
             </div>
         </div>      
         {error ? 
-        <ErrorMessage closeFunction={() => {setError(false)}} text={"U heeft de toegang geweigerd"}/>
+        <ErrorMessage closeFunction={() => {setError(false)}} text={"U kan de app niet gebruiken zonder camera toegang"}/>
         :
         ''
         }

@@ -1,11 +1,13 @@
 .wrapper {
     background: url(/assets/illustraties/boekje.svg), url("/assets/blobs/blob1-tutorial.svg"), url("/assets/blobs/blob2-tutorial.svg"), url("/assets/illustraties/uiltjePointing-tutorial.svg");
     background-repeat: no-repeat;
-    background-position: 7.5rem 20rem, left center, right bottom, 77.5rem 26rem;
+    background-position: 7.5rem 20rem, left center, right 130%, 95% 80%;
     height: 100%;
 }
 
 .buttonWrap {
+    z-index: 200;
+    -webkit-transform:translate3d(0,0,0);
     position: absolute;
     top: 3.2rem;
     left: 4.3rem;

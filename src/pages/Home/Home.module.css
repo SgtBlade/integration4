@@ -1,23 +1,4 @@
 
-.books__week__title {
-    padding: 1rem;
-    font-size: 3rem;
-    border-bottom: .3rem solid var(--borders);
-    border-left: .4rem solid var(--borders);
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-  
-  .books__week {
-    margin-bottom: 3rem;
-    font-size: 1.8rem;
-  
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .home__buttons {
     display: flex; 
     padding: 2.5rem 5rem;
@@ -43,20 +24,36 @@
     font-style: normal;
   }
 
-  .home__start {
-    position: fixed; 
-    right: 5rem;
-    bottom: 5rem;
+  .home__wrapper {
+    width: 100%;
+    height: 80%;
     display: flex;
     flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 5rem 5rem;
+  }
+
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+  }
+
+  .home__start {
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     align-items: center;
   }
 
   .home__bg {
-    background: url(/assets/illustraties/homepageCloud.svg), url(/assets/blobs/blob1-startscherm.svg), url(/assets/blobs/blob2-startscherm.svg), var(--blue) ;
     background-repeat: no-repeat;
-    background-position: left bottom, left bottom, right top;
     height: 100%;
+    overflow: hidden;
     
   }
 
@@ -67,13 +64,20 @@
   }
 
   .home__head {
-    position: fixed;
-    height: 100vh;
     display: flex;
     align-items: center;
-    top: 0;
-    right: 9rem;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-bottom: 4rem;
   }
+
+  .home__introduction {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-top: -5rem;
+  }
+
 
   .home__start__stripestop {
     padding-bottom: 3rem;

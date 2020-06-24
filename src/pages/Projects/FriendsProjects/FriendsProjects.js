@@ -1,24 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "../Projects.module.css";
-//import RoundArrowButton from "../../globalComponents/RoundArrowButton.js";
-//import RoundHomeButton from "../../globalComponents/RoundHomeButton.js";
+import style from "../styles/Projects.module.css";
 import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 
-const FrankrijkHeader = (props) => {
+const FriendsProjects = (props) => {
   return (
     <section className={style.container}>
-      <ProjectsHeader />
+      <ProjectsHeader
+        image="verfborstel-blackSoft"
+        link={ROUTES.France}
+        icon={true}
+        title="Werkjes van vrienden"
+      />
       <div className={style.toggle}>
-        <div className={style.toggle__wrapper}>
+        <Link to={ROUTES.MyProjects} className={style.toggle__wrapper}>
           <div className={`${style.toggle__background}`}></div>
           <img
             src="../assets/icons/mijnwerkjes.svg"
             className={style.toggle__image}
             alt="icon"
           />
-        </div>
+        </Link>
         <div className={style.toggle__wrapper}>
           <div
             className={`${style.toggle__background} ${style.toggle__background__active}`}
@@ -35,7 +38,7 @@ const FrankrijkHeader = (props) => {
           <h2 className={style.piece__title}>West-Europa 1/6</h2>
           <div className={style.piece__wrapper}>
             <Link
-              to={ROUTES.FriendsProjectsDetail}
+              to={`${ROUTES.FriendsProjectsOverview.to}France`}
               className={style.piece__box}
             >
               <div className={style.layer}>
@@ -115,4 +118,4 @@ const FrankrijkHeader = (props) => {
   );
 };
 
-export default FrankrijkHeader;
+export default FriendsProjects;

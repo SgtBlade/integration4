@@ -67,6 +67,7 @@
   height: 54.7rem;
   padding: 3rem 4rem;
   display: flex;
+  position: relative;
 }
 
 .boekje__content__wrapper {
@@ -101,6 +102,7 @@
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
+  position: relative;
 }
 
 .boekje__tekst {
@@ -240,7 +242,7 @@
 .alternatief__options {
   display: flex;
   height: 80%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -291,12 +293,34 @@
 
 .stepOne__content {
   padding-top: 15rem;
-  margin-right: 2.5rem;
+  margin-right: 5.5rem;
+  position: relative;
 }
 
 .tekst__stappen {
   color: var(--orange);
   font-size: 4rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 4rem;
+}
+
+.tekst__stappen__one {
+  left: -6rem;
+}
+
+.tekst__stappen__noparent {
+  left: 5rem;
+  bottom: 4rem;
+}
+
+.tekst__stappen__noparent__end {
+  left: 7rem;
+  bottom: 4rem;
+}
+
+.tekst__stappen__halves {
+  left: 5rem;
 }
 
 .boekje__content__stepCenter {
@@ -318,6 +342,7 @@
   grid-row: 1;
   padding-left: 13rem;
   padding-top: 7rem;
+  position: relative;
 }
 
 .stepFive__image {
@@ -493,11 +518,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-
 
 .uploadMessage {
   position: absolute;

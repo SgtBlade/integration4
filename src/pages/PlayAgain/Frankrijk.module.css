@@ -11,6 +11,8 @@
   display: none;
 }
 .wrapperHead {
+  z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   padding-top: 4.25rem;
   padding-bottom: 5.5rem;
   display: flex;
@@ -19,12 +21,16 @@
 }
 
 .buttonWrap {
+  z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   position: absolute;
   top: 3.2rem;
   left: 4.3rem;
 }
 
 .buttonWrapHome {
+  z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   position: absolute;
   top: 3.2rem;
   right: 4.3rem;
@@ -39,6 +45,7 @@
   background-repeat: no-repeat;
   background-position: left bottom, right top;
   height: 100%;
+  overflow: hidden;
 }
 
 .wrapper {

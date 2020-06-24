@@ -1,5 +1,6 @@
 .wrapperHead {
   z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   padding-top: 4.25rem;
   padding-bottom: 5.5rem;
   display: flex;
@@ -8,17 +9,20 @@
 }
 
 .wrapperHead__special {
+  z-index: inherit  ;
   padding-bottom: 3.5rem;
   padding-top: 2.25rem;
 }
 
 .buttonWrap {
+  z-index: 200;
   position: absolute;
   top: 3.2rem;
   left: 4.3rem;
 }
 
 .buttonWrapHome {
+  z-index: 200;
   position: absolute;
   top: 3.2rem;
   right: 4.3rem;

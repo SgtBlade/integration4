@@ -1,15 +1,12 @@
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_b)">
-<rect x="119.782" y="-3.88965" width="49.893" height="134.755" transform="rotate(90 119.782 -3.88965)" fill="#CE2B37" stroke="#FDE01B"/>
-<rect x="121.265" y="52.3442" width="53.5455" height="135.364" transform="rotate(90 121.265 52.3442)" fill="#CE2B37" stroke="#FDE01B"/>
-<rect x="114.6" y="27.1777" width="46.0011" height="136.364" transform="rotate(90 114.6 27.1777)" fill="#FDE01B"/>
-</g>
-<defs>
-<filter id="filter0_b" x="-271.764" y="-254.39" width="643.529" height="610.779" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImage" stdDeviation="125"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
-</filter>
-</defs>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CE2B37;stroke:#FDE01B;}
+	.st1{fill:#FDE01B;}
+</style>
+<rect x="-15" y="-3.9" class="st0" width="134.8" height="49.9"/>
+<rect x="-14.1" y="52.3" class="st0" width="135.4" height="53.5"/>
+<rect x="-21.8" y="27.2" class="st1" width="136.4" height="46"/>
 </svg>
