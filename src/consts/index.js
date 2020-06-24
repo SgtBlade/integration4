@@ -14,17 +14,12 @@ const ROUTES = {
   FriendScan: "/vrienden/scannen",
   Postcards: { path: "/postkaarten/:id/:user/:loc", to: "/postkaarten/" },
   FriendsProjects: "/projecten/vrienden",
-  FriendsProjectsOverview: {
-    path: "/projecten/vrienden/werkjes/:id",
-    to: "/projecten/vrienden/werkjes/",
-  },
+  FriendsProjectsOverview: { path: "/projecten/vrienden/werkjes/:id", to: "/projecten/vrienden/werkjes/"},
   Intro: "/intro",
   MyProjects: "/projecten/mijnwerkjes",
-  MyProjectsOverview: {
-    path: "/projecten/mijnprojecten/werkjes/:id",
-    to: "/projecten/mijnprojecten/werkjes/",
-  },
+  MyProjectsOverview: { path: "/projecten/mijnprojecten/werkjes/:id", to: "/projecten/mijnprojecten/werkjes/"},
   MyProjectsDetail: {to: "/projecten/mijnprojecten/detail/",path: "/projecten/mijnprojecten/detail/:id/:loc"},
+  Videos: {to: "/filmpjes/",path: "/filmpjes/:loc"},
 };
 
 export { ROUTES };

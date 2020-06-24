@@ -67,7 +67,7 @@ const Frankrijk = (props) => {
                 alt=""
               />
               <Link
-                to={`${ROUTES.videos}/Frankrijk`}
+                to={`${ROUTES.Videos.to}France`}
                 className={`${style.textBalloon__button} ${style.textBalloon__button__one}`}
               >
                 <GeneralButton

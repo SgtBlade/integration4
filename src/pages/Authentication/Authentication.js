@@ -155,6 +155,15 @@ const Authentication = () => {
             <Redirect to={ROUTES.login} />
           )}
         </Route>
+        <Route exact path={ROUTES.Videos.path}>
+          {uiStore.currentUser && uiStore.currentUser.name !== null ? (
+            <>
+              <Videos />
+            </>
+          ) : (
+            <Redirect to={ROUTES.login} />
+          )}
+        </Route>
         <Route exact path={ROUTES.MyProjects}>
           {uiStore.currentUser && uiStore.currentUser.name !== null ? (
             <>
