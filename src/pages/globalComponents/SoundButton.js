@@ -6,11 +6,11 @@ import COLORS from "../globalStyles/colors.js"
 const SoundButton = (props) => {
 
   const play = () =>  {
-    new Audio(`./assets/sounds/voiceOver/${props.play}.mp3`).play();
+    new Audio(`/assets/sounds/voiceOver/${props.play}.mp3`).play();
   }
 
   return (
-    <div onClick={play} className={style.wrapper}
+    <div onClick={() => {play()}} className={style.wrapper}
     style={{
         width: props.size ? props.size : "6.8rem",
         height: props.size ? props.size : "6.8rem",

@@ -21,7 +21,8 @@ const ConfirmCharacter = (props) => {
         <div className={style.warningWrap}>
           <p className={style.warningMessageText}>De gebruikersnaam en het uiltje kunnen later niet meer worden aangepast!</p>
           <img className={style.warningMessageIcon} src={"./assets/icons/warning.svg"} alt={"warning icon"}/>
-          <div className={style.soundButton}><SoundButton size={"8.2rem"} reScale={1.2} backgroundColor={COLORS.yellow} play={"welcome"}/></div>
+          <div className={style.soundButton}>
+            <SoundButton size={"8.2rem"} reScale={1.2} backgroundColor={COLORS.yellow} play={"welcome"}/></div>
         </div>
       </div>
 

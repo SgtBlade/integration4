@@ -1,5 +1,7 @@
 
 .uploadMessage {
+    z-index: 200;
+    -webkit-transform:translate3d(0,0,0);
     position: absolute;
     left: calc(50% - 25rem);
     top: calc(50% - 15rem);

@@ -33,7 +33,7 @@ const StepTen = (props) => {
             6x
           </p>
           <div className={style.stepOne__soundbutton}>
-            <PlayButton />
+            <PlayButton play={'welcome'} />
           </div>
           <img src="../assets/illustraties/stappen/stap10.svg" alt="Stap 4" />
         </div>

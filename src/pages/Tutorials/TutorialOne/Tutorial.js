@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Resizer from 'react-image-file-resizer';
 import style from "./Tutorial.module.css";
-// import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
-// import Welcome from "./LoginSequence/Welcome/Welcome.js";
-// import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import MaterialenOne from "./TutorialSteps/MaterialenOne.js";
 import MaterialenTwo from "./TutorialSteps/MaterialenTwo.js";
 import MaterialenThree from "./TutorialSteps/MaterialenThree.js";
@@ -24,10 +21,8 @@ import StepTwelve from "./TutorialSteps/StepTwelve.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import TakePicture from "./TutorialSteps/TakePicture.js";
 import PictureConfirm from "./TutorialSteps/PictureConfirm.js";
-//import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../../../hooks/useStores";
-//import { ROUTES } from "../../consts";
 
 const Tutorial = () => {
   const SCREEN = {

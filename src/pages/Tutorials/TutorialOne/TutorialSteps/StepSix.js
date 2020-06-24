@@ -28,7 +28,7 @@ const MaterialenOne = (props) => {
           className={`${style.boekje__content} ${style.boekje__content__stepCenter} ${style.boekje__content__stepCenter__lessPaddingLeft}`}
         >
           <div className={style.stepOne__soundbutton}>
-            <PlayButton />
+            <PlayButton play={'welcome'} />
           </div>
           <img src="../assets/illustraties/stappen/stap6.svg" alt="Stap 6" />
         </div>
