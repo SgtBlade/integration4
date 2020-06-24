@@ -43,7 +43,6 @@ const FriendsProjectsOverview = (props) => {
                       <p className={style.project__bar__name}>{friend.name}</p>
                     </div>
                     <div className={style.project__bar__buttonbox}>
-                      {console.log(index)}
                       <Link
                         to={`${ROUTES.Postcards.to}${index}/${friend.id}/${id}`}
                       >

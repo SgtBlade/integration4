@@ -49,7 +49,7 @@ const FriendsProjects = (props) => {
               </div>
               <section className={style.piece__titleBox}>
                 <h3 className={style.piece__titleBox__title}>
-                  iffeltoren
+                <span lassName={style.piece__titleBox__title__head}><mark className={style.piece__titleBox__title__letter}>E</mark>iffeltoren</span>
                   <span className={style.piece__titleBox__title__part}>
                     Frankrijk
                   </span>

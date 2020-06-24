@@ -19,7 +19,6 @@ const Friends = () => {
     const toggleQR = () => largeQR ? setLargeQR(false) : setLargeQR(true);
     const toggleWarning = (data) => { warning[0] ? setWarning([false]) : setWarning([true, data]);}
 
-    console.log(uiStore.currentUser)
 
     return useObserver(() => (
         <div onClick={largeQR ? toggleQR : null} className={style.container}>
@@ -112,7 +111,6 @@ const Friends = () => {
         :
         ''
         }  
-        {console.log(warning)}
         {warning[0] ?
          (<div className={style.warningMessage__wrap}>
             <div className={style.warningMessage}>

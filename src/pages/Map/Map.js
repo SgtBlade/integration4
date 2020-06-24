@@ -14,7 +14,6 @@ const Map = () => {
   const { uiStore } = useStores();
   const history = useHistory();
 
-  console.log(uiStore.currentUser)
   const handleClick = (e, geo) => {if(ROUTES[geo.properties.NAME])history.push(ROUTES[geo.properties.NAME])};
 
   const beginAssignment = (country) => {history.push(ROUTES[`Task${country}`])}

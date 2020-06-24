@@ -22,24 +22,19 @@ class UiStore {
 
   verifyLogin = async () => {
     if (this.firebase.auth().isSignInWithEmailLink(window.location.href)) {
-      console.log("beginning authentication sequence")
       let emailAdress = window.localStorage.getItem('emailForSignIn');
       if (!emailAdress) {
-        console.log("email niet gevonden gelieve deze nogmaals in te typen")
-        emailAdress = window.prompt('email niet gevonden gelieve deze nogmaals in te typen');
+        emailAdress = window.prompt('U probeert zich aan te melden via een andere browser of had uw cookies uitstaan. Gelive je email adres nog eens in te voeren');
       }
 
-      if(!emailAdress) {alert("no email found"); return false}
+      if(!emailAdress) {alert("Geen email ontvangen"); return false}
       
       this.firebase.auth().signInWithEmailLink(emailAdress, window.location.href)
         .then(function(result) {
-          console.log("logged in with email!");
-          console.log(result);
           return true;
           //window.localStorage.removeItem('emailForSignIn');
         })
         .catch(function(error) {
-          console.log(error.code)
           return false
         });
     }
@@ -48,7 +43,6 @@ class UiStore {
 
   onAuthStateChanged = async user => {
     if (user) {
-      console.log(`De user is ingelogd: ${user.email}`);
 
       const result = await this.userService.getChildByMail(user.email);
       if(!result.exists){
@@ -87,7 +81,6 @@ class UiStore {
     }
 
     } else {
-      console.log(`No user is logged in`);
       this.setCurrentUser(undefined);
     }
   };
@@ -142,7 +135,6 @@ class UiStore {
         store: this.rootStore,
       }));
 
-      console.log(this.currentUser)
   }
 
   uploadImage = async (country, file) => {

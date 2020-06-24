@@ -135,10 +135,15 @@
   font-size: 1.8rem;
 }
 
-.piece__titleBox__title::before {
+.piece__titleBox__title__letter {
+  color: var(--white);
+  background-color: transparent;
   content: "E";
   font-size: 4.8rem;
-  display: contents;
+}
+
+.piece__titleBox__title__head {
+  display: flex;
 }
 
 .piece__content__image {
