@@ -20,6 +20,7 @@ import MyProjects from "../Projects/MyProjects/MyProjects";
 import MyProjectsOverview from "../Projects/MyProjects/MyProjectsOverview";
 import MyProjectsDetail from "../Projects/MyProjects/MyProjectsDetail";
 import Intro from "../Intro/Intro.js";
+import Videos from "../Videos/Videos.js"
 
 const Authentication = () => {
   const { uiStore } = useStores();
