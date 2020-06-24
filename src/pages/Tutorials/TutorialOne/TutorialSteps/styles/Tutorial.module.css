@@ -101,6 +101,7 @@
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
+  position: relative;
 }
 
 .boekje__tekst {
@@ -291,12 +292,16 @@
 
 .stepOne__content {
   padding-top: 15rem;
-  margin-right: 2.5rem;
+  margin-right: 5.5rem;
+  position: relative;
 }
 
 .tekst__stappen {
   color: var(--orange);
   font-size: 4rem;
+  position: absolute;
+  bottom: 1rem;
+  left: -6rem;
 }
 
 .boekje__content__stepCenter {
