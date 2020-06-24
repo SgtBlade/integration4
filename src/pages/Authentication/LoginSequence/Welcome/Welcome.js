@@ -17,7 +17,7 @@ const Welcome = (props) => {
             Welkom in mijn bos, mijn naam is Eldrick. Ga je mee op avontuur?
           </p>
           <div className={style.soundButton}>
-            <SoundButton play={"welkom"} />
+            <SoundButton play={"welcome"} />
           </div>
         </div>
 

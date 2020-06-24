@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Resizer from 'react-image-file-resizer';
 import style from "./Tutorial.module.css";
-// import PermissionDetail from "./LoginSequence/PermissionDetail/PermissionDetail.js"
-// import Welcome from "./LoginSequence/Welcome/Welcome.js";
-// import Captcha from "./LoginSequence/Captcha/Captcha.js";
 import MaterialenOne from "./TutorialSteps/MaterialenOne.js";
 import MaterialenTwo from "./TutorialSteps/MaterialenTwo.js";
 import MaterialenThree from "./TutorialSteps/MaterialenThree.js";

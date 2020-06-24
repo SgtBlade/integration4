@@ -28,7 +28,7 @@ const StepTwelve = (props) => {
           className={`${style.boekje__content} ${style.boekje__content__StepEight}`}
         >
           <div className={style.stepOne__soundbutton}>
-            <PlayButton />
+            <PlayButton play={'welcome'} />
           </div>
           <div
             className={`${style.stepTwelve__wrapper} ${style.stepTwelve__wrapper__partOne}`}

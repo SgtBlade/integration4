@@ -4,13 +4,13 @@ import COLORS from "../globalStyles/colors.js"
 //import { ROUTES } from "../../consts";
 
 const PlayButton = (props) => {
-
+  console.log(props.DifferentFunction)
   const play = () =>  {
-    new Audio(`./assets/animations/tutorials/${props.play}.mp4`).play();
+    new Audio(`/assets/sounds/voiceOver/${props.play}.mp3`).play();
   }
 
   return (
-    <div onClick={props.DifferentFunction ? props.DifferentFunction : play} className={style.wrapper}
+    <div onClick={props.play ? play : props.DifferentFunction } className={style.wrapper}
     style={{
         fill: props.fillColor ? props.fillColor : COLORS.blueDark,
         backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.green,

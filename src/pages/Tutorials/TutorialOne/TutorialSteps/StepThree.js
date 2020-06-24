@@ -28,7 +28,7 @@ const MaterialenOne = (props) => {
           className={`${style.boekje__content} ${style.boekje__content__stepOne}`}
         >
           <div className={style.stepOne__soundbutton}>
-            <PlayButton />
+            <PlayButton play={'welcome'} />
           </div>
           <div className={style.stepOne__content}>
             <p
