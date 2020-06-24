@@ -16,6 +16,7 @@
   background-position: left bottom, right 5rem;
   height: 100%;
   padding-bottom: 5rem;
+  overflow: hidden;
 }
 
 .container__bg {
@@ -29,9 +30,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  margin-top: 5rem;
-  padding: 0 4.5rem;
+  margin-top: 2rem;
   grid-row-gap: 4rem;
+  height: 75%;
+
+  overflow: scroll;
+  padding-bottom: 10rem;
 }
 
 .project__pictureBox {

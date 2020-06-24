@@ -28,7 +28,7 @@ const LoginForm = () => {
     NAMEREQUEST: "NAMEREQUEST",
     CONFIRMCHARACTER: "CONFIRMCHARACTER"
   }
-  const [currentScreen, setCurrentScreen] = useState("");
+  const [currentScreen, setCurrentScreen] = useState();
   const [name, setName] = useState("");
   const [character, setCharacter] = useState("");
   const [color, setColor] = useState("#2885F2");
@@ -40,7 +40,7 @@ const LoginForm = () => {
   const checkUser = async () => {
     const result = await uiStore.verifyLogin()
     if(result){
-      if(uiStore.currentUser.name === null) setCurrentScreen(SCREEN.NAMEREQUEST)
+      if(uiStore.currentUser.name === null) setCurrentScreen(SCREEN.FIRSTLOGIN)
     }
   }
 

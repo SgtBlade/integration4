@@ -29,11 +29,12 @@ const MyProjectsDetail = () => {
   }
   if(!image)getImage();
   return (
+    
     <section className={`${style.container} ${style.container__bg}`}>
       <div className={style.container__header}>
         <ProjectsHeader
           image="vrienden-blackSoft"
-          link={ROUTES.MyProjectsOverview}
+          link={`${ROUTES.MyProjectsOverview.to}${loc}`}
           title="Eiffeltoren"
           color="#FFFFFF"
         />

@@ -47,6 +47,7 @@
   grid-column-gap: 0rem;
   z-index: 2;
   margin-top: 2.5rem;
+  -webkit-transform:translate3d(0,0,0);
 }
 
 .project__postkaartjes__wrapper {

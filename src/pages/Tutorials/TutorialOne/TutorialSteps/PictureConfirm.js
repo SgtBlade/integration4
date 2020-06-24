@@ -13,8 +13,10 @@ const MaterialenOne = (props) => {
 
   const {uiStore} = useStores();
   const [redirect, setRedirect] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = async e => {
+    setSubmitted(true)
     await uiStore.uploadImage('France', props.picture)
   };
 
@@ -28,7 +30,7 @@ const MaterialenOne = (props) => {
     const result = await uiStore.updateChapter(2);
     if(result){uiStore.setUploadState(false);setRedirect(true);}
   }
-
+ 
   return useObserver( () => (
     <section className={styleBg.container}>
       {redirect? 
@@ -100,7 +102,7 @@ const MaterialenOne = (props) => {
             buttonWidth="27.5rem"
             icon="save"
             type="svg"
-            onClick={handleSubmit}
+            onClick={submitted ? null : handleSubmit}
           />
         </div>
         <div className={style.stepTwelve__wrapper__uiltje}>

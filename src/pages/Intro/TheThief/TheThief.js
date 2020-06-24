@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useObserver } from "mobx-react-lite";
 import style from "./TheThief.module.css";
 import COLORS from "../../globalStyles/colors";
 
 const TheThief = (props) => {
+
+  const [shakeItem, setShakeItem] = useState([false, false])
+  const setShake = (item) => {
+    
+    setTimeout(function () { setShakeItem(item) }, 200);
+    setTimeout(function () { setShakeItem ([false, false]) }, 1000);
+  }
+
   return useObserver(() => (
     <>
       <p className={style.text}>Wie was de dief?</p>
       <ul className={style.thievesList}>
-        <li onClick={props.nextFunction} className={style.thievesList__item}>
+        <li onClick={() => {setShake([true, false])}} className={`${style.thievesList__item} ${shakeItem[0] ? style.shake : ''}`}>
           <img
             alt={"Een foto van de uil"}
             className={style.thievesList__item__image}
@@ -24,7 +32,7 @@ const TheThief = (props) => {
           </p>
         </li>
 
-        <li onClick={props.nextFunction} className={style.thievesList__item}>
+        <li  onClick={() => {setShake([false, true])}} className={`${style.thievesList__item} ${shakeItem[1] ? style.shake : ''}`}>
           <img
             alt={"Een foto van de vos"}
             className={style.thievesList__item__image}
@@ -36,7 +44,7 @@ const TheThief = (props) => {
             className={style.thievesList__item__text}
             style={{ color: COLORS.orangeDark }}
           >
-            Een wasbeer
+            Een vos 
           </p>
         </li>
 
@@ -52,7 +60,7 @@ const TheThief = (props) => {
             className={style.thievesList__item__text}
             style={{ color: COLORS.black }}
           >
-            Een vos
+            Een wasbeer
           </p>
         </li>
       </ul>

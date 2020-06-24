@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import style from "./NameRequest.module.css";
 import Header from "../Header/Header.js";
 import GeneralButton from "../../../globalComponents/GeneralButton.js";
-import CHARACTERS from "../../../globalStyles/characters.js";
+import CHARACTERS from "../../../A_userVariables/characters.js";
 import ErrorMessage from "../../../globalComponents/ErrorMessage.js";
 import COLORS from "../../../A_userVariables/publicColors.js";
 import { useObserver } from "mobx-react-lite";

@@ -1,5 +1,6 @@
 .oneStepBack {
     z-index: 50;
+    -webkit-transform:translate3d(0,0,0);
     position: fixed;
     top: 0;
     bottom: 0;

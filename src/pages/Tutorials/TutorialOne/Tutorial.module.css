@@ -48,6 +48,7 @@
 
 .skipButton {
   z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   height: 8.4rem;
   width: 8.4rem;
   display: flex;

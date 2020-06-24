@@ -1,9 +1,17 @@
 .container {
   height: 100%;
+  width: 100%;
   background-color: var(--green);
   background-image: url("/assets/blobs/blob5-verzondenMail.svg"), url("/assets/blobs/blob6-verzondenMail.svg");
   background-position: top right, bottom left;
   background-repeat: no-repeat;
+
+  display: grid;
+  grid-template-columns: 99% 1fr;
+  grid-template-rows: 1fr 2fr 3fr;
+  
+  justify-content: center;
+  align-items: center;
 }
 
 .mainContent {
@@ -12,6 +20,7 @@
     justify-content: center;
     margin-left: 10rem;
     margin-top: 5rem;
+    grid-column: 1 / span 2;
 }
 
 .mainContentText {
@@ -22,13 +31,9 @@
 }
 
 .plane {
-    float: right;
-    margin-top: -10rem;
-    margin-right: 18rem;
+    margin-left: -22rem;
 }
 
 .image {
-    position: absolute;
-    bottom: 1.7rem;
-    left: 11.8rem;
+    margin-left: 2rem;
 }

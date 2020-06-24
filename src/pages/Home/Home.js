@@ -29,15 +29,13 @@ const Home = () => {
 
   return useObserver(() => (
     <>
-      <div className={`${style.home__bg}`}>
+      <div className={`${style.home__bg}`}
+      style={{
+        background: `url(/assets/illustraties/home/${uiStore.currentUser.avatar}.svg) 0% 120% no-repeat, url(/assets/blobs/blob1-startscherm.svg) left bottom no-repeat, url(/assets/blobs/blob2-startscherm.svg) right top no-repeat, ${COLORS.blue}`
+      }}
+      >
         <div className={`${style.home__buttons}`}>
           <div className={`${style.home__buttons__friends}`}>
-            <img
-              onClick={logOut}
-              className={`${style.imageChosen}`}
-              src={`./assets/illustraties/characters/${uiStore.currentUser.avatar}.svg`}
-              alt={"gekozen uiltje"}
-            />
             <Link to={ROUTES.Friends}>
               <GeneralButton
                 icon="friends"
@@ -58,7 +56,7 @@ const Home = () => {
           </div>
           <div className={`${style.home__buttons__settings}`}>
             <GeneralButton
-              onClick={logUser}
+              onClick={logOut}
               icon="settings"
               backgroundColor="white"
               iconBackgroundColor={COLORS.grey}
@@ -68,29 +66,33 @@ const Home = () => {
             />
           </div>
         </div>
-        <section
-          className={`${style.home__wrapper} ${style[uiStore.themeClass]}`}
-        >
-          <div className={`${style.home__head}`}>
-            <Link to={`${ROUTES.MyProjectsDetail.to}2/France`}>
-              <h1 className={`${style.home__titel}`}>Reisuil</h1>
-            </Link>
-          </div>
-          <div className={`${style.home__start}`}>
-            <img
-              alt={"Strokes boven"}
-              className={`${style.home__start__stripestop}`}
-              src={`./assets/illustraties/strokes-boven.svg`}
-            />
-            <Link to={`${uiStore.currentUser.chapter === 0 ? ROUTES.Intro : ROUTES.map}`}>
-              <GeneralButton icon="play" type="svg" text="Start verhaaltje" />
-            </Link>
-            <img
-              alt={"Strokes onder"}
-              className={`${style.home__start__stripesbottom}`}
-              src={`./assets/illustraties/strokes-beneden.svg`}
-            />
-          </div>
+        <section className={`${style.home__wrapper}`}>
+          
+       <div className={style.contentWrapper}>
+              <div className={`${style.home__head}`}>
+                    <p className={style.home__introduction}>Welkom</p>
+                    <h1 className={`${style.home__titel}`}>{uiStore.currentUser.name ? uiStore.currentUser.name : 'Reisuil'}</h1>
+                </div>
+                
+                <div className={`${style.home__start}`}>
+              
+                  <img
+                    alt={"Strokes boven"}
+                    className={`${style.home__start__stripestop}`}
+                    src={`./assets/illustraties/strokes-boven.svg`}
+                  />
+                  <Link to={`${uiStore.currentUser.chapter === 0 ? ROUTES.Intro : ROUTES.map}`}>
+                    <GeneralButton icon="play" type="svg" text="Start verhaaltje" />
+                  </Link>
+                  <img
+                    alt={"Strokes onder"}
+                    className={`${style.home__start__stripesbottom}`}
+                    src={`./assets/illustraties/strokes-beneden.svg`}
+                  />
+                </div>
+
+       </div>  
+
         </section>
       </div>
     </>

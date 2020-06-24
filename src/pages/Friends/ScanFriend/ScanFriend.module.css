@@ -39,6 +39,7 @@
     margin-bottom: -57.4rem;
 
     z-index: 2;
+    -webkit-transform:translate3d(0,0,0);
 
     display: flex;
     justify-content: center;

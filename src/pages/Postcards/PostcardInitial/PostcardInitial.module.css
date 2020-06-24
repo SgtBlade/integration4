@@ -13,6 +13,7 @@
 
 .bottomButtons {
   z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   position: absolute;
   bottom: 0;
   display: flex;

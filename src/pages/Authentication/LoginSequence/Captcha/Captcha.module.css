@@ -11,6 +11,7 @@
     flex-flow: row;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: -10rem;
 }
 
 .contentWrapper {
@@ -18,14 +19,14 @@
     height: 46.7rem;
     background-color: var(--white);
     border-radius: 4rem;
-    padding: 3.7rem 3.3rem;
+    padding: 3.7rem 3.3rem 1rem 3.3rem;
     text-align: center;
     display: flex;
     align-items: center;
     flex-flow: column;
 
 
-    margin-bottom: 6.7rem;
+    margin-bottom: 3.7rem;
 }
 .contentTitle { 
     font-size: 3rem;

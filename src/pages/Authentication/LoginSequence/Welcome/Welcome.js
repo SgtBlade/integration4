@@ -16,6 +16,7 @@ const Welcome = (props) => {
     localStorage.setItem("emailForSignIn", email);
     await uiStore.loginWithEmail(email);
   };
+  
 
   return useObserver(() => (
     <div className={style.container}>

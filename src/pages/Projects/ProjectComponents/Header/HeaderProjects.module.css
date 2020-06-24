@@ -4,6 +4,7 @@
 }
 .wrapperHead {
   z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   padding-top: 4.25rem;
   padding-bottom: 5.5rem;
   display: flex;
@@ -19,6 +20,7 @@
 
 .buttonWrapHome {
   z-index: 200;
+  -webkit-transform:translate3d(0,0,0);
   position: absolute;
   top: 3.2rem;
   right: 4.3rem;

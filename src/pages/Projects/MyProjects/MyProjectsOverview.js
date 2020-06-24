@@ -5,7 +5,7 @@ import { ROUTES } from "../../../consts";
 import ProjectsHeader from "../ProjectComponents/Header/Header";
 import { useStores } from "../../../hooks/useStores";
 
-const MyProjectsOverview = (props) => {
+const MyProjectsOverview = () => {
   const { id } = useParams();
   const { uiStore } = useStores();
   return id ? (
