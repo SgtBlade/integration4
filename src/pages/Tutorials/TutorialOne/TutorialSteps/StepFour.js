@@ -27,6 +27,11 @@ const MaterialenOne = (props) => {
         <div
           className={`${style.boekje__content} ${style.boekje__content__stepCenter}`}
         >
+          <p
+            className={`${style.alternatief__tekst} ${style.tekst__stappen} ${style.tekst__stappen__noparent}`}
+          >
+            8x
+          </p>
           <div className={style.stepOne__soundbutton}>
             <PlayButton />
           </div>
