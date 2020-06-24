@@ -24,10 +24,8 @@ import StepTwelve from "./TutorialSteps/StepTwelve.js";
 import TutorialStart from "./TutorialStart/TutorialStart.js";
 import TakePicture from "./TutorialSteps/TakePicture.js";
 import PictureConfirm from "./TutorialSteps/PictureConfirm.js";
-//import CameraRequest from "./../Authentication/LoginSequence/CameraRequest/CameraRequest.js"
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../../../hooks/useStores";
-//import { ROUTES } from "../../consts";
 
 const Tutorial = () => {
   const SCREEN = {

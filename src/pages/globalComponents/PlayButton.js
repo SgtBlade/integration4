@@ -10,7 +10,7 @@ const PlayButton = (props) => {
   }
 
   return (
-    <div onClick={play} className={style.wrapper}
+    <div onClick={props.DifferentFunction ? props.DifferentFunction : play} className={style.wrapper}
     style={{
         fill: props.fillColor ? props.fillColor : COLORS.blueDark,
         backgroundColor: props.backgroundColor ? props.backgroundColor : COLORS.green,
