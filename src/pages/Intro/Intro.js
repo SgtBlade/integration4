@@ -6,6 +6,7 @@ import { useStores } from "../../hooks/useStores";
 import SoundWarning from "./SoundWarning/SoundWarning"
 import GeneralButton from "../globalComponents/GeneralButton";
 import TheThief from "./TheThief/TheThief";
+import FinalScreen from "./FinalScreens/FinalScreens";
 
 const Intro = () => {
   const { uiStore } = useStores();
@@ -22,7 +23,9 @@ const Intro = () => {
     HIDE: 'HIDE',
     INTROTWO: 'INTROTWO',
     THETHIEF: 'THETHIEF',
-    ASKAID: 'ASKAID'
+    ASKAID: 'ASKAID',
+    FINALWORLD: 'FINALWORLD',
+    FINALRETURN: 'FINALRETURN'
   }
 
   const getScreen = () => {
@@ -49,23 +52,37 @@ const Intro = () => {
         video= 'introPart3.mp4'
         onEnd=()=>{setFinalButton(true)}
       break;
+      case SCREENS.FINALWORLD:
+        return <FinalScreen
+        image={"wasbeerIntro"}
+        text={"Achtervolg de wasbeer doorheen de wereld"}
+        button={"Oké"}
+        nextFunction={() => {setCurrentScreen(SCREENS.FINALRETURN)}}/>
+      case SCREENS.FINALRETURN:
+          return <FinalScreen
+          image={"familyIntro"}
+          text={"Help Eldrick zijn spullen terug te krijgen"}
+          button={"Naar de wereldkaart"}
+          nextFunction={async () => {
+            await uiStore.updateChapter(1);
+            history.push('map')
+          }}/>
       default:
         return <SoundWarning nextFunction={() => {setCurrentScreen(SCREENS.INTRO)}}/>
     }
-
     return (  
     <>
       {finalButton ? 
-      <div className={style.finalButton}><GeneralButton 
+      <div className={style.finalButton}>
+      <GeneralButton 
       onClick={async () => {
-        await uiStore.updateChapter(1);
-        history.push('map')
+        setCurrentScreen(SCREENS.FINALWORLD)
       }} 
       icon="thumbBlue" 
       type="svg" 
       text="Ja graag!" /> </div>
-    :
-    ''}
+      :
+      ''}
       
     <div className={style.videoContent}>
       <div onClick={ e => {
