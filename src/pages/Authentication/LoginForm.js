@@ -86,7 +86,7 @@ const LoginForm = () => {
       default:
         if(uiStore.currentUser){
           if(uiStore.currentUser.name === null){
-            setCurrentScreen(SCREEN.NAMEREQUEST)
+            setCurrentScreen(SCREEN.FIRSTLOGIN)
           }
         }else return <Welcome skipLogin={skipLoginFunxt}  nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
         // <NameRequest color={color} colorChange={updateColor} name={name} character={character} nameChange={updateName} characterChange={updateCharacter} nextFunction={() => {setCurrentScreen(SCREEN.CONFIRMCHARACTER)}}/>//<Welcome nextFunction={() => {setCurrentScreen(SCREEN.PERMISSIONDETAIL)}}/>
